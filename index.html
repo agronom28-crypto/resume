@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Николаенко Сергей Валерьевич - Python Developer / AI Solutions Engineer</title>
+    <title>Николаенко Сергей Валерьевич — Fullstack-разработчик / Python Developer / AI Solutions Engineer</title>
     <style>
         * {
             margin: 0;
@@ -144,18 +144,36 @@
             line-height: 1.7;
         }
 
+        .skills-category {
+            margin-bottom: 20px;
+        }
+
+        .skills-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .skills-category-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .skill-badge {
             background: #e2e8f0;
-            padding: 10px 18px;
+            padding: 8px 16px;
             border-radius: 25px;
             text-align: center;
             font-weight: 500;
+            font-size: 0.9rem;
             color: #2d3748;
             transition: all 0.3s ease;
         }
@@ -163,6 +181,44 @@
         .skill-badge:hover {
             background: #cbd5e0;
             transform: scale(1.05);
+        }
+
+        .skill-badge.highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .specialization-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .spec-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .spec-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #4a5568;
+            border-bottom: 1px solid #f0f4f8;
+        }
+
+        .spec-list li:last-child {
+            border-bottom: none;
+        }
+
+        .spec-list li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
         }
 
         .projects-section {
@@ -212,6 +268,21 @@
             line-height: 1.6;
         }
 
+        .project-tech {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .project-tech span {
+            background: #e2e8f0;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            color: #4a5568;
+        }
+
         .education-section {
             background: white;
             border-radius: 20px;
@@ -249,156 +320,199 @@
                 font-size: 2rem;
             }
 
-            .skills-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Header Section -->
+        <!-- Хедер -->
         <div class="header">
             <img src="785632494.jpg" alt="Сергей Николаенко" class="profile-img">
             <div class="header-content">
                 <h1>Сергей Николаенко</h1>
-                <div class="subtitle">Python Developer / AI Solutions Engineer</div>
-                <div class="description">
-                    Разработчик с 2+ годами опыта в создании веб-приложений, AI-решений и автоматизации бизнес-процессов. 
-                    Специализируюсь на Python, FastAPI, интеграции LLM и создании масштабируемых backend-систем.
-                </div>
+                <div class="subtitle">Fullstack-разработчик / Python Developer / AI Solutions Engineer</div>
+                <p class="description">Разработчик с 2+ годами опыта в создании веб-приложений, AI-решений и автоматизации бизнес-процессов. Специализируюсь на Python, FastAPI, интеграции LLM и создании масштабируемых backend-систем.</p>
                 <div class="contact-buttons">
                     <a href="mailto:rj93@mail.ru" class="contact-btn">✉️ Email</a>
                     <a href="tel:+79057972562" class="contact-btn">📱 Телефон</a>
-                    <a href="https://t.me/nsv_01" class="contact-btn" target="_blank">💬 Телеграм</a>
+                    <a href="https://t.me/nsv_01" class="contact-btn">💬 Телеграм</a>
+                    <a href="https://github.com/agronom28-crypto" class="contact-btn">🐱 GitHub</a>
+                    <a href="https://www.fl.ru/users/rj93/" class="contact-btn">💼 FL.ru</a>
                 </div>
             </div>
         </div>
 
-        <!-- Experience and Skills Grid -->
+        <!-- Специализация -->
+        <div class="specialization-section">
+            <div class="card-title">🎯 Специализация</div>
+            <ul class="spec-list">
+                <li>Сайты и веб-приложения (FastAPI, Next.js, React)</li>
+                <li>AI-агенты и интеграция LLM (ChatGPT, Claude, GigaChat, Ollama, LangChain)</li>
+                <li>Telegram-боты и автоматизация (n8n, Zapier)</li>
+                <li>Парсинг и скрапинг данных (Selenium, BeautifulSoup)</li>
+                <li>Backend-разработка и REST API</li>
+                <li>Интеграции с внешними сервисами и API</li>
+            </ul>
+        </div>
+
+        <!-- Опыт и Навыки -->
         <div class="content-grid">
-            <!-- Experience -->
             <div class="card">
-                <h2 class="card-title">💼 Опыт</h2>
-                
+                <div class="card-title">💼 Опыт</div>
+
                 <div class="experience-item">
                     <div class="company-name">Альфа-банк</div>
-                    <div class="period">2020 - 2023</div>
-                    <div class="experience-desc">
-                        Финансовый анализ, разработка и внедрение банковских гарантий. 
-                        Оптимизация процессов обработки данных.
-                    </div>
+                    <div class="period">2020 — 2023</div>
+                    <p class="experience-desc">Финансовый анализ, разработка и внедрение банковских гарантий. Оптимизация процессов обработки данных.</p>
                 </div>
 
                 <div class="experience-item">
                     <div class="company-name">Сбербанк</div>
-                    <div class="period">2023 - Настоящее время</div>
-                    <div class="experience-desc">
-                        Разработка бизнес-стратегии, оптимизация процессов. 
-                        Внедрение AI-решений и автоматизация workflow.
-                    </div>
+                    <div class="period">2023 — Настоящее время</div>
+                    <p class="experience-desc">Разработка бизнес-стратегии, оптимизация процессов. Внедрение AI-решений и автоматизация workflow.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="company-name">School 21 / Сбер</div>
+                    <div class="period">2023 — 2024</div>
+                    <p class="experience-desc">Интенсивная программа по разработке ПО. Peer-to-peer обучение, проектная работа, C++.</p>
                 </div>
 
                 <div class="experience-item">
                     <div class="company-name">Freelance / Pet Projects</div>
-                    <div class="period">2023 - Настоящее время</div>
-                    <div class="experience-desc">
-                        Разработка веб-приложений на FastAPI, создание AI-ботов, 
-                        интеграция LLM, автоматизация бизнес-процессов через n8n.
+                    <div class="period">2023 — Настоящее время</div>
+                    <p class="experience-desc">Разработка веб-приложений на FastAPI, создание AI-ботов, интеграция LLM, автоматизация бизнес-процессов через n8n, парсинг, Telegram-боты.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">⭐ Технические навыки</div>
+
+                <div class="skills-category">
+                    <div class="skills-category-title">Языки программирования</div>
+                    <div class="skills-grid">
+                        <span class="skill-badge highlight">Python</span>
+                        <span class="skill-badge highlight">JavaScript</span>
+                        <span class="skill-badge highlight">TypeScript</span>
+                        <span class="skill-badge">C++</span>
+                        <span class="skill-badge">HTML/CSS</span>
+                        <span class="skill-badge">SQL</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="skills-category-title">Backend</div>
+                    <div class="skills-grid">
+                        <span class="skill-badge highlight">FastAPI</span>
+                        <span class="skill-badge">Node.js</span>
+                        <span class="skill-badge">Express</span>
+                        <span class="skill-badge">REST API</span>
+                        <span class="skill-badge">PostgreSQL</span>
+                        <span class="skill-badge">MongoDB</span>
+                        <span class="skill-badge">Docker</span>
+                        <span class="skill-badge">Nginx</span>
+                        <span class="skill-badge">Linux</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="skills-category-title">Frontend</div>
+                    <div class="skills-grid">
+                        <span class="skill-badge">React</span>
+                        <span class="skill-badge">Next.js</span>
+                        <span class="skill-badge">HTML/CSS</span>
+                        <span class="skill-badge">JavaScript/TypeScript</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="skills-category-title">AI / ML</div>
+                    <div class="skills-grid">
+                        <span class="skill-badge highlight">ChatGPT API</span>
+                        <span class="skill-badge highlight">Claude API</span>
+                        <span class="skill-badge">GigaChat</span>
+                        <span class="skill-badge">Ollama</span>
+                        <span class="skill-badge">LangChain</span>
+                        <span class="skill-badge">RAG</span>
+                        <span class="skill-badge">Prompt Engineering</span>
+                        <span class="skill-badge">ML/AI</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="skills-category-title">Автоматизация и инструменты</div>
+                    <div class="skills-grid">
+                        <span class="skill-badge">n8n</span>
+                        <span class="skill-badge">Zapier</span>
+                        <span class="skill-badge">Telegram Bot API</span>
+                        <span class="skill-badge">Selenium</span>
+                        <span class="skill-badge">BeautifulSoup</span>
+                        <span class="skill-badge">Pandas</span>
+                        <span class="skill-badge">Git</span>
+                        <span class="skill-badge">Docker</span>
+                        <span class="skill-badge">Webhook-интеграции</span>
                     </div>
                 </div>
             </div>
-
-            <!-- Skills -->
-            <div class="card">
-                <h2 class="card-title">⭐ Основные навыки</h2>
-                <div class="skills-grid">
-                    <div class="skill-badge">Python</div>
-                    <div class="skill-badge">FastAPI</div>
-                    <div class="skill-badge">JavaScript</div>
-                    <div class="skill-badge">Docker</div>
-                    <div class="skill-badge">Git</div>
-                    <div class="skill-badge">REST API</div>
-                    <div class="skill-badge">ChatGPT API</div>
-                    <div class="skill-badge">Ollama</div>
-                    <div class="skill-badge">GigaChat</div>
-                    <div class="skill-badge">LangChain</div>
-                    <div class="skill-badge">PostgreSQL</div>
-                    <div class="skill-badge">MongoDB</div>
-                    <div class="skill-badge">SQL</div>
-                    <div class="skill-badge">n8n</div>
-                    <div class="skill-badge">Zapier</div>
-                    <div class="skill-badge">Linux</div>
-                    <div class="skill-badge">Nginx</div>
-                    <div class="skill-badge">Pandas</div>
-                    <div class="skill-badge">Selenium</div>
-                    <div class="skill-badge">BeautifulSoup</div>
-                    <div class="skill-badge">Telegram Bot API</div>
-                    <div class="skill-badge">ML/AI</div>
-                </div>
-            </div>
         </div>
 
-        <!-- Education Section -->
-        <div class="education-section">
-            <h2 class="card-title">🎓 Образование</h2>
-            <div class="education-item">
-                <div class="company-name">School 21 (Сбер)</div>
-                <div class="period">2023 - 2024</div>
-                <div class="experience-desc">
-                    Интенсивная программа по разработке ПО. Peer-to-peer обучение, 
-                    проектная работа, изучение современных технологий разработки.
-                </div>
-            </div>
-            <div class="education-item">
-                <div class="company-name">Онлайн-курсы и сертификации</div>
-                <div class="experience-desc">
-                    Python для анализа данных, Machine Learning, 
-                    FastAPI разработка, Docker и контейнеризация, 
-                    Работа с LLM и Prompt Engineering
-                </div>
-            </div>
-        </div>
-
-        <!-- Projects Section -->
+        <!-- Проекты -->
         <div class="projects-section">
-            <h2 class="card-title">🚀 Мои Проекты</h2>
-            <div class="projects-intro">Активные проекты и разработки</div>
+            <div class="card-title">🚀 Мои Проекты</div>
+            <p class="projects-intro">Активные проекты и разработки</p>
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-name">🤖 @Infohunterbotbot</div>
-                    <div class="project-desc">
-                        Инновационный бот для поиска и анализа информации. 
-                        Интеграция с различными API, обработка естественного языка.
+                    <div class="project-name">🎮 DGTL MiniApp</div>
+                    <p class="project-desc">Telegram P2E игра — мини-приложение для Telegram с игровой механикой Play-to-Earn, реферальной системой и монетизацией.</p>
+                    <div class="project-tech">
+                        <span>TypeScript</span>
+                        <span>Next.js</span>
+                        <span>Express</span>
+                        <span>MongoDB</span>
+                        <span>Telegram Bot API</span>
                     </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-name">🤖 @Infohunterbotbot</div>
+                    <p class="project-desc">Инновационный бот для поиска и анализа информации. Интеграция с различными API, обработка естественного языка.</p>
                 </div>
                 <div class="project-card">
                     <div class="project-name">📰 @GoodNews_q</div>
-                    <div class="project-desc">
-                        Канал позитивных новостей и интересного контента. 
-                        Автоматизированная система сбора и публикации контента.
-                    </div>
+                    <p class="project-desc">Канал позитивных новостей и интересного контента. Автоматизированная система сбора и публикации контента.</p>
                 </div>
                 <div class="project-card">
                     <div class="project-name">🔧 AI-агенты на FastAPI</div>
-                    <div class="project-desc">
-                        Разработка интеллектуальных агентов с использованием LLM. 
-                        Интеграция ChatGPT, Ollama, обработка запросов в реальном времени.
-                    </div>
+                    <p class="project-desc">Разработка интеллектуальных агентов с использованием LLM. Интеграция ChatGPT, Ollama, обработка запросов в реальном времени.</p>
                 </div>
                 <div class="project-card">
                     <div class="project-name">⚙️ Системы автоматизации</div>
-                    <div class="project-desc">
-                        Автоматизация бизнес-процессов через n8n. 
-                        Интеграция с различными сервисами, обработка данных, webhook'и.
-                    </div>
+                    <p class="project-desc">Автоматизация бизнес-процессов через n8n. Интеграция с различными сервисами, обработка данных, webhook'и.</p>
                 </div>
             </div>
         </div>
 
-        <footer>
-            © 2026 Все права защищены
-        </footer>
+        <!-- Образование -->
+        <div class="education-section">
+            <div class="card-title">🎓 Образование</div>
+
+            <div class="education-item">
+                <div class="company-name">School 21 (Сбер)</div>
+                <div class="period">2023 — 2024</div>
+                <p class="experience-desc">Интенсивная программа по разработке ПО. Peer-to-peer обучение, проектная работа, изучение современных технологий разработки.</p>
+            </div>
+
+            <div class="education-item">
+                <div class="company-name">Онлайн-курсы и сертификации</div>
+                <p class="experience-desc">Python для анализа данных, Machine Learning, FastAPI разработка, Docker и контейнеризация, Работа с LLM и Prompt Engineering</p>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        &copy; 2026 Все права защищены
+    </footer>
 </body>
 </html>
