@@ -144,6 +144,15 @@
             line-height: 1.7;
         }
 
+        .experience-desc ul {
+            margin-top: 6px;
+            padding-left: 18px;
+        }
+
+        .experience-desc ul li {
+            margin-bottom: 4px;
+        }
+
         .skills-category {
             margin-bottom: 20px;
         }
@@ -299,6 +308,101 @@
             margin-bottom: 0;
         }
 
+        /* Блок "Для кого я работаю" */
+        .audience-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .audience-card {
+            background: #f7fafc;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .audience-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        }
+
+        .audience-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .audience-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        .audience-desc {
+            color: #718096;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Блок "Пакеты услуг" */
+        .packages-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .package-card {
+            background: #f7fafc;
+            border-radius: 15px;
+            padding: 22px;
+            transition: all 0.3s ease;
+            border-top: 4px solid #667eea;
+        }
+
+        .package-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        }
+
+        .package-name {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .package-includes {
+            color: #4a5568;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .package-meta {
+            font-size: 0.85rem;
+            color: #718096;
+        }
+
         footer {
             text-align: center;
             color: #718096;
@@ -334,7 +438,7 @@
             <div class="header-content">
                 <h1>Сергей Николаенко</h1>
                 <div class="subtitle">Fullstack-разработчик / Python Developer / AI Solutions Engineer</div>
-                <p class="description">Разработчик с 2+ годами опыта в создании веб-приложений, AI-решений и автоматизации бизнес-процессов. Специализируюсь на Python, FastAPI, интеграции LLM и создании масштабируемых backend-систем.</p>
+                <p class="description">Разрабатываю AI-агентов, Telegram-ботов и системы автоматизации для бизнеса — от MVP до деплоя. 2+ года опыта в Python, FastAPI и интеграции LLM. Берусь за проекты под ключ: понимаю задачу бизнеса, предлагаю архитектуру и сдаю рабочий продукт.</p>
                 <div class="contact-buttons">
                     <a href="mailto:rj93@mail.ru" class="contact-btn">✉️ Email</a>
                     <a href="tel:+79057972562" class="contact-btn">📱 Телефон</a>
@@ -351,11 +455,12 @@
             <ul class="spec-list">
                 <li>Сайты и веб-приложения (FastAPI, Next.js, React)</li>
                 <li>AI-агенты и интеграция LLM (ChatGPT, Claude, GigaChat, Ollama, LangChain)</li>
+                <li>RAG-системы на векторных базах данных (Qdrant, Chroma, Weaviate)</li>
                 <li>Telegram-боты и автоматизация (n8n, Zapier)</li>
                 <li>Парсинг и скрапинг данных (Selenium, BeautifulSoup)</li>
                 <li>Backend-разработка и REST API</li>
                 <li>Интеграции с внешними сервисами и API</li>
-                                <li>CRM-интеграции (Bitrix24, Hostaway, AmoCRM)</li>
+                <li>CRM-интеграции (Bitrix24, Hostaway, AmoCRM)</li>
                 <li>Работа с CMS (WordPress, Tilda, ModX)</li>
                 <li>Контент-автоматизация и видеообработка</li>
             </ul>
@@ -369,13 +474,23 @@
                 <div class="experience-item">
                     <div class="company-name">Альфа-банк</div>
                     <div class="period">2020 — 2023</div>
-                    <p class="experience-desc">Финансовый анализ, разработка и внедрение банковских гарантий. Оптимизация процессов обработки данных.</p>
+                    <p class="experience-desc">Финансовый анализ, разработка и внедрение банковских гарантий.
+                        <ul>
+                            <li>Автоматизировал обработку отчётов на Python — время подготовки сократилось с нескольких часов до минут</li>
+                            <li>Оптимизировал процессы сбора и верификации данных по гарантийным операциям</li>
+                        </ul>
+                    </p>
                 </div>
 
                 <div class="experience-item">
                     <div class="company-name">Сбербанк</div>
                     <div class="period">2023 — 2026</div>
-                    <p class="experience-desc">Разработка бизнес-стратегии, оптимизация процессов. Внедрение AI-решений и автоматизация workflow.</p>
+                    <p class="experience-desc">Разработка бизнес-стратегии, оптимизация процессов.
+                        <ul>
+                            <li>Внедрил AI-решения и автоматизацию workflow через n8n — высвободил часы ручной работы команды еженедельно</li>
+                            <li>Участвовал в разработке и тестировании внутренних инструментов на Python</li>
+                        </ul>
+                    </p>
                 </div>
 
                 <div class="experience-item">
@@ -387,7 +502,14 @@
                 <div class="experience-item">
                     <div class="company-name">Freelance / Pet Projects</div>
                     <div class="period">2023 — Настоящее время</div>
-                    <p class="experience-desc">Разработка веб-приложений на FastAPI, создание AI-ботов, интеграция LLM, автоматизация бизнес-процессов через n8n, парсинг, Telegram-боты.</p>
+                    <p class="experience-desc">
+                        <ul>
+                            <li>Разработал и запустил Telegram P2E игру с реферальной системой и монетизацией</li>
+                            <li>Создал несколько AI-агентов на FastAPI с интеграцией ChatGPT, Claude и Ollama</li>
+                            <li>Настроил автоматизацию для клиентов через n8n и webhook-интеграции</li>
+                            <li>Реализовал CRM-интеграции (Bitrix24, AmoCRM) для малого бизнеса</li>
+                        </ul>
+                    </p>
                 </div>
             </div>
 
@@ -415,9 +537,12 @@
                         <span class="skill-badge">REST API</span>
                         <span class="skill-badge">PostgreSQL</span>
                         <span class="skill-badge">MongoDB</span>
+                        <span class="skill-badge">Redis</span>
+                        <span class="skill-badge">Celery</span>
                         <span class="skill-badge">Docker</span>
                         <span class="skill-badge">Nginx</span>
                         <span class="skill-badge">Linux</span>
+                        <span class="skill-badge">GitHub Actions</span>
                     </div>
                 </div>
 
@@ -440,9 +565,10 @@
                         <span class="skill-badge">Ollama</span>
                         <span class="skill-badge">LangChain</span>
                         <span class="skill-badge">RAG</span>
+                        <span class="skill-badge">Qdrant</span>
+                        <span class="skill-badge">Chroma</span>
                         <span class="skill-badge">Prompt Engineering</span>
-                        <span class="skill-badge">ML/AI</span>
-                                            <span class="skill-badge">Qwen</span>
+                        <span class="skill-badge">Qwen</span>
                     </div>
                 </div>
 
@@ -460,9 +586,8 @@
                         <span class="skill-badge">Webhook-интеграции</span>
                     </div>
                 </div>
-            </div>
 
-                            <div class="skills-category">
+                <div class="skills-category">
                     <div class="skills-category-title">CMS и интеграции</div>
                     <div class="skills-grid">
                         <span class="skill-badge">WordPress</span>
@@ -473,6 +598,61 @@
                         <span class="skill-badge">AmoCRM</span>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <!-- Для кого я работаю -->
+        <div class="audience-section">
+            <div class="card-title">🤝 Для кого я работаю</div>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <div class="audience-icon">🚀</div>
+                    <div class="audience-title">Стартапы и MVP</div>
+                    <div class="audience-desc">Быстро строю рабочий прототип, который можно показать инвесторам или проверить на пользователях</div>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">🏢</div>
+                    <div class="audience-title">Малый и средний бизнес</div>
+                    <div class="audience-desc">Автоматизирую рутину, подключаю AI и CRM, чтобы команда тратила время на важное</div>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">🤖</div>
+                    <div class="audience-title">AI-продукты</div>
+                    <div class="audience-desc">Внедряю LLM, RAG и агентов в существующие продукты — от чат-ботов до аналитических систем</div>
+                </div>
+                <div class="audience-card">
+                    <div class="audience-icon">🏗️</div>
+                    <div class="audience-title">Агентства и аутсорс</div>
+                    <div class="audience-desc">Подключаюсь как подрядчик на backend, AI-часть или автоматизацию в рамках более крупного проекта</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Пакеты услуг -->
+        <div class="packages-section">
+            <div class="card-title">📦 Форматы сотрудничества</div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-name">🤖 Telegram-бот под ключ</div>
+                    <div class="package-includes">NLP-логика + интеграция с API или CRM + деплой на сервер + инструкция</div>
+                    <div class="package-meta">⏱ 5–7 дней · обсуждаем ТЗ перед стартом</div>
+                </div>
+                <div class="package-card">
+                    <div class="package-name">🧠 AI-агент на FastAPI</div>
+                    <div class="package-includes">LLM + RAG на векторной БД + webhook + деплой в Docker</div>
+                    <div class="package-meta">⏱ 7–14 дней · подходит для внутренних сервисов и продуктов</div>
+                </div>
+                <div class="package-card">
+                    <div class="package-name">⚙️ Автоматизация через n8n</div>
+                    <div class="package-includes">Настройка workflow + интеграции с сервисами + документация сценариев</div>
+                    <div class="package-meta">⏱ 3–5 дней · экономит часы ручной работы команды</div>
+                </div>
+                <div class="package-card">
+                    <div class="package-name">🌐 Веб-приложение / Лендинг</div>
+                    <div class="package-includes">FastAPI или Next.js + адаптивная вёрстка + интеграция с CRM/API</div>
+                    <div class="package-meta">⏱ 7–14 дней · от MVP до полноценного сайта</div>
+                </div>
+            </div>
         </div>
 
         <!-- Проекты -->
@@ -482,7 +662,7 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-name">🎮 DGTL MiniApp</div>
-                    <p class="project-desc">Telegram P2E игра — мини-приложение для Telegram с игровой механикой Play-to-Earn, реферальной системой и монетизацией.</p>
+                    <p class="project-desc">Telegram P2E игра — мини-приложение с игровой механикой Play-to-Earn, реферальной системой и монетизацией. Реализована полная игровая логика, система начисления наград и личный кабинет пользователя.</p>
                     <div class="project-tech">
                         <span>TypeScript</span>
                         <span>Next.js</span>
@@ -493,19 +673,46 @@
                 </div>
                 <div class="project-card">
                     <div class="project-name">🤖 @Infohunterbotbot</div>
-                    <p class="project-desc">Инновационный бот для поиска и анализа информации. Интеграция с различными API, обработка естественного языка.</p>
+                    <p class="project-desc">Бот для поиска и анализа информации с NLP-интерфейсом. Интегрирован с несколькими API-источниками, умеет суммаризировать и фильтровать результаты по запросу пользователя.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>FastAPI</span>
+                        <span>LangChain</span>
+                        <span>Telegram Bot API</span>
+                    </div>
                 </div>
                 <div class="project-card">
                     <div class="project-name">📰 @GoodNews_q</div>
-                    <p class="project-desc">Канал позитивных новостей и интересного контента. Автоматизированная система сбора и публикации контента.</p>
+                    <p class="project-desc">Канал позитивных новостей с полностью автоматизированным сбором и публикацией контента. Парсинг источников + фильтрация по тональности + авто-постинг по расписанию.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>BeautifulSoup</span>
+                        <span>n8n</span>
+                        <span>Telegram Bot API</span>
+                    </div>
                 </div>
                 <div class="project-card">
                     <div class="project-name">🔧 AI-агенты на FastAPI</div>
-                    <p class="project-desc">Разработка интеллектуальных агентов с использованием LLM. Интеграция ChatGPT, Ollama, обработка запросов в реальном времени.</p>
+                    <p class="project-desc">Серия интеллектуальных агентов с RAG на векторных БД (Qdrant/Chroma). Обработка запросов в реальном времени, подключение к базам знаний компаний, деплой в Docker.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>FastAPI</span>
+                        <span>Qdrant</span>
+                        <span>LangChain</span>
+                        <span>Docker</span>
+                        <span>ChatGPT API</span>
+                    </div>
                 </div>
                 <div class="project-card">
                     <div class="project-name">⚙️ Системы автоматизации</div>
-                    <p class="project-desc">Автоматизация бизнес-процессов через n8n. Интеграция с различными сервисами, обработка данных, webhook'и.</p>
+                    <p class="project-desc">Автоматизация бизнес-процессов через n8n для нескольких клиентов: CRM-интеграции, уведомления, обработка заявок и синхронизация данных между сервисами через webhook.</p>
+                    <div class="project-tech">
+                        <span>n8n</span>
+                        <span>Bitrix24</span>
+                        <span>AmoCRM</span>
+                        <span>Webhook</span>
+                        <span>Python</span>
+                    </div>
                 </div>
             </div>
         </div>
