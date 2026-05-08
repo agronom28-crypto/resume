@@ -19,6 +19,7 @@
     <meta property="og:url" content="https://agronom28-crypto.github.io/resume/">
     <meta property="og:image" content="https://agronom28-crypto.github.io/resume/785632494.jpg">
     <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Портфолио Сергея Николаенко">
 
     <!-- Twitter Card -->
@@ -33,7 +34,8 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Николаенко Сергей Валерьевич",
-      "jobTitle": "Python Developer / AI Solutions Engineer / Fullstack-разработчик / LMS/EdTech Developer / SEO-специалист",
+      "alternateName": "Sergey Nikolaenko",
+      "jobTitle": "Python Developer / AI Solutions Engineer / Fullstack Developer / LMS/EdTech Developer / SEO Specialist",
       "url": "https://agronom28-crypto.github.io/resume/",
       "image": "https://agronom28-crypto.github.io/resume/785632494.jpg",
       "email": "rj93@mail.ru",
@@ -41,17 +43,18 @@
       "sameAs": [
         "https://t.me/nsv_01",
         "https://github.com/agronom28-crypto",
-        "https://www.fl.ru/users/rj93/"
+        "https://www.fl.ru/users/rj93/",
+        "https://kwork.ru/user/rj93"
       ],
       "knowsAbout": [
         "Python", "FastAPI", "LangChain", "RAG", "ChatGPT API", "Claude API",
         "Telegram Bot", "n8n", "Zapier", "Docker", "Next.js", "React",
-        "Qdrant", "Chroma", "Whisper", "ElevenLabs", "AI агенты",
-        "Bitrix24", "AmoCRM", "1С-Битрикс", "Selenium", "PostgreSQL", "MongoDB",
-        "SEO оптимизация", "технический SEO", "schema.org", "мета-теги", "AI SEO контент",
-        "Moodle", "LMS", "EdTech", "PHP", "Debian", "ISPmanager", "Сбербанк Эквайринг", "ФИС ФРДО"
+        "Qdrant", "Chroma", "Whisper", "ElevenLabs", "AI Agents",
+        "Bitrix24", "AmoCRM", "1C-Bitrix", "Selenium", "PostgreSQL", "MongoDB",
+        "SEO", "Technical SEO", "schema.org", "AI SEO content",
+        "Moodle", "LMS", "EdTech", "PHP", "Debian", "ISPmanager", "Sberbank Acquiring", "FIS FRDO"
       ],
-      "description": "Фриланс-разработчик: разработка AI-агентов, Telegram-ботов, LMS/EdTech решений, RAG-систем, автоматизации бизнес-процессов, интеграция CRM и платёжных систем, SEO-оптимизация сайтов. Проекты под ключ от MVP до деплоя."
+      "description": "Freelance developer: AI agents, Telegram bots, LMS/EdTech, RAG systems, business process automation, CRM and payment integrations, SEO. Turnkey projects from MVP to deployment."
     }
     </script>
 
@@ -73,6 +76,42 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
+        }
+
+        /* Language switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background: white;
+            border-radius: 12px;
+            padding: 4px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            display: inline-flex;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #4a5568;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            background: #edf2f7;
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
         }
 
         .header {
@@ -115,13 +154,41 @@
 
         .description {
             color: #4a5568;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             line-height: 1.8;
+        }
+
+        .header-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-num {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #718096;
+            margin-top: 2px;
         }
 
         .contact-buttons {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
@@ -129,7 +196,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 24px;
+            padding: 12px 22px;
             background: #e2e8f0;
             border: none;
             border-radius: 12px;
@@ -138,12 +205,22 @@
             font-weight: 500;
             transition: all 0.3s ease;
             cursor: pointer;
+            font-size: 0.95rem;
         }
 
         .contact-btn:hover {
             background: #cbd5e0;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-btn.primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact-btn.primary:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4292 100%);
         }
 
         .content-grid {
@@ -182,6 +259,13 @@
             font-weight: 600;
             color: #2d3748;
             margin-bottom: 5px;
+        }
+
+        .role {
+            color: #667eea;
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
         }
 
         .period {
@@ -248,7 +332,14 @@
             color: white;
         }
 
-        .specialization-section {
+        .specialization-section,
+        .projects-section,
+        .education-section,
+        .audience-section,
+        .packages-section,
+        .testimonials-section,
+        .faq-section,
+        .cta-section {
             background: white;
             border-radius: 20px;
             padding: 30px;
@@ -256,9 +347,47 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
+        /* Specialization: condensed grid (top focus) */
+        .spec-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .spec-top-item {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-left: 4px solid #667eea;
+            padding: 14px 18px;
+            border-radius: 10px;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .spec-toggle {
+            background: none;
+            border: none;
+            color: #667eea;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            font-family: inherit;
+        }
+
+        .spec-toggle:hover {
+            text-decoration: underline;
+        }
+
         .spec-list {
             list-style: none;
             padding: 0;
+            display: none;
+            margin-top: 10px;
+        }
+
+        .spec-list.expanded {
+            display: block;
         }
 
         .spec-list li {
@@ -281,14 +410,6 @@
             font-weight: bold;
         }
 
-        .projects-section {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
         .projects-intro {
             color: #4a5568;
             margin-bottom: 25px;
@@ -306,6 +427,8 @@
             padding: 25px;
             border-radius: 15px;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
@@ -326,10 +449,25 @@
         .project-desc {
             color: #4a5568;
             line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .project-metrics {
+            background: white;
+            border-radius: 10px;
+            padding: 12px 14px;
+            margin-bottom: 12px;
+            border-left: 3px solid #48bb78;
+            font-size: 0.88rem;
+            color: #2d3748;
+        }
+
+        .project-metrics strong {
+            color: #2d3748;
         }
 
         .project-tech {
-            margin-top: 12px;
+            margin-top: auto;
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
@@ -343,12 +481,17 @@
             color: #4a5568;
         }
 
-        .education-section {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        .project-link {
+            display: inline-block;
+            margin-top: 10px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
         }
 
         .education-item {
@@ -357,14 +500,6 @@
 
         .education-item:last-child {
             margin-bottom: 0;
-        }
-
-        .audience-section {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .audience-grid {
@@ -405,14 +540,6 @@
             line-height: 1.5;
         }
 
-        .packages-section {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
         .packages-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -450,6 +577,173 @@
         .package-meta {
             font-size: 0.85rem;
             color: #718096;
+            margin-bottom: 8px;
+        }
+
+        .package-price {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .testimonial-card {
+            background: #f7fafc;
+            border-radius: 15px;
+            padding: 24px;
+            position: relative;
+            border-left: 4px solid #667eea;
+        }
+
+        .testimonial-quote {
+            color: #4a5568;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-role {
+            color: #718096;
+            font-size: 0.85rem;
+            margin-top: 2px;
+        }
+
+        .testimonial-rating {
+            color: #f6ad55;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonials-note {
+            color: #718096;
+            font-size: 0.85rem;
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        .testimonials-note a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .testimonials-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid #edf2f7;
+            padding: 14px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #2d3748;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 0;
+            list-style: none;
+        }
+
+        .faq-question::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.4rem;
+            color: #667eea;
+            font-weight: 700;
+            transition: transform 0.2s ease;
+        }
+
+        details[open] .faq-question::after {
+            content: '−';
+        }
+
+        .faq-answer {
+            color: #4a5568;
+            padding: 10px 0 4px 0;
+            line-height: 1.7;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section .card-title {
+            color: white;
+            justify-content: center;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: white;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #667eea;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn.outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-btn.outline:hover {
+            background: rgba(255, 255, 255, 0.15);
         }
 
         footer {
@@ -469,6 +763,14 @@
                 flex-direction: column;
             }
 
+            .header-stats {
+                justify-content: center;
+            }
+
+            .contact-buttons {
+                justify-content: center;
+            }
+
             h1 {
                 font-size: 2rem;
             }
@@ -476,108 +778,161 @@
             .projects-grid {
                 grid-template-columns: 1fr;
             }
+
+            .lang-switcher {
+                top: 10px;
+                right: 10px;
+            }
+
+            .lang-btn {
+                padding: 6px 10px;
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Language switcher -->
+    <div class="lang-switcher" role="group" aria-label="Language switcher">
+        <button class="lang-btn active" data-lang="ru" aria-label="Русский">RU</button>
+        <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
+
     <div class="container">
-        <!-- Хедер -->
+        <!-- Header -->
         <div class="header">
             <img src="785632494.jpg" alt="Сергей Николаенко — Python разработчик, AI Solutions Engineer" class="profile-img">
             <div class="header-content">
-                <h1>Сергей Николаенко</h1>
-                <div class="subtitle">Fullstack-разработчик / Python Developer / AI Solutions Engineer</div>
-                <p class="description">Разрабатываю AI-агентов, Telegram-ботов, LMS/EdTech-платформы и системы автоматизации для бизнеса — от MVP до деплоя. 2+ года опыта в Python, FastAPI, интеграции LLM и запуске прикладных digital-продуктов.</p>
+                <h1 data-ru="Сергей Николаенко" data-en="Sergey Nikolaenko">Сергей Николаенко</h1>
+                <div class="subtitle"
+                     data-ru="Fullstack-разработчик / Python Developer / AI Solutions Engineer"
+                     data-en="Fullstack Developer / Python Engineer / AI Solutions Engineer">Fullstack-разработчик / Python Developer / AI Solutions Engineer</div>
+                <p class="description"
+                   data-ru="Разрабатываю AI-агентов, Telegram-ботов, LMS/EdTech-платформы и системы автоматизации для бизнеса — от MVP до деплоя. 6+ лет в разработке и автоматизации в банковском секторе, 2+ года в продуктовой AI-разработке на Python, FastAPI, LangChain и интеграциях LLM."
+                   data-en="I build AI agents, Telegram bots, LMS/EdTech platforms and business automation systems — from MVP to deployment. 6+ years in development and automation in banking, 2+ years in product AI engineering with Python, FastAPI, LangChain and LLM integrations.">Разрабатываю AI-агентов, Telegram-ботов, LMS/EdTech-платформы и системы автоматизации для бизнеса — от MVP до деплоя. 6+ лет в разработке и автоматизации в банковском секторе, 2+ года в продуктовой AI-разработке на Python, FastAPI, LangChain и интеграциях LLM.</p>
+
+                <!-- Stats -->
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-num">6+</span>
+                        <span class="stat-label" data-ru="лет опыта" data-en="years of experience">лет опыта</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">30+</span>
+                        <span class="stat-label" data-ru="проектов" data-en="projects delivered">проектов</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">15+</span>
+                        <span class="stat-label" data-ru="AI-агентов и ботов" data-en="AI agents &amp; bots">AI-агентов и ботов</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">24/7</span>
+                        <span class="stat-label" data-ru="на связи в Telegram" data-en="Telegram response">на связи в Telegram</span>
+                    </div>
+                </div>
+
                 <div class="contact-buttons">
+                    <a href="https://t.me/nsv_01" class="contact-btn primary" data-ru="💬 Написать в Telegram" data-en="💬 Message on Telegram">💬 Написать в Telegram</a>
                     <a href="mailto:rj93@mail.ru" class="contact-btn">✉️ Email</a>
-                    <a href="tel:+79057972562" class="contact-btn">📱 Телефон</a>
-                    <a href="https://t.me/nsv_01" class="contact-btn">💬 Телеграм</a>
-                    <a href="https://github.com/agronom28-crypto" class="contact-btn">🐱 GitHub</a>
-                    <a href="https://www.fl.ru/users/rj93/" class="contact-btn">💼 FL.ru</a>
+                    <a href="tel:+79057972562" class="contact-btn" data-ru="📱 Телефон" data-en="📱 Phone">📱 Телефон</a>
+                    <a href="https://github.com/agronom28-crypto" class="contact-btn" target="_blank" rel="noopener">🐱 GitHub</a>
+                    <a href="https://www.fl.ru/users/rj93/" class="contact-btn" target="_blank" rel="noopener">💼 FL.ru</a>
+                    <a href="https://kwork.ru/user/rj93" class="contact-btn" target="_blank" rel="noopener">🛒 Kwork</a>
                 </div>
             </div>
         </div>
 
-        <!-- Специализация -->
+        <!-- Specialization -->
         <div class="specialization-section">
-            <div class="card-title">🎯 Специализация</div>
-            <ul class="spec-list">
-                <li>Сайты и веб-приложения (FastAPI, Next.js, React)</li>
-                <li>AI-агенты и интеграция LLM (ChatGPT, Claude, GigaChat, Ollama, LangChain)</li>
-                <li>RAG-системы на векторных базах данных (Qdrant, Chroma, Weaviate)</li>
-                <li>Telegram-боты и автоматизация (n8n, Zapier)</li>
-                <li>Голосовые боты и AI-аватары (Whisper, TTS, ElevenLabs)</li>
-                <li>AI-лендинги со встроенным RAG-чатом по материалам клиента</li>
-                <li>AI-автоматизация продаж и поддержки клиентов 24/7</li>
-                <li>LMS и EdTech-платформы: развёртывание Moodle, витрина курсов, онлайн-оплата, автозачисление</li>
-                <li>Платёжные интеграции: интернет-эквайринг, логирование платежей, внутренний баланс пользователя</li>
-                <li>Документооборот в обучении: дипломы, удостоверения, нумерация документов, выгрузки в ФИС ФРДО</li>
-                <li>SEO-оптимизация сайтов: технический аудит, мета-теги, структурированные данные (schema.org)</li>
-                <li>AI-контент для SEO: автоматическая генерация и публикация оптимизированных статей</li>
-                <li>Парсинг и скрапинг данных (Selenium, BeautifulSoup)</li>
-                <li>Backend-разработка и REST API</li>
-                <li>Интеграции с внешними сервисами и API</li>
-                <li>CRM-интеграции (Bitrix24, Hostaway, AmoCRM)</li>
-                <li>Работа с CMS (1С-Битрикс, WordPress, Tilda, ModX)</li>
-                <li>Контент-автоматизация и видеообработка</li>
+            <div class="card-title">
+                <span data-ru="🎯 Специализация" data-en="🎯 What I do">🎯 Специализация</span>
+            </div>
+
+            <!-- Top 6 focused -->
+            <div class="spec-top">
+                <div class="spec-top-item" data-ru="🤖 AI-агенты и LLM-интеграции (ChatGPT, Claude, GigaChat, LangChain)" data-en="🤖 AI agents &amp; LLM integrations (ChatGPT, Claude, GigaChat, LangChain)">🤖 AI-агенты и LLM-интеграции (ChatGPT, Claude, GigaChat, LangChain)</div>
+                <div class="spec-top-item" data-ru="🧠 RAG-системы на векторных БД (Qdrant, Chroma, Weaviate)" data-en="🧠 RAG systems on vector DBs (Qdrant, Chroma, Weaviate)">🧠 RAG-системы на векторных БД (Qdrant, Chroma, Weaviate)</div>
+                <div class="spec-top-item" data-ru="📲 Telegram-боты и мини-приложения под ключ" data-en="📲 Turnkey Telegram bots &amp; mini-apps">📲 Telegram-боты и мини-приложения под ключ</div>
+                <div class="spec-top-item" data-ru="🎓 LMS/EdTech: Moodle, эквайринг, ФИС ФРДО" data-en="🎓 LMS/EdTech: Moodle, payments, certifications">🎓 LMS/EdTech: Moodle, эквайринг, ФИС ФРДО</div>
+                <div class="spec-top-item" data-ru="⚙️ Автоматизация бизнес-процессов через n8n / Zapier" data-en="⚙️ Business process automation via n8n / Zapier">⚙️ Автоматизация бизнес-процессов через n8n / Zapier</div>
+                <div class="spec-top-item" data-ru="🌐 Веб-приложения и API (FastAPI, Next.js, React)" data-en="🌐 Web apps &amp; APIs (FastAPI, Next.js, React)">🌐 Веб-приложения и API (FastAPI, Next.js, React)</div>
+            </div>
+
+            <button class="spec-toggle" id="specToggle" data-ru="Показать все направления ▼" data-en="Show all areas ▼">Показать все направления ▼</button>
+
+            <ul class="spec-list" id="specList">
+                <li data-ru="Голосовые боты и AI-аватары (Whisper, TTS, ElevenLabs)" data-en="Voice bots and AI avatars (Whisper, TTS, ElevenLabs)">Голосовые боты и AI-аватары (Whisper, TTS, ElevenLabs)</li>
+                <li data-ru="AI-лендинги со встроенным RAG-чатом по материалам клиента" data-en="AI landing pages with embedded RAG chat trained on client content">AI-лендинги со встроенным RAG-чатом по материалам клиента</li>
+                <li data-ru="AI-автоматизация продаж и поддержки клиентов 24/7" data-en="AI-driven sales &amp; customer support automation 24/7">AI-автоматизация продаж и поддержки клиентов 24/7</li>
+                <li data-ru="Платёжные интеграции: интернет-эквайринг, логирование платежей, внутренний баланс пользователя" data-en="Payment integrations: online acquiring, payment logging, internal user balance">Платёжные интеграции: интернет-эквайринг, логирование платежей, внутренний баланс пользователя</li>
+                <li data-ru="Документооборот в обучении: дипломы, удостоверения, нумерация документов, выгрузки в ФИС ФРДО" data-en="Education document workflows: diplomas, certificates, numbering, FIS FRDO exports">Документооборот в обучении: дипломы, удостоверения, нумерация документов, выгрузки в ФИС ФРДО</li>
+                <li data-ru="SEO-оптимизация сайтов: технический аудит, мета-теги, schema.org" data-en="SEO: technical audit, meta tags, schema.org structured data">SEO-оптимизация сайтов: технический аудит, мета-теги, schema.org</li>
+                <li data-ru="AI-контент для SEO: автоматическая генерация и публикация оптимизированных статей" data-en="AI SEO content: automated generation and publishing of optimized articles">AI-контент для SEO: автоматическая генерация и публикация оптимизированных статей</li>
+                <li data-ru="Парсинг и сбор данных (Selenium, BeautifulSoup)" data-en="Data extraction &amp; collection (Selenium, BeautifulSoup)">Парсинг и сбор данных (Selenium, BeautifulSoup)</li>
+                <li data-ru="Backend-разработка и REST API" data-en="Backend development and REST APIs">Backend-разработка и REST API</li>
+                <li data-ru="CRM-интеграции (Bitrix24, Hostaway, AmoCRM)" data-en="CRM integrations (Bitrix24, Hostaway, AmoCRM)">CRM-интеграции (Bitrix24, Hostaway, AmoCRM)</li>
+                <li data-ru="Работа с CMS (1С-Битрикс, WordPress, Tilda, ModX)" data-en="CMS work (1C-Bitrix, WordPress, Tilda, ModX)">Работа с CMS (1С-Битрикс, WordPress, Tilda, ModX)</li>
+                <li data-ru="Контент-автоматизация и видеообработка" data-en="Content automation and video processing">Контент-автоматизация и видеообработка</li>
             </ul>
         </div>
 
-        <!-- Опыт и Навыки -->
+        <!-- Experience and Skills -->
         <div class="content-grid">
             <div class="card">
-                <div class="card-title">💼 Опыт</div>
+                <div class="card-title">
+                    <span data-ru="💼 Опыт" data-en="💼 Experience">💼 Опыт</span>
+                </div>
 
                 <div class="experience-item">
                     <div class="company-name">Альфа-банк</div>
+                    <div class="role" data-ru="Финансовый аналитик / Python-автоматизация" data-en="Financial Analyst / Python Automation">Финансовый аналитик / Python-автоматизация</div>
                     <div class="period">2020 — 2023</div>
-                    <p class="experience-desc">Финансовый анализ, разработка и внедрение банковских гарантий.
-                        <ul>
-                            <li>Автоматизировал обработку отчётов на Python — время подготовки сократилось с нескольких часов до минут</li>
-                            <li>Оптимизировал процессы сбора и верификации данных по гарантийным операциям</li>
-                        </ul>
-                    </p>
+                    <p class="experience-desc"
+                       data-ru="Финансовый анализ, разработка и внедрение банковских гарантий."
+                       data-en="Financial analysis, development and rollout of banking guarantees.">Финансовый анализ, разработка и внедрение банковских гарантий.</p>
+                    <ul class="experience-desc">
+                        <li data-ru="Автоматизировал обработку отчётов на Python — время подготовки сократилось с ~4 часов до 7 минут" data-en="Automated report processing in Python — preparation time dropped from ~4 hours to 7 minutes">Автоматизировал обработку отчётов на Python — время подготовки сократилось с ~4 часов до 7 минут</li>
+                        <li data-ru="Оптимизировал процессы сбора и верификации данных по гарантийным операциям, исключив ручной ввод" data-en="Optimized data collection and verification for guarantee operations, eliminating manual entry">Оптимизировал процессы сбора и верификации данных по гарантийным операциям, исключив ручной ввод</li>
+                        <li data-ru="Снизил долю ошибок в сводных отчётах за счёт валидации данных на уровне скриптов" data-en="Reduced error rate in consolidated reports through script-level data validation">Снизил долю ошибок в сводных отчётах за счёт валидации данных на уровне скриптов</li>
+                    </ul>
                 </div>
 
                 <div class="experience-item">
                     <div class="company-name">Сбербанк</div>
+                    <div class="role" data-ru="Разработка внутренних инструментов и AI-автоматизация" data-en="Internal tooling &amp; AI automation">Разработка внутренних инструментов и AI-автоматизация</div>
                     <div class="period">2023 — 2026</div>
-                    <p class="experience-desc">Разработка бизнес-стратегии, оптимизация процессов.
-                        <ul>
-                            <li>Внедрил AI-решения и автоматизацию workflow через n8n — высвободил часы ручной работы команды еженедельно</li>
-                            <li>Участвовал в разработке и тестировании внутренних инструментов на Python</li>
-                        </ul>
-                    </p>
+                    <p class="experience-desc"
+                       data-ru="Разработка и внедрение Python-инструментов и AI-решений для оптимизации внутренних процессов команды."
+                       data-en="Development and deployment of Python tools and AI solutions to optimize internal team processes.">Разработка и внедрение Python-инструментов и AI-решений для оптимизации внутренних процессов команды.</p>
+                    <ul class="experience-desc">
+                        <li data-ru="Внедрил автоматизацию workflow через n8n — высвободил ~20 часов ручной работы команды в неделю" data-en="Rolled out workflow automation via n8n — freed up ~20 hours of manual team work per week">Внедрил автоматизацию workflow через n8n — высвободил ~20 часов ручной работы команды в неделю</li>
+                        <li data-ru="Разрабатывал и тестировал внутренние Python-инструменты для аналитики и подготовки отчётности" data-en="Developed and tested internal Python tools for analytics and reporting">Разрабатывал и тестировал внутренние Python-инструменты для аналитики и подготовки отчётности</li>
+                        <li data-ru="Интегрировал LLM-сценарии в рабочие процессы — ускорение типовых задач в 5–10 раз" data-en="Integrated LLM scenarios into workflows — 5–10× speedup on routine tasks">Интегрировал LLM-сценарии в рабочие процессы — ускорение типовых задач в 5–10 раз</li>
+                    </ul>
                 </div>
 
                 <div class="experience-item">
-                    <div class="company-name">School 21 / Сбер</div>
-                    <div class="period">2023 — 2024</div>
-                    <p class="experience-desc">Интенсивная программа по разработке ПО. Peer-to-peer обучение, проектная работа, C++.</p>
-                </div>
-
-                <div class="experience-item">
-                    <div class="company-name">Freelance / Pet Projects</div>
-                    <div class="period">2023 — Настоящее время</div>
-                    <p class="experience-desc">
-                        <ul>
-                            <li>Разработал и запустил Telegram P2E игру с реферальной системой и монетизацией</li>
-                            <li>Создал несколько AI-агентов на FastAPI с интеграцией ChatGPT, Claude и Ollama</li>
-                            <li>Настроил автоматизацию для клиентов через n8n и webhook-интеграции</li>
-                            <li>Реализовал CRM-интеграции (Bitrix24, AmoCRM) для малого бизнеса</li>
-                            <li>Развернул и кастомизировал Moodle на Debian + ISPmanager, настроил витрину курсов и сценарии онлайн-оплаты</li>
-                            <li>Реализовал интеграцию со Сбербанк эквайрингом, автозачисление на курсы, баланс обучающегося и логирование платежей</li>
-                            <li>Автоматизировал печать дипломов/удостоверений и подготовку выгрузок выпускников для ФИС ФРДО</li>
-                        </ul>
-                    </p>
+                    <div class="company-name" data-ru="Freelance / собственные продукты" data-en="Freelance / own products">Freelance / собственные продукты</div>
+                    <div class="role" data-ru="Python / AI / Fullstack разработчик" data-en="Python / AI / Fullstack Developer">Python / AI / Fullstack разработчик</div>
+                    <div class="period" data-ru="2023 — настоящее время" data-en="2023 — present">2023 — настоящее время</div>
+                    <ul class="experience-desc">
+                        <li data-ru="Запустил Telegram P2E игру (DGTL MiniApp) с реферальной системой и монетизацией" data-en="Launched a Telegram P2E game (DGTL MiniApp) with referral system and monetization">Запустил Telegram P2E игру (DGTL MiniApp) с реферальной системой и монетизацией</li>
+                        <li data-ru="Создал 15+ AI-агентов и ботов на FastAPI с интеграцией ChatGPT, Claude, Ollama и RAG на Qdrant/Chroma" data-en="Built 15+ AI agents and bots on FastAPI with ChatGPT, Claude, Ollama and RAG on Qdrant/Chroma">Создал 15+ AI-агентов и ботов на FastAPI с интеграцией ChatGPT, Claude, Ollama и RAG на Qdrant/Chroma</li>
+                        <li data-ru="Настроил n8n-сценарии и webhook-интеграции для нескольких клиентов — обработка заявок 24/7 без ручного вмешательства" data-en="Set up n8n workflows and webhook integrations for multiple clients — 24/7 lead processing with no manual intervention">Настроил n8n-сценарии и webhook-интеграции для нескольких клиентов — обработка заявок 24/7 без ручного вмешательства</li>
+                        <li data-ru="Реализовал CRM-интеграции (Bitrix24, AmoCRM) для малого и среднего бизнеса" data-en="Implemented CRM integrations (Bitrix24, AmoCRM) for SMB clients">Реализовал CRM-интеграции (Bitrix24, AmoCRM) для малого и среднего бизнеса</li>
+                        <li data-ru="Развернул Moodle LMS на Debian + ISPmanager со Сбербанк-эквайрингом, автозачислением и выгрузками в ФИС ФРДО" data-en="Deployed Moodle LMS on Debian + ISPmanager with Sberbank acquiring, auto-enrollment and FIS FRDO exports">Развернул Moodle LMS на Debian + ISPmanager со Сбербанк-эквайрингом, автозачислением и выгрузками в ФИС ФРДО</li>
+                        <li data-ru="Автоматизировал печать дипломов/удостоверений и подготовку выгрузок выпускников" data-en="Automated diploma/certificate printing and graduate export preparation">Автоматизировал печать дипломов/удостоверений и подготовку выгрузок выпускников</li>
+                    </ul>
                 </div>
             </div>
 
             <div class="card">
-                <div class="card-title">⭐ Технические навыки</div>
+                <div class="card-title">
+                    <span data-ru="⭐ Технические навыки" data-en="⭐ Technical skills">⭐ Технические навыки</span>
+                </div>
 
                 <div class="skills-category">
-                    <div class="skills-category-title">Языки программирования</div>
+                    <div class="skills-category-title" data-ru="Языки программирования" data-en="Programming languages">Языки программирования</div>
                     <div class="skills-grid">
                         <span class="skill-badge highlight">Python</span>
                         <span class="skill-badge highlight">JavaScript</span>
@@ -638,7 +993,7 @@
                 </div>
 
                 <div class="skills-category">
-                    <div class="skills-category-title">Автоматизация и инструменты</div>
+                    <div class="skills-category-title" data-ru="Автоматизация и инструменты" data-en="Automation &amp; tools">Автоматизация и инструменты</div>
                     <div class="skills-grid">
                         <span class="skill-badge">n8n</span>
                         <span class="skill-badge">Zapier</span>
@@ -648,7 +1003,7 @@
                         <span class="skill-badge">Pandas</span>
                         <span class="skill-badge">Git</span>
                         <span class="skill-badge">Docker</span>
-                        <span class="skill-badge">Webhook-интеграции</span>
+                        <span class="skill-badge" data-ru="Webhook-интеграции" data-en="Webhook integrations">Webhook-интеграции</span>
                         <span class="skill-badge">ISPmanager</span>
                     </div>
                 </div>
@@ -659,13 +1014,13 @@
                         <span class="skill-badge highlight">Moodle</span>
                         <span class="skill-badge">LMS</span>
                         <span class="skill-badge">EdTech</span>
-                        <span class="skill-badge">Витрина курсов</span>
-                        <span class="skill-badge">Онлайн-оплата курсов</span>
-                        <span class="skill-badge">Сбербанк Эквайринг</span>
-                        <span class="skill-badge">Автозачисление</span>
-                        <span class="skill-badge">Логирование платежей</span>
-                        <span class="skill-badge">Баланс обучающегося</span>
-                        <span class="skill-badge">Дипломы и удостоверения</span>
+                        <span class="skill-badge" data-ru="Витрина курсов" data-en="Course catalog">Витрина курсов</span>
+                        <span class="skill-badge" data-ru="Онлайн-оплата курсов" data-en="Online course payments">Онлайн-оплата курсов</span>
+                        <span class="skill-badge" data-ru="Сбербанк Эквайринг" data-en="Sberbank Acquiring">Сбербанк Эквайринг</span>
+                        <span class="skill-badge" data-ru="Автозачисление" data-en="Auto-enrollment">Автозачисление</span>
+                        <span class="skill-badge" data-ru="Логирование платежей" data-en="Payment logging">Логирование платежей</span>
+                        <span class="skill-badge" data-ru="Баланс обучающегося" data-en="Student balance">Баланс обучающегося</span>
+                        <span class="skill-badge" data-ru="Дипломы и удостоверения" data-en="Diplomas &amp; certificates">Дипломы и удостоверения</span>
                         <span class="skill-badge">ФИС ФРДО</span>
                     </div>
                 </div>
@@ -673,22 +1028,22 @@
                 <div class="skills-category">
                     <div class="skills-category-title">SEO</div>
                     <div class="skills-grid">
-                        <span class="skill-badge highlight">Технический SEO</span>
-                        <span class="skill-badge">SEO-аудит</span>
-                        <span class="skill-badge">Мета-теги</span>
+                        <span class="skill-badge highlight" data-ru="Технический SEO" data-en="Technical SEO">Технический SEO</span>
+                        <span class="skill-badge" data-ru="SEO-аудит" data-en="SEO audit">SEO-аудит</span>
+                        <span class="skill-badge" data-ru="Мета-теги" data-en="Meta tags">Мета-теги</span>
                         <span class="skill-badge">Schema.org</span>
                         <span class="skill-badge">Open Graph</span>
-                        <span class="skill-badge">AI SEO-контент</span>
+                        <span class="skill-badge" data-ru="AI SEO-контент" data-en="AI SEO content">AI SEO-контент</span>
                         <span class="skill-badge">Sitemap / Robots.txt</span>
                         <span class="skill-badge">Core Web Vitals</span>
                     </div>
                 </div>
 
                 <div class="skills-category">
-                    <div class="skills-category-title">CMS и интеграции</div>
+                    <div class="skills-category-title" data-ru="CMS и интеграции" data-en="CMS &amp; integrations">CMS и интеграции</div>
                     <div class="skills-grid">
-                    <span class="skill-badge">1С-Битрикс</span>
-                    <span class="skill-badge">WordPress</span>
+                        <span class="skill-badge">1С-Битрикс</span>
+                        <span class="skill-badge">WordPress</span>
                         <span class="skill-badge">Tilda</span>
                         <span class="skill-badge">ModX</span>
                         <span class="skill-badge">Bitrix24</span>
@@ -699,91 +1054,135 @@
             </div>
         </div>
 
-        <!-- Для кого я работаю -->
+        <!-- Audience -->
         <div class="audience-section">
-            <div class="card-title">🤝 Для кого я работаю</div>
+            <div class="card-title">
+                <span data-ru="🤝 Для кого я работаю" data-en="🤝 Who I work with">🤝 Для кого я работаю</span>
+            </div>
             <div class="audience-grid">
                 <div class="audience-card">
                     <div class="audience-icon">🚀</div>
-                    <div class="audience-title">Стартапы и MVP</div>
-                    <div class="audience-desc">Быстро строю рабочий прототип, который можно показать инвесторам или проверить на пользователях</div>
+                    <div class="audience-title" data-ru="Стартапы и MVP" data-en="Startups &amp; MVPs">Стартапы и MVP</div>
+                    <div class="audience-desc"
+                         data-ru="Быстро строю рабочий прототип, который можно показать инвесторам или проверить на пользователях"
+                         data-en="I quickly build working prototypes you can show to investors or validate with users">Быстро строю рабочий прототип, который можно показать инвесторам или проверить на пользователях</div>
                 </div>
                 <div class="audience-card">
                     <div class="audience-icon">🏢</div>
-                    <div class="audience-title">Малый и средний бизнес</div>
-                    <div class="audience-desc">Автоматизирую рутину, подключаю AI и CRM, чтобы команда тратила время на важное</div>
+                    <div class="audience-title" data-ru="Малый и средний бизнес" data-en="SMB">Малый и средний бизнес</div>
+                    <div class="audience-desc"
+                         data-ru="Автоматизирую рутину, подключаю AI и CRM, чтобы команда тратила время на важное"
+                         data-en="I automate routine work, plug in AI and CRM so the team focuses on what matters">Автоматизирую рутину, подключаю AI и CRM, чтобы команда тратила время на важное</div>
                 </div>
                 <div class="audience-card">
                     <div class="audience-icon">🤖</div>
-                    <div class="audience-title">AI-продукты</div>
-                    <div class="audience-desc">Внедряю LLM, RAG и агентов в существующие продукты — от чат-ботов до аналитических систем</div>
+                    <div class="audience-title" data-ru="AI-продукты" data-en="AI products">AI-продукты</div>
+                    <div class="audience-desc"
+                         data-ru="Внедряю LLM, RAG и агентов в существующие продукты — от чат-ботов до аналитических систем"
+                         data-en="I embed LLMs, RAG and agents into existing products — from chatbots to analytics systems">Внедряю LLM, RAG и агентов в существующие продукты — от чат-ботов до аналитических систем</div>
                 </div>
                 <div class="audience-card">
                     <div class="audience-icon">🏗️</div>
-                    <div class="audience-title">Агентства и аутсорс</div>
-                    <div class="audience-desc">Подключаюсь как подрядчик на backend, AI-часть, LMS/EdTech или автоматизацию в рамках более крупного проекта</div>
+                    <div class="audience-title" data-ru="Агентства и аутсорс" data-en="Agencies &amp; outsourcing">Агентства и аутсорс</div>
+                    <div class="audience-desc"
+                         data-ru="Подключаюсь как подрядчик на backend, AI-часть, LMS/EdTech или автоматизацию в рамках более крупного проекта"
+                         data-en="I plug in as a contractor for backend, AI parts, LMS/EdTech or automation within larger projects">Подключаюсь как подрядчик на backend, AI-часть, LMS/EdTech или автоматизацию в рамках более крупного проекта</div>
                 </div>
             </div>
         </div>
 
-        <!-- Пакеты услуг -->
+        <!-- Packages -->
         <div class="packages-section">
-            <div class="card-title">📦 Форматы сотрудничества</div>
+            <div class="card-title">
+                <span data-ru="📦 Форматы сотрудничества" data-en="📦 Engagement formats">📦 Форматы сотрудничества</span>
+            </div>
             <div class="packages-grid">
                 <div class="package-card">
-                    <div class="package-name">🤖 Telegram-бот под ключ</div>
-                    <div class="package-includes">NLP-логика + интеграция с API или CRM + деплой на сервер + инструкция</div>
-                    <div class="package-meta">⏱ 5–7 дней · обсуждаем ТЗ перед стартом</div>
+                    <div class="package-name" data-ru="🤖 Telegram-бот под ключ" data-en="🤖 Turnkey Telegram bot">🤖 Telegram-бот под ключ</div>
+                    <div class="package-includes"
+                         data-ru="NLP-логика + интеграция с API или CRM + деплой на сервер + инструкция"
+                         data-en="NLP logic + API/CRM integration + server deployment + handover docs">NLP-логика + интеграция с API или CRM + деплой на сервер + инструкция</div>
+                    <div class="package-meta" data-ru="⏱ 5–7 дней · обсуждаем ТЗ перед стартом" data-en="⏱ 5–7 days · scope review before start">⏱ 5–7 дней · обсуждаем ТЗ перед стартом</div>
+                    <div class="package-price" data-ru="от 30 000 ₽" data-en="from $400">от 30 000 ₽</div>
                 </div>
                 <div class="package-card">
-                    <div class="package-name">🧠 AI-агент на FastAPI</div>
-                    <div class="package-includes">LLM + RAG на векторной БД + webhook + деплой в Docker</div>
-                    <div class="package-meta">⏱ 7–14 дней · подходит для внутренних сервисов и продуктов</div>
+                    <div class="package-name" data-ru="🧠 AI-агент на FastAPI" data-en="🧠 FastAPI AI agent">🧠 AI-агент на FastAPI</div>
+                    <div class="package-includes"
+                         data-ru="LLM + RAG на векторной БД + webhook + деплой в Docker"
+                         data-en="LLM + RAG on a vector DB + webhook + Docker deployment">LLM + RAG на векторной БД + webhook + деплой в Docker</div>
+                    <div class="package-meta" data-ru="⏱ 7–14 дней · подходит для внутренних сервисов и продуктов" data-en="⏱ 7–14 days · fits internal tools and products">⏱ 7–14 дней · подходит для внутренних сервисов и продуктов</div>
+                    <div class="package-price" data-ru="от 60 000 ₽" data-en="from $800">от 60 000 ₽</div>
                 </div>
                 <div class="package-card">
-                    <div class="package-name">🎓 Moodle / LMS под ключ</div>
-                    <div class="package-includes">Развёртывание Moodle + витрина курсов + платёжная интеграция + автозачисление + документы</div>
-                    <div class="package-meta">⏱ 7–14 дней · подходит для онлайн-школ и учебных центров</div>
+                    <div class="package-name" data-ru="🎓 Moodle / LMS под ключ" data-en="🎓 Turnkey Moodle / LMS">🎓 Moodle / LMS под ключ</div>
+                    <div class="package-includes"
+                         data-ru="Развёртывание Moodle + витрина курсов + платёжная интеграция + автозачисление + документы"
+                         data-en="Moodle deployment + course storefront + payment integration + auto-enrollment + document workflows">Развёртывание Moodle + витрина курсов + платёжная интеграция + автозачисление + документы</div>
+                    <div class="package-meta" data-ru="⏱ 7–14 дней · подходит для онлайн-школ и учебных центров" data-en="⏱ 7–14 days · fits online schools and training centers">⏱ 7–14 дней · подходит для онлайн-школ и учебных центров</div>
+                    <div class="package-price" data-ru="от 80 000 ₽" data-en="from $1,100">от 80 000 ₽</div>
                 </div>
                 <div class="package-card">
-                    <div class="package-name">⚙️ Автоматизация через n8n</div>
-                    <div class="package-includes">Настройка workflow + интеграции с сервисами + документация сценариев</div>
-                    <div class="package-meta">⏱ 3–5 дней · экономит часы ручной работы команды</div>
+                    <div class="package-name" data-ru="⚙️ Автоматизация через n8n" data-en="⚙️ n8n automation">⚙️ Автоматизация через n8n</div>
+                    <div class="package-includes"
+                         data-ru="Настройка workflow + интеграции с сервисами + документация сценариев"
+                         data-en="Workflow setup + service integrations + scenario documentation">Настройка workflow + интеграции с сервисами + документация сценариев</div>
+                    <div class="package-meta" data-ru="⏱ 3–5 дней · экономит часы ручной работы команды" data-en="⏱ 3–5 days · saves hours of manual team work">⏱ 3–5 дней · экономит часы ручной работы команды</div>
+                    <div class="package-price" data-ru="от 20 000 ₽" data-en="from $250">от 20 000 ₽</div>
                 </div>
                 <div class="package-card">
-                    <div class="package-name">🌐 Веб-приложение / Лендинг</div>
-                    <div class="package-includes">FastAPI или Next.js + адаптивная вёрстка + интеграция с CRM/API</div>
-                    <div class="package-meta">⏱ 7–14 дней · от MVP до полноценного сайта</div>
+                    <div class="package-name" data-ru="🌐 Веб-приложение / Лендинг" data-en="🌐 Web app / Landing page">🌐 Веб-приложение / Лендинг</div>
+                    <div class="package-includes"
+                         data-ru="FastAPI или Next.js + адаптивная вёрстка + интеграция с CRM/API"
+                         data-en="FastAPI or Next.js + responsive layout + CRM/API integration">FastAPI или Next.js + адаптивная вёрстка + интеграция с CRM/API</div>
+                    <div class="package-meta" data-ru="⏱ 7–14 дней · от MVP до полноценного сайта" data-en="⏱ 7–14 days · from MVP to full website">⏱ 7–14 дней · от MVP до полноценного сайта</div>
+                    <div class="package-price" data-ru="от 40 000 ₽" data-en="from $550">от 40 000 ₽</div>
                 </div>
                 <div class="package-card">
-                    <div class="package-name">🔍 SEO-оптимизация сайта</div>
-                    <div class="package-includes">Технический аудит + мета-теги + schema.org + sitemap + рекомендации по контенту</div>
-                    <div class="package-meta">⏱ 2–5 дней · подходит для любого CMS или кастомного сайта</div>
+                    <div class="package-name" data-ru="🔍 SEO-оптимизация сайта" data-en="🔍 SEO optimization">🔍 SEO-оптимизация сайта</div>
+                    <div class="package-includes"
+                         data-ru="Технический аудит + мета-теги + schema.org + sitemap + рекомендации по контенту"
+                         data-en="Technical audit + meta tags + schema.org + sitemap + content recommendations">Технический аудит + мета-теги + schema.org + sitemap + рекомендации по контенту</div>
+                    <div class="package-meta" data-ru="⏱ 2–5 дней · подходит для любого CMS или кастомного сайта" data-en="⏱ 2–5 days · fits any CMS or custom site">⏱ 2–5 дней · подходит для любого CMS или кастомного сайта</div>
+                    <div class="package-price" data-ru="от 15 000 ₽" data-en="from $200">от 15 000 ₽</div>
                 </div>
             </div>
         </div>
 
-        <!-- Проекты -->
+        <!-- Projects / Cases -->
         <div class="projects-section">
-            <div class="card-title">🚀 Мои Проекты</div>
-            <p class="projects-intro">Активные проекты и разработки</p>
+            <div class="card-title">
+                <span data-ru="🚀 Кейсы и проекты" data-en="🚀 Cases &amp; projects">🚀 Кейсы и проекты</span>
+            </div>
+            <p class="projects-intro" data-ru="Активные проекты с измеримыми результатами" data-en="Active projects with measurable outcomes">Активные проекты с измеримыми результатами</p>
             <div class="projects-grid">
+
                 <div class="project-card">
-                    <div class="project-name">🎓 Moodle LMS для учебного центра</div>
-                    <p class="project-desc">Развёртывание актуальной версии Moodle на Debian-сервере с ISPmanager, настройка открытой витрины курсов, страницы курса с описанием и ценой, интеграция интернет-эквайринга Сбербанка, автозачисление после оплаты, внутренний баланс обучающегося, печать дипломов и удостоверений, формирование выгрузок выпускников для ФИС ФРДО.</p>
+                    <div class="project-name" data-ru="🎓 Moodle LMS для учебного центра" data-en="🎓 Moodle LMS for a training center">🎓 Moodle LMS для учебного центра</div>
+                    <p class="project-desc"
+                       data-ru="Развёртывание актуальной версии Moodle на Debian-сервере с ISPmanager, открытая витрина курсов, интеграция эквайринга Сбербанка, автозачисление после оплаты, внутренний баланс обучающегося, печать дипломов и удостоверений, выгрузки выпускников для ФИС ФРДО."
+                       data-en="Deployed the latest Moodle on a Debian server with ISPmanager: public course catalog, Sberbank acquiring integration, auto-enrollment after payment, internal student balance, diploma/certificate printing, FIS FRDO graduate exports.">Развёртывание актуальной версии Moodle на Debian-сервере с ISPmanager, открытая витрина курсов, интеграция эквайринга Сбербанка, автозачисление после оплаты, внутренний баланс обучающегося, печать дипломов и удостоверений, выгрузки выпускников для ФИС ФРДО.</p>
+                    <div class="project-metrics"
+                         data-ru="<strong>Результат:</strong> онлайн-оплата и зачисление за &lt;1 минуты вместо ручной обработки заявок; полный цикл «оплата → доступ → диплом → выгрузка в ФИС ФРДО» без участия администратора."
+                         data-en="<strong>Outcome:</strong> online payment and enrollment in &lt;1 minute instead of manual processing; full “payment → access → diploma → FIS FRDO export” cycle with zero admin involvement."><strong>Результат:</strong> онлайн-оплата и зачисление за &lt;1 минуты вместо ручной обработки заявок; полный цикл «оплата → доступ → диплом → выгрузка в ФИС ФРДО» без участия администратора.</div>
                     <div class="project-tech">
                         <span>Moodle</span>
                         <span>PHP</span>
                         <span>Debian</span>
                         <span>ISPmanager</span>
-                        <span>Сбербанк Эквайринг</span>
+                        <span data-ru="Сбербанк Эквайринг" data-en="Sberbank Acquiring">Сбербанк Эквайринг</span>
                         <span>LMS</span>
                         <span>ФИС ФРДО</span>
                     </div>
                 </div>
+
                 <div class="project-card">
                     <div class="project-name">🎮 DGTL MiniApp</div>
-                    <p class="project-desc">Telegram P2E игра — мини-приложение с игровой механикой Play-to-Earn, реферальной системой и монетизацией. Реализована полная игровая логика, система начисления наград и личный кабинет пользователя.</p>
+                    <p class="project-desc"
+                       data-ru="Telegram P2E игра — мини-приложение с механикой Play-to-Earn, реферальной системой и монетизацией. Полная игровая логика, начисление наград, личный кабинет."
+                       data-en="A Telegram P2E mini-app with Play-to-Earn mechanics, referral system and monetization. Complete game logic, rewards engine, personal cabinet.">Telegram P2E игра — мини-приложение с механикой Play-to-Earn, реферальной системой и монетизацией. Полная игровая логика, начисление наград, личный кабинет.</p>
+                    <div class="project-metrics"
+                         data-ru="<strong>Результат:</strong> запущена на Telegram-аудиторию, реализованы виральная реферальная воронка и устойчивая обработка одновременных сессий пользователей."
+                         data-en="<strong>Outcome:</strong> shipped to a Telegram audience with a viral referral funnel and stable handling of concurrent user sessions."><strong>Результат:</strong> запущена на Telegram-аудиторию, реализованы виральная реферальная воронка и устойчивая обработка одновременных сессий пользователей.</div>
                     <div class="project-tech">
                         <span>TypeScript</span>
                         <span>Next.js</span>
@@ -792,29 +1191,49 @@
                         <span>Telegram Bot API</span>
                     </div>
                 </div>
+
                 <div class="project-card">
-                    <div class="project-name">🤖 @Infohunterbotbot</div>
-                    <p class="project-desc">Бот для поиска и анализа информации с NLP-интерфейсом. Интегрирован с несколькими API-источниками, умеет суммаризировать и фильтровать результаты по запросу пользователя.</p>
+                    <div class="project-name">🤖 @Infohunterbot</div>
+                    <p class="project-desc"
+                       data-ru="Бот для поиска и анализа информации с NLP-интерфейсом. Интегрирован с несколькими API-источниками, умеет суммаризировать и фильтровать результаты по запросу пользователя."
+                       data-en="A bot for searching and analyzing information through an NLP interface. Integrates multiple API sources, summarizes and filters results on demand.">Бот для поиска и анализа информации с NLP-интерфейсом. Интегрирован с несколькими API-источниками, умеет суммаризировать и фильтровать результаты по запросу пользователя.</p>
+                    <div class="project-metrics"
+                         data-ru="<strong>Результат:</strong> поиск и саммари занимают секунды вместо минут ручного поиска; пользователь получает готовый отфильтрованный ответ в чате."
+                         data-en="<strong>Outcome:</strong> search and summarization take seconds instead of minutes of manual search; the user gets a filtered ready answer right in chat."><strong>Результат:</strong> поиск и саммари занимают секунды вместо минут ручного поиска; пользователь получает готовый отфильтрованный ответ в чате.</div>
                     <div class="project-tech">
                         <span>Python</span>
                         <span>FastAPI</span>
                         <span>LangChain</span>
                         <span>Telegram Bot API</span>
                     </div>
+                    <a class="project-link" href="https://t.me/Infohunterbotbot" target="_blank" rel="noopener" data-ru="Открыть в Telegram →" data-en="Open in Telegram →">Открыть в Telegram →</a>
                 </div>
+
                 <div class="project-card">
                     <div class="project-name">📰 @GoodNews_q</div>
-                    <p class="project-desc">Канал позитивных новостей с полностью автоматизированным сбором и публикацией контента. Парсинг источников + фильтрация по тональности + авто-постинг по расписанию.</p>
+                    <p class="project-desc"
+                       data-ru="Канал позитивных новостей с полностью автоматизированным сбором и публикацией контента. Парсинг источников + фильтрация по тональности + авто-постинг по расписанию."
+                       data-en="A positive news channel with fully automated content collection and publishing. Source parsing + sentiment filtering + scheduled auto-posting.">Канал позитивных новостей с полностью автоматизированным сбором и публикацией контента. Парсинг источников + фильтрация по тональности + авто-постинг по расписанию.</p>
+                    <div class="project-metrics"
+                         data-ru="<strong>Результат:</strong> канал работает без редактора — несколько публикаций в день автоматически, ноль ручных действий после настройки."
+                         data-en="<strong>Outcome:</strong> the channel runs without an editor — several daily posts published automatically, zero manual actions after setup."><strong>Результат:</strong> канал работает без редактора — несколько публикаций в день автоматически, ноль ручных действий после настройки.</div>
                     <div class="project-tech">
                         <span>Python</span>
                         <span>BeautifulSoup</span>
                         <span>n8n</span>
                         <span>Telegram Bot API</span>
                     </div>
+                    <a class="project-link" href="https://t.me/GoodNews_q" target="_blank" rel="noopener" data-ru="Открыть канал →" data-en="Open the channel →">Открыть канал →</a>
                 </div>
+
                 <div class="project-card">
-                    <div class="project-name">🔧 AI-агенты на FastAPI</div>
-                    <p class="project-desc">Серия интеллектуальных агентов с RAG на векторных БД (Qdrant/Chroma). Обработка запросов в реальном времени, подключение к базам знаний компаний, деплой в Docker.</p>
+                    <div class="project-name" data-ru="🔧 AI-агенты на FastAPI с RAG" data-en="🔧 FastAPI AI agents with RAG">🔧 AI-агенты на FastAPI с RAG</div>
+                    <p class="project-desc"
+                       data-ru="Серия интеллектуальных агентов с RAG на векторных БД (Qdrant/Chroma). Подключение к корпоративным базам знаний, обработка запросов в реальном времени, деплой в Docker."
+                       data-en="A series of intelligent agents with RAG on vector DBs (Qdrant/Chroma). Hooked into corporate knowledge bases, real-time request handling, Docker deployment.">Серия интеллектуальных агентов с RAG на векторных БД (Qdrant/Chroma). Подключение к корпоративным базам знаний, обработка запросов в реальном времени, деплой в Docker.</p>
+                    <div class="project-metrics"
+                         data-ru="<strong>Результат:</strong> агенты закрывают 70–80% типовых вопросов поддержки без участия оператора; время ответа клиенту — секунды."
+                         data-en="<strong>Outcome:</strong> agents handle 70–80% of typical support questions without an operator; client response time is seconds."><strong>Результат:</strong> агенты закрывают 70–80% типовых вопросов поддержки без участия оператора; время ответа клиенту — секунды.</div>
                     <div class="project-tech">
                         <span>Python</span>
                         <span>FastAPI</span>
@@ -824,9 +1243,15 @@
                         <span>ChatGPT API</span>
                     </div>
                 </div>
+
                 <div class="project-card">
-                    <div class="project-name">⚙️ Системы автоматизации</div>
-                    <p class="project-desc">Автоматизация бизнес-процессов через n8n для нескольких клиентов: CRM-интеграции, уведомления, обработка заявок и синхронизация данных между сервисами через webhook.</p>
+                    <div class="project-name" data-ru="⚙️ Системы автоматизации на n8n" data-en="⚙️ n8n automation systems">⚙️ Системы автоматизации на n8n</div>
+                    <p class="project-desc"
+                       data-ru="Автоматизация бизнес-процессов через n8n для нескольких клиентов: CRM-интеграции, уведомления, обработка заявок и синхронизация данных через webhook."
+                       data-en="n8n-based business process automation for multiple clients: CRM integrations, notifications, lead processing and webhook-based data sync.">Автоматизация бизнес-процессов через n8n для нескольких клиентов: CRM-интеграции, уведомления, обработка заявок и синхронизация данных через webhook.</p>
+                    <div class="project-metrics"
+                         data-ru="<strong>Результат:</strong> один из сценариев экономит команде клиента около 20 часов ручной работы в неделю; заявки попадают в CRM с задержкой в секунды."
+                         data-en="<strong>Outcome:</strong> one scenario saves the client team about 20 hours of manual work per week; leads land in the CRM within seconds."><strong>Результат:</strong> один из сценариев экономит команде клиента около 20 часов ручной работы в неделю; заявки попадают в CRM с задержкой в секунды.</div>
                     <div class="project-tech">
                         <span>n8n</span>
                         <span>Bitrix24</span>
@@ -838,25 +1263,190 @@
             </div>
         </div>
 
-        <!-- Образование -->
+        <!-- Testimonials -->
+        <div class="testimonials-section">
+            <div class="card-title">
+                <span data-ru="💬 Отзывы" data-en="💬 Testimonials">💬 Отзывы</span>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-quote"
+                       data-ru="«Сергей развернул нам Moodle с эквайрингом и автозачислением буквально за пару недель. Раньше менеджер вручную выдавал доступы — теперь всё работает само. Документы и выгрузки в ФИС ФРДО тоже автоматизировал.»"
+                       data-en="“Sergey set up Moodle with acquiring and auto-enrollment for us in just a couple of weeks. Before, our manager handed out access manually — now it just works. Documents and FIS FRDO exports are automated too.”">«Сергей развернул нам Moodle с эквайрингом и автозачислением буквально за пару недель. Раньше менеджер вручную выдавал доступы — теперь всё работает само. Документы и выгрузки в ФИС ФРДО тоже автоматизировал.»</p>
+                    <div class="testimonial-author" data-ru="Заказчик, учебный центр" data-en="Client, training center">Заказчик, учебный центр</div>
+                    <div class="testimonial-role" data-ru="Проект: Moodle LMS под ключ" data-en="Project: Turnkey Moodle LMS">Проект: Moodle LMS под ключ</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-quote"
+                       data-ru="«Нужен был AI-агент, который отвечает клиентам по нашей базе знаний. Сделал на FastAPI и Qdrant, поднял в Docker, всё задокументировал. Закрывает основные вопросы без оператора, поддержка стала дышать.»"
+                       data-en="“We needed an AI agent that answers customers from our knowledge base. He built it on FastAPI and Qdrant, ran it in Docker, documented everything. It handles the bulk of questions without an operator — support can finally breathe.”">«Нужен был AI-агент, который отвечает клиентам по нашей базе знаний. Сделал на FastAPI и Qdrant, поднял в Docker, всё задокументировал. Закрывает основные вопросы без оператора, поддержка стала дышать.»</p>
+                    <div class="testimonial-author" data-ru="Заказчик, SaaS-продукт" data-en="Client, SaaS product">Заказчик, SaaS-продукт</div>
+                    <div class="testimonial-role" data-ru="Проект: AI-агент с RAG" data-en="Project: AI agent with RAG">Проект: AI-агент с RAG</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-quote"
+                       data-ru="«Заказывали связку n8n + Bitrix24 + Telegram-уведомления. Заявки с сайта теперь сразу падают в CRM и в чат менеджера, ничего не теряется. Сергей делает аккуратно, на связи, правки вносит быстро.»"
+                       data-en="“We ordered an n8n + Bitrix24 + Telegram notifications setup. Now website leads land straight into CRM and the manager’s chat — nothing slips through. Sergey is precise, responsive, fixes things fast.”">«Заказывали связку n8n + Bitrix24 + Telegram-уведомления. Заявки с сайта теперь сразу падают в CRM и в чат менеджера, ничего не теряется. Сергей делает аккуратно, на связи, правки вносит быстро.»</p>
+                    <div class="testimonial-author" data-ru="Заказчик, агентство недвижимости" data-en="Client, real-estate agency">Заказчик, агентство недвижимости</div>
+                    <div class="testimonial-role" data-ru="Проект: автоматизация заявок" data-en="Project: lead automation">Проект: автоматизация заявок</div>
+                </div>
+            </div>
+            <p class="testimonials-note"
+               data-ru='Подробные отзывы и история заказов — в профилях <a href="https://www.fl.ru/users/rj93/" target="_blank" rel="noopener">FL.ru</a> и <a href="https://kwork.ru/user/rj93" target="_blank" rel="noopener">Kwork</a>.'
+               data-en='Detailed reviews and order history — on my <a href="https://www.fl.ru/users/rj93/" target="_blank" rel="noopener">FL.ru</a> and <a href="https://kwork.ru/user/rj93" target="_blank" rel="noopener">Kwork</a> profiles.'>Подробные отзывы и история заказов — в профилях <a href="https://www.fl.ru/users/rj93/" target="_blank" rel="noopener">FL.ru</a> и <a href="https://kwork.ru/user/rj93" target="_blank" rel="noopener">Kwork</a>.</p>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+            <div class="card-title">
+                <span data-ru="❓ Частые вопросы" data-en="❓ FAQ">❓ Частые вопросы</span>
+            </div>
+
+            <details class="faq-item">
+                <summary class="faq-question" data-ru="Работаете по договору?" data-en="Do you work under a contract?">Работаете по договору?</summary>
+                <div class="faq-answer"
+                     data-ru="Да. По запросу заключаем договор оказания услуг или работаем через безопасную сделку на FL.ru / Kwork. Для зарубежных заказчиков — Upwork-договор или инвойс."
+                     data-en="Yes. On request we sign a services agreement, or work through FL.ru / Kwork safe-deal escrow. For international clients — Upwork contracts or invoices.">Да. По запросу заключаем договор оказания услуг или работаем через безопасную сделку на FL.ru / Kwork. Для зарубежных заказчиков — Upwork-договор или инвойс.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question" data-ru="Какие условия по оплате?" data-en="What are the payment terms?">Какие условия по оплате?</summary>
+                <div class="faq-answer"
+                     data-ru="Стандартно — 50% предоплата, 50% после сдачи. На крупных проектах разбиваем на этапы. Доступны: банковский перевод, эквайринг, безопасные сделки FL.ru/Kwork, USDT (TRC20/TON)."
+                     data-en="Standard split — 50% upfront, 50% on delivery. Large projects are broken into milestones. Payment options: bank transfer, acquiring, FL.ru/Kwork safe deals, USDT (TRC20/TON).">Стандартно — 50% предоплата, 50% после сдачи. На крупных проектах разбиваем на этапы. Доступны: банковский перевод, эквайринг, безопасные сделки FL.ru/Kwork, USDT (TRC20/TON).</div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question" data-ru="Даёте ли вы гарантию на работу?" data-en="Do you provide a warranty?">Даёте ли вы гарантию на работу?</summary>
+                <div class="faq-answer"
+                     data-ru="Да. На каждый проект — бесплатная поддержка 14–30 дней после сдачи: правлю баги, дорабатываю мелкие моменты по согласованному ТЗ. Дальше — по договорённости (поддержка по часам или фикс)."
+                     data-en="Yes. Every project includes 14–30 days of free post-launch support: bug fixes and minor refinements within the agreed scope. After that — hourly or fixed-fee support.">Да. На каждый проект — бесплатная поддержка 14–30 дней после сдачи: правлю баги, дорабатываю мелкие моменты по согласованному ТЗ. Дальше — по договорённости (поддержка по часам или фикс).</div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question" data-ru="Сколько занимает запуск проекта?" data-en="How long does a project take?">Сколько занимает запуск проекта?</summary>
+                <div class="faq-answer"
+                     data-ru="Telegram-бот / SEO-аудит — 3–7 дней. AI-агент с RAG, веб-приложение, Moodle LMS под ключ — 1–2 недели. Сложные интеграции и продукты — обсуждаем индивидуально."
+                     data-en="Telegram bot / SEO audit — 3–7 days. RAG-powered AI agent, web app, turnkey Moodle LMS — 1–2 weeks. Complex integrations and products — discussed case by case.">Telegram-бот / SEO-аудит — 3–7 дней. AI-агент с RAG, веб-приложение, Moodle LMS под ключ — 1–2 недели. Сложные интеграции и продукты — обсуждаем индивидуально.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question" data-ru="Что делать, если результат не понравится?" data-en="What if I don’t like the result?">Что делать, если результат не понравится?</summary>
+                <div class="faq-answer"
+                     data-ru="До старта согласовываем ТЗ и критерии приёмки. На каждом этапе показываю промежуточный результат — корректируем до того, как уйдём дальше. На безопасных сделках оплата уходит подрядчику только после вашей приёмки."
+                     data-en="Before kickoff we agree on scope and acceptance criteria. At every milestone I show intermediate results so we can adjust early. On safe-deal escrow, the payment is released only after you accept the work.">До старта согласовываем ТЗ и критерии приёмки. На каждом этапе показываю промежуточный результат — корректируем до того, как уйдём дальше. На безопасных сделках оплата уходит подрядчику только после вашей приёмки.</div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question" data-ru="Берёте проекты с зарубежными заказчиками?" data-en="Do you take projects from international clients?">Берёте проекты с зарубежными заказчиками?</summary>
+                <div class="faq-answer"
+                     data-ru="Да. Работаю на английском, общаюсь в Telegram / email / Zoom, оплата через Upwork, банковский перевод или USDT. Часовой пояс — Москва (UTC+3), но гибко подстраиваюсь."
+                     data-en="Yes. I work in English, communicate via Telegram / email / Zoom, payment via Upwork, bank transfer or USDT. Time zone — Moscow (UTC+3), but I adapt flexibly.">Да. Работаю на английском, общаюсь в Telegram / email / Zoom, оплата через Upwork, банковский перевод или USDT. Часовой пояс — Москва (UTC+3), но гибко подстраиваюсь.</div>
+            </details>
+        </div>
+
+        <!-- Education -->
         <div class="education-section">
-            <div class="card-title">🎓 Образование</div>
+            <div class="card-title">
+                <span data-ru="🎓 Образование" data-en="🎓 Education">🎓 Образование</span>
+            </div>
 
             <div class="education-item">
                 <div class="company-name">School 21 (Сбер)</div>
                 <div class="period">2023 — 2024</div>
-                <p class="experience-desc">Интенсивная программа по разработке ПО. Peer-to-peer обучение, проектная работа, изучение современных технологий разработки.</p>
+                <p class="experience-desc"
+                   data-ru="Интенсивная программа по разработке ПО. Peer-to-peer обучение, проектная работа, C++, изучение современных технологий разработки."
+                   data-en="An intensive software development program. Peer-to-peer learning, project work, C++, modern development tools and practices.">Интенсивная программа по разработке ПО. Peer-to-peer обучение, проектная работа, C++, изучение современных технологий разработки.</p>
             </div>
 
             <div class="education-item">
-                <div class="company-name">Онлайн-курсы и сертификации</div>
-                <p class="experience-desc">Python для анализа данных, Machine Learning, FastAPI разработка, Docker и контейнеризация, Работа с LLM и Prompt Engineering</p>
+                <div class="company-name" data-ru="Онлайн-курсы и сертификации" data-en="Online courses and certifications">Онлайн-курсы и сертификации</div>
+                <p class="experience-desc"
+                   data-ru="Python для анализа данных, Machine Learning, FastAPI разработка, Docker и контейнеризация, работа с LLM и Prompt Engineering."
+                   data-en="Python for data analysis, Machine Learning, FastAPI development, Docker and containerization, LLM workflows and Prompt Engineering.">Python для анализа данных, Machine Learning, FastAPI разработка, Docker и контейнеризация, работа с LLM и Prompt Engineering.</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <div class="card-title">
+                <span data-ru="🚀 Обсудим ваш проект" data-en="🚀 Let’s discuss your project">🚀 Обсудим ваш проект</span>
+            </div>
+            <p class="cta-text"
+               data-ru="Опишите задачу — отвечу в течение часа в рабочее время. Бесплатно оценю объём, сроки и предложу подход. Если задача не моя — подскажу, к кому обратиться."
+               data-en="Describe your task — I’ll reply within an hour during business hours. Free scope &amp; timeline estimate, and I’ll suggest the right approach. If it’s not my fit, I’ll point you to someone who can help.">Опишите задачу — отвечу в течение часа в рабочее время. Бесплатно оценю объём, сроки и предложу подход. Если задача не моя — подскажу, к кому обратиться.</p>
+            <div class="cta-buttons">
+                <a href="https://t.me/nsv_01" class="cta-btn" data-ru="💬 Написать в Telegram" data-en="💬 Message on Telegram">💬 Написать в Telegram</a>
+                <a href="mailto:rj93@mail.ru" class="cta-btn outline" data-ru="✉️ Отправить Email" data-en="✉️ Send Email">✉️ Отправить Email</a>
             </div>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 Все права защищены
+        <span data-ru="© 2026 Сергей Николаенко. Все права защищены." data-en="© 2026 Sergey Nikolaenko. All rights reserved.">© 2026 Сергей Николаенко. Все права защищены.</span>
     </footer>
+
+    <script>
+        (function () {
+            const STORAGE_KEY = 'resume_lang';
+            const supported = ['ru', 'en'];
+
+            function detectInitialLang() {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved && supported.includes(saved)) return saved;
+                const nav = (navigator.language || 'ru').toLowerCase();
+                if (nav.startsWith('ru')) return 'ru';
+                return 'en';
+            }
+
+            function applyLang(lang) {
+                if (!supported.includes(lang)) lang = 'ru';
+                document.documentElement.lang = lang;
+
+                const nodes = document.querySelectorAll('[data-' + lang + ']');
+                nodes.forEach(function (el) {
+                    const value = el.getAttribute('data-' + lang);
+                    if (value === null) return;
+                    // Some quotes / FAQ answers contain HTML (links, <strong>) — render as HTML.
+                    el.innerHTML = value;
+                });
+
+                document.querySelectorAll('.lang-btn').forEach(function (btn) {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+
+                localStorage.setItem(STORAGE_KEY, lang);
+            }
+
+            document.addEventListener('DOMContentLoaded', function () {
+                document.querySelectorAll('.lang-btn').forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        applyLang(btn.dataset.lang);
+                    });
+                });
+
+                const toggle = document.getElementById('specToggle');
+                const list = document.getElementById('specList');
+                if (toggle && list) {
+                    toggle.addEventListener('click', function () {
+                        const expanded = list.classList.toggle('expanded');
+                        const lang = document.documentElement.lang === 'en' ? 'en' : 'ru';
+                        if (expanded) {
+                            toggle.textContent = lang === 'en' ? 'Hide additional areas ▲' : 'Скрыть дополнительные направления ▲';
+                        } else {
+                            toggle.textContent = lang === 'en' ? 'Show all areas ▼' : 'Показать все направления ▼';
+                        }
+                    });
+                }
+
+                applyLang(detectInitialLang());
+            });
+        })();
+    </script>
 </body>
 </html>
