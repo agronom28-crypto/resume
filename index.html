@@ -52,9 +52,10 @@
         "Qdrant", "Chroma", "Whisper", "ElevenLabs", "AI Agents",
         "Bitrix24", "AmoCRM", "1C-Bitrix", "Selenium", "PostgreSQL", "MongoDB",
         "SEO", "Technical SEO", "schema.org", "AI SEO content",
-        "Moodle", "LMS", "EdTech", "PHP", "Debian", "ISPmanager", "Sberbank Acquiring", "FIS FRDO"
+        "Moodle", "LMS", "EdTech", "PHP", "Debian", "ISPmanager", "Sberbank Acquiring", "FIS FRDO",
+        "CAD", "DXF", "ezdxf", "Shapely", "NumPy", "Computational geometry", "CNC", "Glass manufacturing automation", "Windows Service", "PyInstaller", "1С Интеграция"
       ],
-      "description": "Freelance developer: AI agents, Telegram bots, LMS/EdTech, RAG systems, business process automation, CRM and payment integrations, SEO. Turnkey projects from MVP to deployment."
+      "description": "Freelance developer: AI agents, Telegram bots, LMS/EdTech, RAG systems, CAD/DXF processing for CNC, computational geometry, business process automation, CRM and payment integrations, SEO. Turnkey projects from MVP to deployment."
     }
     </script>
 
@@ -414,6 +415,119 @@
             color: #4a5568;
             margin-bottom: 25px;
             font-size: 1.1rem;
+        }
+
+        /* Flagship project card */
+        .flagship-card {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: #e2e8f0;
+            border-radius: 18px;
+            padding: 32px;
+            margin-bottom: 28px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(26, 32, 44, 0.25);
+        }
+
+        .flagship-card::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.35) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .flagship-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flagship-name {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 6px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flagship-role {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flagship-desc {
+            color: #cbd5e0;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+            font-size: 1rem;
+        }
+
+        .flagship-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-bottom: 22px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flagship-highlight {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
+
+        .flagship-highlight-num {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #a0c4ff 0%, #c8b6ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
+        }
+
+        .flagship-highlight-label {
+            font-size: 0.82rem;
+            color: #a0aec0;
+            line-height: 1.4;
+        }
+
+        .flagship-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .flagship-tech span {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #e2e8f0;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 0.82rem;
         }
 
         .projects-grid {
@@ -808,8 +922,8 @@
                      data-ru="Fullstack-разработчик / Python Developer / AI Solutions Engineer"
                      data-en="Fullstack Developer / Python Engineer / AI Solutions Engineer">Fullstack-разработчик / Python Developer / AI Solutions Engineer</div>
                 <p class="description"
-                   data-ru="Разрабатываю AI-агентов, Telegram-ботов, LMS/EdTech-платформы и системы автоматизации для бизнеса — от MVP до деплоя. 6+ лет в разработке и автоматизации в банковском секторе, 2+ года в продуктовой AI-разработке на Python, FastAPI, LangChain и интеграциях LLM."
-                   data-en="I build AI agents, Telegram bots, LMS/EdTech platforms and business automation systems — from MVP to deployment. 6+ years in development and automation in banking, 2+ years in product AI engineering with Python, FastAPI, LangChain and LLM integrations.">Разрабатываю AI-агентов, Telegram-ботов, LMS/EdTech-платформы и системы автоматизации для бизнеса — от MVP до деплоя. 6+ лет в разработке и автоматизации в банковском секторе, 2+ года в продуктовой AI-разработке на Python, FastAPI, LangChain и интеграциях LLM.</p>
+                   data-ru="Создатель DXF Processor — production-конвертера для ЧПУ-резки стекла. Разрабатываю AI-агентов, Telegram-ботов, LMS/EdTech-платформы и системы автоматизации для бизнеса — от MVP до деплоя. 6+ лет в разработке и автоматизации в банковском секторе, 2+ года в продуктовой AI-разработке на Python, FastAPI, LangChain и интеграциях LLM."
+                   data-en="Creator of DXF Processor — a production converter for CNC glass cutting. I build AI agents, Telegram bots, LMS/EdTech platforms and business automation systems — from MVP to deployment. 6+ years in development and automation in banking, 2+ years in product AI engineering with Python, FastAPI, LangChain and LLM integrations.">Создатель DXF Processor — production-конвертера для ЧПУ-резки стекла. Разрабатываю AI-агентов, Telegram-ботов, LMS/EdTech-платформы и системы автоматизации для бизнеса — от MVP до деплоя. 6+ лет в разработке и автоматизации в банковском секторе, 2+ года в продуктовой AI-разработке на Python, FastAPI, LangChain и интеграциях LLM.</p>
 
                 <!-- Stats -->
                 <div class="header-stats">
@@ -826,8 +940,8 @@
                         <span class="stat-label" data-ru="AI-агентов и ботов" data-en="AI agents &amp; bots">AI-агентов и ботов</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-num">24/7</span>
-                        <span class="stat-label" data-ru="на связи в Telegram" data-en="Telegram response">на связи в Telegram</span>
+                        <span class="stat-num">1</span>
+                        <span class="stat-label" data-ru="собственный production-продукт" data-en="own production product">собственный production-продукт</span>
                     </div>
                 </div>
 
@@ -856,6 +970,7 @@
                 <div class="spec-top-item" data-ru="🎓 LMS/EdTech: Moodle, эквайринг, ФИС ФРДО" data-en="🎓 LMS/EdTech: Moodle, payments, certifications">🎓 LMS/EdTech: Moodle, эквайринг, ФИС ФРДО</div>
                 <div class="spec-top-item" data-ru="⚙️ Автоматизация бизнес-процессов через n8n / Zapier" data-en="⚙️ Business process automation via n8n / Zapier">⚙️ Автоматизация бизнес-процессов через n8n / Zapier</div>
                 <div class="spec-top-item" data-ru="🌐 Веб-приложения и API (FastAPI, Next.js, React)" data-en="🌐 Web apps &amp; APIs (FastAPI, Next.js, React)">🌐 Веб-приложения и API (FastAPI, Next.js, React)</div>
+                <div class="spec-top-item" data-ru="📐 CAD/DXF-обработка и вычислительная геометрия (ezdxf, Shapely)" data-en="📐 CAD/DXF processing &amp; computational geometry (ezdxf, Shapely)">📐 CAD/DXF-обработка и вычислительная геометрия (ezdxf, Shapely)</div>
             </div>
 
             <button class="spec-toggle" id="specToggle" data-ru="Показать все направления ▼" data-en="Show all areas ▼">Показать все направления ▼</button>
@@ -873,6 +988,7 @@
                 <li data-ru="CRM-интеграции (Bitrix24, Hostaway, AmoCRM)" data-en="CRM integrations (Bitrix24, Hostaway, AmoCRM)">CRM-интеграции (Bitrix24, Hostaway, AmoCRM)</li>
                 <li data-ru="Работа с CMS (1С-Битрикс, WordPress, Tilda, ModX)" data-en="CMS work (1C-Bitrix, WordPress, Tilda, ModX)">Работа с CMS (1С-Битрикс, WordPress, Tilda, ModX)</li>
                 <li data-ru="Контент-автоматизация и видеообработка" data-en="Content automation and video processing">Контент-автоматизация и видеообработка</li>
+                <li data-ru="Обработка CAD/DXF и вычислительная геометрия: эквидистанта, работа с полилиниями, дугами и сплайнами, интеграция с CAM/ЧПУ" data-en="CAD/DXF processing and computational geometry: equidistant offsets, work with polylines, arcs and splines, CAM/CNC integration">Обработка CAD/DXF и вычислительная геометрия: эквидистанта, работа с полилиниями, дугами и сплайнами, интеграция с CAM/ЧПУ</li>
             </ul>
         </div>
 
@@ -916,6 +1032,7 @@
                     <div class="role" data-ru="Python / AI / Fullstack разработчик" data-en="Python / AI / Fullstack Developer">Python / AI / Fullstack разработчик</div>
                     <div class="period" data-ru="2023 — настоящее время" data-en="2023 — present">2023 — настоящее время</div>
                     <ul class="experience-desc">
+                        <li data-ru="Создал с нуля DXF Processor — коммерческий продукт для ЧПУ-резки стекла (Python, ezdxf, Shapely, Windows-служба), в production у заказчика" data-en="Built DXF Processor from scratch — a commercial product for CNC glass cutting (Python, ezdxf, Shapely, Windows service), running in production at the client">Создал с нуля DXF Processor — коммерческий продукт для ЧПУ-резки стекла (Python, ezdxf, Shapely, Windows-служба), в production у заказчика</li>
                         <li data-ru="Запустил Telegram P2E игру (DGTL MiniApp) с реферальной системой и монетизацией" data-en="Launched a Telegram P2E game (DGTL MiniApp) with referral system and monetization">Запустил Telegram P2E игру (DGTL MiniApp) с реферальной системой и монетизацией</li>
                         <li data-ru="Создал 15+ AI-агентов и ботов на FastAPI с интеграцией ChatGPT, Claude, Ollama и RAG на Qdrant/Chroma" data-en="Built 15+ AI agents and bots on FastAPI with ChatGPT, Claude, Ollama and RAG on Qdrant/Chroma">Создал 15+ AI-агентов и ботов на FastAPI с интеграцией ChatGPT, Claude, Ollama и RAG на Qdrant/Chroma</li>
                         <li data-ru="Настроил n8n-сценарии и webhook-интеграции для нескольких клиентов — обработка заявок 24/7 без ручного вмешательства" data-en="Set up n8n workflows and webhook integrations for multiple clients — 24/7 lead processing with no manual intervention">Настроил n8n-сценарии и webhook-интеграции для нескольких клиентов — обработка заявок 24/7 без ручного вмешательства</li>
@@ -1154,6 +1271,50 @@
                 <span data-ru="🚀 Кейсы и проекты" data-en="🚀 Cases &amp; projects">🚀 Кейсы и проекты</span>
             </div>
             <p class="projects-intro" data-ru="Активные проекты с измеримыми результатами" data-en="Active projects with measurable outcomes">Активные проекты с измеримыми результатами</p>
+
+            <!-- Flagship case: DXF Processor -->
+            <div class="flagship-card">
+                <span class="flagship-badge" data-ru="⭐ Флагманский кейс · в production" data-en="⭐ Flagship case · in production">⭐ Флагманский кейс · в production</span>
+                <div class="flagship-name" data-ru="📐 DXF Processor — конвертер для ЧПУ-резки стекла" data-en="📐 DXF Processor — DXF converter for CNC glass cutting">📐 DXF Processor — конвертер для ЧПУ-резки стекла</div>
+                <div class="flagship-role" data-ru="Создатель продукта · single-developer · от ТЗ до production-деплоя" data-en="Product creator · solo developer · from spec to production rollout">Создатель продукта · single-developer · от ТЗ до production-деплоя</div>
+                <p class="flagship-desc"
+                   data-ru="Самостоятельно с нуля разработал коммерческий продукт для стекольного производства: десктоп-приложение на Python, которое автоматически разбирает DXF-чертежи на отдельные детали, выполняет вычислительную геометрию (поворот по самой длинной стороне, эквидистанту 1.5/2.0 мм, припуск на обламывание 3 × толщина стекла, скругления R1 у открытых вырезов), формирует два DXF на каждую деталь — «в обработку» и «в резку» — и собирает Excel-спецификацию под импорт в 1С. Запускается как Windows-служба, работает в фоне 24/7, обрабатывает входные DXF до версии R2024, на выходе R2010 для совместимости с любыми старыми CAM/ЧПУ."
+                   data-en="Built a commercial product for glass manufacturing solo from scratch: a Python desktop app that automatically splits DXF drawings into individual parts, runs computational geometry (rotation along the longest edge, 1.5/2.0 mm equidistant offset, 3 × glass thickness break allowance, R1 fillets on open cutouts), generates two DXFs per part — “processing” and “cutting” — and builds an Excel spec ready for import into 1C. Runs as a Windows service, works 24/7 in the background, accepts input DXFs up to R2024 and outputs R2010 for compatibility with any legacy CAM/CNC.">Самостоятельно с нуля разработал коммерческий продукт для стекольного производства: десктоп-приложение на Python, которое автоматически разбирает DXF-чертежи на отдельные детали, выполняет вычислительную геометрию (поворот по самой длинной стороне, эквидистанту 1.5/2.0 мм, припуск на обламывание 3 × толщина стекла, скругления R1 у открытых вырезов), формирует два DXF на каждую деталь — «в обработку» и «в резку» — и собирает Excel-спецификацию под импорт в 1С. Запускается как Windows-служба, работает в фоне 24/7, обрабатывает входные DXF до версии R2024, на выходе R2010 для совместимости с любыми старыми CAM/ЧПУ.</p>
+
+                <div class="flagship-highlights">
+                    <div class="flagship-highlight">
+                        <div class="flagship-highlight-num" data-ru="−95%" data-en="−95%">−95%</div>
+                        <div class="flagship-highlight-label" data-ru="времени технолога на подготовку чертежей к резке" data-en="of technologist time on prepping drawings for cutting">времени технолога на подготовку чертежей к резке</div>
+                    </div>
+                    <div class="flagship-highlight">
+                        <div class="flagship-highlight-num" data-ru="24/7" data-en="24/7">24/7</div>
+                        <div class="flagship-highlight-label" data-ru="работает как Windows-служба, без оператора" data-en="runs as a Windows service, no operator needed">работает как Windows-служба, без оператора</div>
+                    </div>
+                    <div class="flagship-highlight">
+                        <div class="flagship-highlight-num" data-ru="DXF R2024 → R2010" data-en="DXF R2024 → R2010">DXF R2024 → R2010</div>
+                        <div class="flagship-highlight-label" data-ru="совместимость со всем парком CAM/ЧПУ" data-en="compatible with the entire CAM/CNC fleet">совместимость со всем парком CAM/ЧПУ</div>
+                    </div>
+                    <div class="flagship-highlight">
+                        <div class="flagship-highlight-num" data-ru="1С 2.5" data-en="1C 2.5">1С 2.5</div>
+                        <div class="flagship-highlight-label" data-ru="авто-Excel под импорт спецификаций в учётную систему" data-en="auto-generated Excel for spec import into the ERP">авто-Excel под импорт спецификаций в учётную систему</div>
+                    </div>
+                </div>
+
+                <div class="flagship-tech">
+                    <span>Python</span>
+                    <span>ezdxf</span>
+                    <span>Shapely</span>
+                    <span>NumPy</span>
+                    <span>OpenPyXL</span>
+                    <span>Watchdog</span>
+                    <span>PyInstaller</span>
+                    <span>pywin32</span>
+                    <span data-ru="Windows Service" data-en="Windows Service">Windows Service</span>
+                    <span data-ru="GitHub Actions (CI .exe)" data-en="GitHub Actions (CI .exe)">GitHub Actions (CI .exe)</span>
+                    <span data-ru="Вычислительная геометрия" data-en="Computational geometry">Вычислительная геометрия</span>
+                </div>
+            </div>
+
             <div class="projects-grid">
 
                 <div class="project-card">
