@@ -609,6 +609,49 @@
             text-decoration: underline;
         }
 
+        /* Status badges on project cards — NDA / prototype / internal */
+        .project-status {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        .project-status.nda {
+            background: rgba(102, 126, 234, 0.10);
+            color: #4a5398;
+            border: 1px solid rgba(102, 126, 234, 0.25);
+        }
+
+        .project-status.prototype {
+            background: rgba(237, 137, 54, 0.10);
+            color: #9c4221;
+            border: 1px solid rgba(237, 137, 54, 0.30);
+        }
+
+        .project-status.internal {
+            background: rgba(72, 187, 120, 0.10);
+            color: #276749;
+            border: 1px solid rgba(72, 187, 120, 0.30);
+        }
+
+        /* Status pill inside flagship card */
+        .flagship-status {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+
         .education-item {
             margin-bottom: 20px;
         }
@@ -1034,7 +1077,7 @@
                     <div class="role" data-ru="Python / AI / Fullstack разработчик" data-en="Python / AI / Fullstack Developer">Python / AI / Fullstack разработчик</div>
                     <div class="period" data-ru="2023 — настоящее время" data-en="2023 — present">2023 — настоящее время</div>
                     <ul class="experience-desc">
-                        <li data-ru="Создал с нуля DXF Processor — коммерческий продукт для ЧПУ-резки стекла (Python, ezdxf, Shapely, Windows-служба), в production у заказчика" data-en="Built DXF Processor from scratch — a commercial product for CNC glass cutting (Python, ezdxf, Shapely, Windows service), running in production at the client">Создал с нуля DXF Processor — коммерческий продукт для ЧПУ-резки стекла (Python, ezdxf, Shapely, Windows-служба), в production у заказчика</li>
+                        <li data-ru="Создал с нуля свой коммерческий продукт DXF Processor для ЧПУ-резки стекла (Python, ezdxf, Shapely, Windows-служба) — в промышленной эксплуатации" data-en="Built my own commercial product DXF Processor from scratch for CNC glass cutting (Python, ezdxf, Shapely, Windows service) — in industrial production use">Создал с нуля свой коммерческий продукт DXF Processor для ЧПУ-резки стекла (Python, ezdxf, Shapely, Windows-служба) — в промышленной эксплуатации</li>
                         <li data-ru="Запустил Telegram P2E игру (DGTL MiniApp) с реферальной системой и монетизацией" data-en="Launched a Telegram P2E game (DGTL MiniApp) with referral system and monetization">Запустил Telegram P2E игру (DGTL MiniApp) с реферальной системой и монетизацией</li>
                         <li data-ru="Создал 15+ AI-агентов и ботов на FastAPI с интеграцией ChatGPT, Claude, Ollama и RAG на Qdrant/Chroma" data-en="Built 15+ AI agents and bots on FastAPI with ChatGPT, Claude, Ollama and RAG on Qdrant/Chroma">Создал 15+ AI-агентов и ботов на FastAPI с интеграцией ChatGPT, Claude, Ollama и RAG на Qdrant/Chroma</li>
                         <li data-ru="Настроил n8n-сценарии и webhook-интеграции для нескольких клиентов — обработка заявок 24/7 без ручного вмешательства" data-en="Set up n8n workflows and webhook integrations for multiple clients — 24/7 lead processing with no manual intervention">Настроил n8n-сценарии и webhook-интеграции для нескольких клиентов — обработка заявок 24/7 без ручного вмешательства</li>
@@ -1322,6 +1365,8 @@
                     <span data-ru="GitHub Actions (CI .exe)" data-en="GitHub Actions (CI .exe)">GitHub Actions (CI .exe)</span>
                     <span data-ru="Вычислительная геометрия" data-en="Computational geometry">Вычислительная геометрия</span>
                 </div>
+
+                <div class="flagship-status" data-ru="🔒 Мой собственный продукт · исходники закрыты, демо по запросу" data-en="🔒 My own product · source code is private, demo on request">🔒 Мой собственный продукт · исходники закрыты, демо по запросу</div>
             </div>
 
             <div class="projects-grid">
@@ -1343,6 +1388,7 @@
                         <span>LMS</span>
                         <span>ФИС ФРДО</span>
                     </div>
+                    <a class="project-link" href="https://study.spectender.ru/" target="_blank" rel="noopener" data-ru="Открыть →" data-en="Open →">Открыть →</a>
                 </div>
 
                 <div class="project-card">
@@ -1360,40 +1406,41 @@
                         <span>MongoDB</span>
                         <span>Telegram Bot API</span>
                     </div>
+                    <a class="project-link" href="https://t.me/Dgtl_clicker_bot" target="_blank" rel="noopener" data-ru="Открыть в Telegram →" data-en="Open in Telegram →">Открыть в Telegram →</a>
                 </div>
 
                 <div class="project-card">
                     <div class="project-name">🤖 @Infohunterbot</div>
                     <p class="project-desc"
-                       data-ru="Бот для поиска и анализа информации с NLP-интерфейсом. Интегрирован с несколькими API-источниками, умеет суммаризировать и фильтровать результаты по запросу пользователя."
-                       data-en="A bot for searching and analyzing information through an NLP interface. Integrates multiple API sources, summarizes and filters results on demand.">Бот для поиска и анализа информации с NLP-интерфейсом. Интегрирован с несколькими API-источниками, умеет суммаризировать и фильтровать результаты по запросу пользователя.</p>
+                       data-ru="Прототип бота для поиска и анализа информации с NLP-интерфейсом. Интеграция с API-источниками, суммаризация и фильтрация результатов. Запускается на показ — не работает в production-режиме 24/7."
+                       data-en="Prototype of an NLP-driven information search/analysis bot. API integrations, result summarization and filtering. Spun up on demand for demos — not running 24/7 in production.">Прототип бота для поиска и анализа информации с NLP-интерфейсом. Интеграция с API-источниками, суммаризация и фильтрация результатов. Запускается на показ — не работает в production-режиме 24/7.</p>
                     <div class="project-metrics"
-                         data-ru="<strong>Результат:</strong> поиск и саммари занимают секунды вместо минут ручного поиска; пользователь получает готовый отфильтрованный ответ в чате."
-                         data-en="<strong>Outcome:</strong> search and summarization take seconds instead of minutes of manual search; the user gets a filtered ready answer right in chat."><strong>Результат:</strong> поиск и саммари занимают секунды вместо минут ручного поиска; пользователь получает готовый отфильтрованный ответ в чате.</div>
+                         data-ru="<strong>Результат:</strong> рабочий прототип архитектуры «Telegram + FastAPI + LangChain» — поиск и саммари за секунды, готовая основа для боевого внедрения."
+                         data-en="<strong>Outcome:</strong> a working prototype of the “Telegram + FastAPI + LangChain” architecture — search and summarization in seconds, ready foundation for production rollout."><strong>Результат:</strong> рабочий прототип архитектуры «Telegram + FastAPI + LangChain» — поиск и саммари за секунды, готовая основа для боевого внедрения.</div>
                     <div class="project-tech">
                         <span>Python</span>
                         <span>FastAPI</span>
                         <span>LangChain</span>
                         <span>Telegram Bot API</span>
                     </div>
-                    <a class="project-link" href="https://t.me/Infohunterbotbot" target="_blank" rel="noopener" data-ru="Открыть в Telegram →" data-en="Open in Telegram →">Открыть в Telegram →</a>
+                    <div class="project-status prototype" data-ru="🧪 Прототип / демо · запускается для показа" data-en="🧪 Prototype / demo · spun up for showcases">🧪 Прототип / демо · запускается для показа</div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-name">📰 @GoodNews_q</div>
                     <p class="project-desc"
-                       data-ru="Канал позитивных новостей с полностью автоматизированным сбором и публикацией контента. Парсинг источников + фильтрация по тональности + авто-постинг по расписанию."
-                       data-en="A positive news channel with fully automated content collection and publishing. Source parsing + sentiment filtering + scheduled auto-posting.">Канал позитивных новостей с полностью автоматизированным сбором и публикацией контента. Парсинг источников + фильтрация по тональности + авто-постинг по расписанию.</p>
+                       data-ru="Прототип канала позитивных новостей с автоматизированным сбором и публикацией: парсинг источников, фильтрация по тональности, авто-постинг по расписанию. Запускается на показ — не работает в production-режиме 24/7."
+                       data-en="Prototype of a positive-news channel with automated collection and publishing: source parsing, sentiment filtering, scheduled auto-posting. Spun up on demand for demos — not running 24/7 in production.">Прототип канала позитивных новостей с автоматизированным сбором и публикацией: парсинг источников, фильтрация по тональности, авто-постинг по расписанию. Запускается на показ — не работает в production-режиме 24/7.</p>
                     <div class="project-metrics"
-                         data-ru="<strong>Результат:</strong> канал работает без редактора — несколько публикаций в день автоматически, ноль ручных действий после настройки."
-                         data-en="<strong>Outcome:</strong> the channel runs without an editor — several daily posts published automatically, zero manual actions after setup."><strong>Результат:</strong> канал работает без редактора — несколько публикаций в день автоматически, ноль ручных действий после настройки.</div>
+                         data-ru="<strong>Результат:</strong> рабочий прототип пайплайна «источники → фильтр тональности → Telegram» — несколько публикаций в день без редактора."
+                         data-en="<strong>Outcome:</strong> a working prototype of the “sources → sentiment filter → Telegram” pipeline — several daily posts with no editor in the loop."><strong>Результат:</strong> рабочий прототип пайплайна «источники → фильтр тональности → Telegram» — несколько публикаций в день без редактора.</div>
                     <div class="project-tech">
                         <span>Python</span>
                         <span>BeautifulSoup</span>
                         <span>n8n</span>
                         <span>Telegram Bot API</span>
                     </div>
-                    <a class="project-link" href="https://t.me/GoodNews_q" target="_blank" rel="noopener" data-ru="Открыть канал →" data-en="Open the channel →">Открыть канал →</a>
+                    <div class="project-status prototype" data-ru="🧪 Прототип / демо · запускается для показа" data-en="🧪 Prototype / demo · spun up for showcases">🧪 Прототип / демо · запускается для показа</div>
                 </div>
 
                 <div class="project-card">
@@ -1412,6 +1459,7 @@
                         <span>Docker</span>
                         <span>ChatGPT API</span>
                     </div>
+                    <div class="project-status nda" data-ru="🔒 NDA · показываю по запросу" data-en="🔒 NDA · shown on request">🔒 NDA · показываю по запросу</div>
                 </div>
 
                 <div class="project-card">
@@ -1429,6 +1477,7 @@
                         <span>Webhook</span>
                         <span>Python</span>
                     </div>
+                    <div class="project-status internal" data-ru="🔒 Внутренние корпоративные проекты" data-en="🔒 Internal corporate projects">🔒 Внутренние корпоративные проекты</div>
                 </div>
             </div>
         </div>
