@@ -938,13 +938,18 @@
             }
 
             .lang-switcher {
-                top: 10px;
-                right: 10px;
+                position: absolute;
+                top: 12px;
+                right: 12px;
             }
 
             .lang-btn {
                 padding: 6px 10px;
                 font-size: 0.8rem;
+            }
+
+            .header-card {
+                padding-top: 64px;
             }
         }
     </style>
@@ -1045,7 +1050,7 @@
                 </div>
 
                 <div class="experience-item">
-                    <div class="company-name">Альфа-банк</div>
+                    <div class="company-name" data-ru="Альфа-банк" data-en="Alfa-Bank">Альфа-банк</div>
                     <div class="role" data-ru="Финансовый аналитик / Python-автоматизация" data-en="Financial Analyst / Python Automation">Финансовый аналитик / Python-автоматизация</div>
                     <div class="period">2020 — 2023</div>
                     <p class="experience-desc"
@@ -1059,7 +1064,7 @@
                 </div>
 
                 <div class="experience-item">
-                    <div class="company-name">Сбербанк</div>
+                    <div class="company-name" data-ru="Сбербанк" data-en="Sberbank">Сбербанк</div>
                     <div class="role" data-ru="Разработка внутренних инструментов и AI-автоматизация" data-en="Internal tooling &amp; AI automation">Разработка внутренних инструментов и AI-автоматизация</div>
                     <div class="period">2023 — 2026</div>
                     <p class="experience-desc"
@@ -1576,7 +1581,7 @@
             </div>
 
             <div class="education-item">
-                <div class="company-name">School 21 (Сбер)</div>
+                <div class="company-name" data-ru="School 21 (Сбер)" data-en="School 21 (Sber)">School 21 (Сбер)</div>
                 <div class="period">2023 — 2024</div>
                 <p class="experience-desc"
                    data-ru="Интенсивная программа по разработке ПО. Peer-to-peer обучение, проектная работа, C++, изучение современных технологий разработки."
