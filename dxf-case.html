@@ -30,6 +30,40 @@
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
+    /* LANG SWITCHER */
+    .lang-bar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px 24px 0;
+      gap: 4px;
+      position: relative;
+      z-index: 10;
+    }
+    .lang-btn {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .15s;
+      line-height: 1;
+    }
+    .lang-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .lang-btn:hover:not(.active) {
+      background: var(--accent-light);
+      color: var(--accent);
+      border-color: #bfdbfe;
+    }
+
     /* HEADER */
     .hero {
       background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
@@ -480,153 +514,160 @@
 </head>
 <body>
 
-<a class="back-link" href="index.html">&#8592; Назад к резюме</a>
+<!-- TOP BAR: back link + lang switcher -->
+<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px 0;">
+  <a class="back-link" style="padding:0;" href="index.html">&#8592; <span data-ru="Назад к резюме" data-en="Back to résumé">Назад к резюме</span></a>
+  <div class="lang-bar" style="padding:0;">
+    <button class="lang-btn active" id="btn-ru" onclick="setLang('ru')">RU</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="badge">DXF Processor · B2B · Стекольные производства</div>
-  <h1>Автоматизация подготовки DXF для ЧПУ-резки стекла</h1>
-  <p class="lead-line">Деление чертежей на детали, поворот по длинной стороне, припуски 1.5 / 2.0 мм, припуск на обламывание и Excel-выгрузка — без участия оператора.</p>
-  <p class="sub">Готовое решение для стекольных цехов. Вход — DXF до 2024, выход — DXF 2010, совместимый с большинством ЧПУ-станков.</p>
+  <div class="badge" data-ru="DXF Processor · B2B · Стекольные производства" data-en="DXF Processor · B2B · Glass Manufacturing">DXF Processor · B2B · Стекольные производства</div>
+  <h1 data-ru="Автоматизация подготовки DXF для ЧПУ-резки стекла" data-en="Automated DXF Preparation for CNC Glass Cutting">Автоматизация подготовки DXF для ЧПУ-резки стекла</h1>
+  <p class="lead-line" data-ru="Деление чертежей на детали, поворот по длинной стороне, припуски 1.5 / 2.0 мм, припуск на обламывание и Excel-выгрузка — без участия оператора." data-en="Drawing-to-part splitting, longest-edge rotation, 1.5 / 2.0 mm offsets, break allowance, and Excel export — fully unattended.">Деление чертежей на детали, поворот по длинной стороне, припуски 1.5 / 2.0 мм, припуск на обламывание и Excel-выгрузка — без участия оператора.</p>
+  <p class="sub" data-ru="Готовое решение для стекольных цехов. Вход — DXF до 2024, выход — DXF 2010, совместимый с большинством ЧПУ-станков." data-en="A ready-made solution for glass workshops. Input — DXF up to 2024, output — DXF 2010, compatible with most CNC machines.">Готовое решение для стекольных цехов. Вход — DXF до 2024, выход — DXF 2010, совместимый с большинством ЧПУ-станков.</p>
   <div class="hero-cta-row">
-    <a href="mailto:rj93@mail.ru?subject=DXF%20Processor%20%E2%80%94%20%D0%BF%D0%B8%D0%BB%D0%BE%D1%82%2014%20%D0%B4%D0%BD%D0%B5%D0%B9" class="hero-cta">Запросить пилот 14 дней</a>
-    <a href="mailto:rj93@mail.ru?subject=DXF%20Processor%20%E2%80%94%20%D1%82%D0%B5%D1%81%D1%82%20%D0%BD%D0%B0%20%D0%BD%D0%B0%D1%88%D0%B8%D1%85%20DXF" class="hero-cta outline">Прислать DXF на тест</a>
+    <a href="mailto:rj93@mail.ru?subject=DXF%20Processor%20%E2%80%94%20pilot%2014%20days" class="hero-cta" data-ru="Запросить пилот 14 дней" data-en="Request 14-day pilot">Запросить пилот 14 дней</a>
+    <a href="mailto:rj93@mail.ru?subject=DXF%20Processor%20%E2%80%94%20test%20DXF" class="hero-cta outline" data-ru="Прислать DXF на тест" data-en="Send DXF for a test run">Прислать DXF на тест</a>
   </div>
-  <div class="hero-sub">rj93@mail.ru · ответ в течение рабочего дня · NDA по запросу</div>
+  <div class="hero-sub" data-ru="rj93@mail.ru · ответ в течение рабочего дня · NDA по запросу" data-en="rj93@mail.ru · reply within one business day · NDA on request">rj93@mail.ru · ответ в течение рабочего дня · NDA по запросу</div>
 </section>
 
 <!-- STATS -->
 <div class="stats">
   <div class="stat-item">
     <div class="stat-num">DXF 2024 → 2010</div>
-    <div class="stat-label">вход / выход</div>
+    <div class="stat-label" data-ru="вход / выход" data-en="input / output">вход / выход</div>
   </div>
   <div class="stat-item">
     <div class="stat-num">1.5 / 2.0 мм</div>
-    <div class="stat-label">припуск (зависит от толщины)</div>
+    <div class="stat-label" data-ru="припуск (зависит от толщины)" data-en="offset (depends on thickness)">припуск (зависит от толщины)</div>
   </div>
   <div class="stat-item">
     <div class="stat-num">3×t</div>
-    <div class="stat-label">припуск на обламывание (кривые)</div>
+    <div class="stat-label" data-ru="припуск на обламывание (кривые)" data-en="break allowance (curved edges)">припуск на обламывание (кривые)</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">14 дней</div>
-    <div class="stat-label">пилот на ваших файлах</div>
+    <div class="stat-num" data-ru="14 дней" data-en="14 days">14 дней</div>
+    <div class="stat-label" data-ru="пилот на ваших файлах" data-en="pilot on your own files">пилот на ваших файлах</div>
   </div>
 </div>
 
 <!-- AUDIENCE -->
 <div class="container">
   <section>
-    <div class="section-tag">Для кого</div>
-    <h2>Кому подойдёт DXF Processor</h2>
-    <p class="lead">Решение для производств, где DXF-файлы готовятся вручную и оператор тратит часы на рутинные действия перед запуском станка.</p>
+    <div class="section-tag" data-ru="Для кого" data-en="Who it's for">Для кого</div>
+    <h2 data-ru="Кому подойдёт DXF Processor" data-en="Who DXF Processor is built for">Кому подойдёт DXF Processor</h2>
+    <p class="lead" data-ru="Решение для производств, где DXF-файлы готовятся вручную и оператор тратит часы на рутинные действия перед запуском станка." data-en="Built for workshops where DXF files are prepared manually and the operator spends hours on routine tasks before starting the machine.">Решение для производств, где DXF-файлы готовятся вручную и оператор тратит часы на рутинные действия перед запуском станка.</p>
     <div class="cards">
       <div class="card">
         <div class="card-icon">🏭</div>
-        <h3>Стекольные цеха</h3>
-        <p>ЧПУ-резка листового стекла 4–19 мм: фасады, душевые, перегородки, мебельное стекло</p>
+        <h3 data-ru="Стекольные цеха" data-en="Glass workshops">Стекольные цеха</h3>
+        <p data-ru="ЧПУ-резка листового стекла 4–19 мм: фасады, душевые, перегородки, мебельное стекло" data-en="CNC cutting of flat glass 4–19 mm: facades, shower enclosures, partitions, furniture glass">ЧПУ-резка листового стекла 4–19 мм: фасады, душевые, перегородки, мебельное стекло</p>
       </div>
       <div class="card">
         <div class="card-icon">📐</div>
-        <h3>Производства с потоком DXF</h3>
-        <p>Если за смену приходит 30–200+ деталей в DXF от конструкторов или заказчиков</p>
+        <h3 data-ru="Производства с потоком DXF" data-en="High-volume DXF workflows">Производства с потоком DXF</h3>
+        <p data-ru="Если за смену приходит 30–200+ деталей в DXF от конструкторов или заказчиков" data-en="When 30–200+ DXF parts arrive per shift from engineers or customers">Если за смену приходит 30–200+ деталей в DXF от конструкторов или заказчиков</p>
       </div>
       <div class="card">
         <div class="card-icon">🧾</div>
-        <h3>Цеха с учётом в 1С</h3>
-        <p>Где нужна Excel-выгрузка габаритов и площадей для дальнейшего импорта</p>
+        <h3 data-ru="Цеха с учётом в 1С" data-en="Shops using 1C ERP">Цеха с учётом в 1С</h3>
+        <p data-ru="Где нужна Excel-выгрузка габаритов и площадей для дальнейшего импорта" data-en="Where an Excel export of dimensions and areas is needed for ERP import">Где нужна Excel-выгрузка габаритов и площадей для дальнейшего импорта</p>
       </div>
       <div class="card">
         <div class="card-icon">⚙️</div>
-        <h3>Те, кто хочет порядок</h3>
-        <p>Workflow «папка → папка»: новые файлы, готовые в резку, ручная обработка — всё разложено</p>
+        <h3 data-ru="Те, кто хочет порядок" data-en="Teams that want order">Те, кто хочет порядок</h3>
+        <p data-ru="Workflow «папка → папка»: новые файлы, готовые в резку, ручная обработка — всё разложено" data-en="Folder-to-folder workflow: incoming files, ready-to-cut, manual review — everything sorted">Workflow «папка → папка»: новые файлы, готовые в резку, ручная обработка — всё разложено</p>
       </div>
     </div>
   </section>
 
   <!-- PROBLEM -->
   <section>
-    <div class="section-tag">Проблема</div>
-    <h2>Как выглядит работа без процессора</h2>
-    <p class="lead">Каждый день оператор вручную открывает DXF, ищет контуры, разбивает их, считает припуски, переразвoрачивает деталь, вписывает данные в Excel для 1С. Это рутина, которая съедает время и генерирует ошибки.</p>
+    <div class="section-tag" data-ru="Проблема" data-en="The problem">Проблема</div>
+    <h2 data-ru="Как выглядит работа без процессора" data-en="What work looks like without the processor">Как выглядит работа без процессора</h2>
+    <p class="lead" data-ru="Каждый день оператор вручную открывает DXF, ищет контуры, разбивает их, считает припуски, переразвoрачивает деталь, вписывает данные в Excel для 1С. Это рутина, которая съедает время и генерирует ошибки." data-en="Every day the operator manually opens DXF files, locates contours, splits them, calculates offsets, reorients the part, and fills in the Excel sheet for 1C. This routine eats time and generates errors.">Каждый день оператор вручную открывает DXF, ищет контуры, разбивает их, считает припуски, переразвoрачивает деталь, вписывает данные в Excel для 1С. Это рутина, которая съедает время и генерирует ошибки.</p>
     <div class="cards">
       <div class="card">
         <div class="card-icon">⏱️</div>
-        <h3>Часы ручной подготовки</h3>
-        <p>Открыть DXF, найти детали, разбить, развернуть, посчитать припуски — для каждого файла</p>
+        <h3 data-ru="Часы ручной подготовки" data-en="Hours of manual prep">Часы ручной подготовки</h3>
+        <p data-ru="Открыть DXF, найти детали, разбить, развернуть, посчитать припуски — для каждого файла" data-en="Open DXF, find parts, split, rotate, calculate offsets — for every single file">Открыть DXF, найти детали, разбить, развернуть, посчитать припуски — для каждого файла</p>
       </div>
       <div class="card">
         <div class="card-icon">❌</div>
-        <h3>Ошибки в припусках</h3>
-        <p>Человеческий фактор при назначении 1.5 / 2.0 мм и припуска на обламывание криволинейных сторон</p>
+        <h3 data-ru="Ошибки в припусках" data-en="Offset errors">Ошибки в припусках</h3>
+        <p data-ru="Человеческий фактор при назначении 1.5 / 2.0 мм и припуска на обламывание криволинейных сторон" data-en="Human error when assigning 1.5 / 2.0 mm and break allowances for curved edges">Человеческий фактор при назначении 1.5 / 2.0 мм и припуска на обламывание криволинейных сторон</p>
       </div>
       <div class="card">
         <div class="card-icon">📋</div>
-        <h3>Ручной Excel для 1С</h3>
-        <p>Оператор вписывает размеры, площади и периметры каждой детали — копипаст и опечатки</p>
+        <h3 data-ru="Ручной Excel для 1С" data-en="Manual Excel for ERP">Ручной Excel для 1С</h3>
+        <p data-ru="Оператор вписывает размеры, площади и периметры каждой детали — копипаст и опечатки" data-en="Operator types dimensions, areas, and perimeters for each part — copy-paste and typos">Оператор вписывает размеры, площади и периметры каждой детали — копипаст и опечатки</p>
       </div>
       <div class="card">
         <div class="card-icon">🔄</div>
-        <h3>Хаос с файлами</h3>
-        <p>Непонятно, какие файлы обработаны, какие требуют внимания, а какие потерялись</p>
+        <h3 data-ru="Хаос с файлами" data-en="File chaos">Хаос с файлами</h3>
+        <p data-ru="Непонятно, какие файлы обработаны, какие требуют внимания, а какие потерялись" data-en="Hard to tell which files are done, which need attention, and which got lost">Непонятно, какие файлы обработаны, какие требуют внимания, а какие потерялись</p>
       </div>
     </div>
   </section>
 
   <!-- WHAT IT AUTOMATES -->
   <section>
-    <div class="section-tag">Что автоматизирует</div>
-    <h2>Цепочка обработки — по одной кнопке (или вообще без неё)</h2>
-    <p class="lead">Программа следит за папкой «Новые файлы». Как только в неё попадает DXF — запускается полный цикл без участия оператора.</p>
+    <div class="section-tag" data-ru="Что автоматизирует" data-en="What it automates">Что автоматизирует</div>
+    <h2 data-ru="Цепочка обработки — по одной кнопке (или вообще без неё)" data-en="The processing pipeline — one click or fully automatic">Цепочка обработки — по одной кнопке (или вообще без неё)</h2>
+    <p class="lead" data-ru="Программа следит за папкой «Новые файлы». Как только в неё попадает DXF — запускается полный цикл без участия оператора." data-en="The program watches the &quot;New Files&quot; folder. As soon as a DXF lands there, the full processing cycle starts with zero operator involvement.">Программа следит за папкой «Новые файлы». Как только в неё попадает DXF — запускается полный цикл без участия оператора.</p>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div>
-          <h3>Деление на детали</h3>
-          <p>Находит замкнутые контуры в DXF и сохраняет каждую деталь в отдельный файл по схеме именования <code>(толщина)номер-индекс.dxf</code>.</p>
+          <h3 data-ru="Деление на детали" data-en="Part splitting">Деление на детали</h3>
+          <p data-ru="Находит замкнутые контуры в DXF и сохраняет каждую деталь в отдельный файл по схеме именования (толщина)номер-индекс.dxf." data-en="Finds closed contours in the DXF and saves each part to a separate file following the naming scheme (thickness)number-index.dxf.">Находит замкнутые контуры в DXF и сохраняет каждую деталь в отдельный файл по схеме именования <code>(толщина)номер-индекс.dxf</code>.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div>
-          <h3>Поворот по длинной стороне</h3>
-          <p>Разворачивает деталь так, чтобы наибольшая прямая сторона стала горизонтальной — для корректной подачи на станок.</p>
+          <h3 data-ru="Поворот по длинной стороне" data-en="Longest-edge rotation">Поворот по длинной стороне</h3>
+          <p data-ru="Разворачивает деталь так, чтобы наибольшая прямая сторона стала горизонтальной — для корректной подачи на станок." data-en="Rotates the part so that its longest straight edge becomes horizontal — for correct machine feeding.">Разворачивает деталь так, чтобы наибольшая прямая сторона стала горизонтальной — для корректной подачи на станок.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div>
-          <h3>Припуски 1.5 / 2.0 мм</h3>
-          <p>Эквидистант 1.5 мм по умолчанию, 2.0 мм для стекла ≥ 10 мм. Значения настраиваются в <code>config.ini</code> под технологию вашего цеха.</p>
+          <h3 data-ru="Припуски 1.5 / 2.0 мм" data-en="1.5 / 2.0 mm offsets">Припуски 1.5 / 2.0 мм</h3>
+          <p data-ru="Эквидистант 1.5 мм по умолчанию, 2.0 мм для стекла ≥ 10 мм. Значения настраиваются в config.ini под технологию вашего цеха." data-en="Equidistant offset 1.5 mm by default, 2.0 mm for glass ≥ 10 mm. Values are configurable in config.ini to match your workshop's technology.">Эквидистант 1.5 мм по умолчанию, 2.0 мм для стекла ≥ 10 мм. Значения настраиваются в <code>config.ini</code> под технологию вашего цеха.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">4</div>
         <div>
-          <h3>Припуск на обламывание</h3>
-          <p>Криволинейные стороны получают дополнительный припуск, кратный толщине стекла, чтобы корректно обломить заготовку после реза.</p>
+          <h3 data-ru="Припуск на обламывание" data-en="Break allowance">Припуск на обламывание</h3>
+          <p data-ru="Криволинейные стороны получают дополнительный припуск, кратный толщине стекла, чтобы корректно обломить заготовку после реза." data-en="Curved edges receive an additional allowance proportional to glass thickness, so the blank can be cleanly snapped after cutting.">Криволинейные стороны получают дополнительный припуск, кратный толщине стекла, чтобы корректно обломить заготовку после реза.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">5</div>
         <div>
-          <h3>Excel-выгрузка</h3>
-          <p>Автоматически собирается таблица: Д × Ш, толщина, площадь, периметр, число вырезов — формат под импорт в 1С / учётную систему.</p>
+          <h3 data-ru="Excel-выгрузка" data-en="Excel export">Excel-выгрузка</h3>
+          <p data-ru="Автоматически собирается таблица: Д × Ш, толщина, площадь, периметр, число вырезов — формат под импорт в 1С / учётную систему." data-en="A table is built automatically: L × W, thickness, area, perimeter, number of cutouts — ready for import into 1C / any ERP.">Автоматически собирается таблица: Д × Ш, толщина, площадь, периметр, число вырезов — формат под импорт в 1С / учётную систему.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">6</div>
         <div>
-          <h3>Маршрутизация по папкам</h3>
-          <p>Готовые файлы → «Файлы в резку». Проблемные (нестандартные контуры, нечитаемые блоки) → «Ручная обработка» с пояснением в логе.</p>
+          <h3 data-ru="Маршрутизация по папкам" data-en="Folder routing">Маршрутизация по папкам</h3>
+          <p data-ru="Готовые файлы → «Файлы в резку». Проблемные (нестандартные контуры, нечитаемые блоки) → «Ручная обработка» с пояснением в логе." data-en="Processed files → &quot;Ready to cut&quot;. Problematic files (non-standard contours, unreadable blocks) → &quot;Manual review&quot; with a reason in the log.">Готовые файлы → «Файлы в резку». Проблемные (нестандартные контуры, нечитаемые блоки) → «Ручная обработка» с пояснением в логе.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">7</div>
         <div>
-          <h3>Конвертация DXF 2024 → DXF 2010</h3>
-          <p>На вход принимаются современные DXF до 2024. На выход — DXF 2010, совместимый с большинством ЧПУ-станков для стекла.</p>
+          <h3 data-ru="Конвертация DXF 2024 → DXF 2010" data-en="DXF 2024 → DXF 2010 conversion">Конвертация DXF 2024 → DXF 2010</h3>
+          <p data-ru="На вход принимаются современные DXF до 2024. На выход — DXF 2010, совместимый с большинством ЧПУ-станков для стекла." data-en="Accepts modern DXF files up to R2024. Outputs DXF 2010 compatible with the vast majority of glass CNC machines.">На вход принимаются современные DXF до 2024. На выход — DXF 2010, совместимый с большинством ЧПУ-станков для стекла.</p>
         </div>
       </div>
     </div>
@@ -634,95 +675,95 @@
 
   <!-- IN / OUT SCOPE -->
   <section>
-    <div class="section-tag">Что входит / что не входит</div>
-    <h2>Честные границы продукта</h2>
-    <p class="lead">DXF Processor — узкоспециализированный инструмент подготовки DXF, а не полный CAD/CAM. Ниже — точный список того, что он делает и не делает.</p>
+    <div class="section-tag" data-ru="Что входит / что не входит" data-en="In scope / out of scope">Что входит / что не входит</div>
+    <h2 data-ru="Честные границы продукта" data-en="Honest product boundaries">Честные границы продукта</h2>
+    <p class="lead" data-ru="DXF Processor — узкоспециализированный инструмент подготовки DXF, а не полный CAD/CAM. Ниже — точный список того, что он делает и не делает." data-en="DXF Processor is a narrowly focused DXF preparation tool, not a full CAD/CAM suite. Below is an exact list of what it does and does not do.">DXF Processor — узкоспециализированный инструмент подготовки DXF, а не полный CAD/CAM. Ниже — точный список того, что он делает и не делает.</p>
     <div class="scope-grid">
       <div class="scope-col in">
-        <h3>✓ Входит в поставку</h3>
+        <h3 data-ru="✓ Входит в поставку" data-en="✓ Included">✓ Входит в поставку</h3>
         <ul>
-          <li>Деление DXF на отдельные детали по контурам</li>
-          <li>Поворот детали по длинной прямой стороне</li>
-          <li>Эквидистантный припуск 1.5 / 2.0 мм (настраивается)</li>
-          <li>Припуск на обламывание для криволинейных сторон</li>
-          <li>Именование файлов <code>(толщина)номер-индекс.dxf</code></li>
-          <li>Excel-выгрузка: Д × Ш, толщина, площадь, периметр, вырезы</li>
-          <li>Workflow через папки: новые / в резку / ручная обработка</li>
-          <li>Конвертация DXF до 2024 → DXF 2010</li>
-          <li>Лог обработки и причина перевода файла в «manual»</li>
-          <li><code>config.ini</code> для параметров припусков и порогов</li>
+          <li data-ru="Деление DXF на отдельные детали по контурам" data-en="Splitting DXF into individual parts by contour">Деление DXF на отдельные детали по контурам</li>
+          <li data-ru="Поворот детали по длинной прямой стороне" data-en="Part rotation along the longest straight edge">Поворот детали по длинной прямой стороне</li>
+          <li data-ru="Эквидистантный припуск 1.5 / 2.0 мм (настраивается)" data-en="Equidistant offset 1.5 / 2.0 mm (configurable)">Эквидистантный припуск 1.5 / 2.0 мм (настраивается)</li>
+          <li data-ru="Припуск на обламывание для криволинейных сторон" data-en="Break allowance for curved edges">Припуск на обламывание для криволинейных сторон</li>
+          <li data-ru="Именование файлов (толщина)номер-индекс.dxf" data-en="File naming: (thickness)number-index.dxf">Именование файлов <code>(толщина)номер-индекс.dxf</code></li>
+          <li data-ru="Excel-выгрузка: Д × Ш, толщина, площадь, периметр, вырезы" data-en="Excel export: L × W, thickness, area, perimeter, cutouts">Excel-выгрузка: Д × Ш, толщина, площадь, периметр, вырезы</li>
+          <li data-ru="Workflow через папки: новые / в резку / ручная обработка" data-en="Folder workflow: new / ready-to-cut / manual review">Workflow через папки: новые / в резку / ручная обработка</li>
+          <li data-ru="Конвертация DXF до 2024 → DXF 2010" data-en="DXF up to R2024 → DXF 2010 conversion">Конвертация DXF до 2024 → DXF 2010</li>
+          <li data-ru="Лог обработки и причина перевода файла в «manual»" data-en="Processing log and reason for routing to &quot;manual&quot;">Лог обработки и причина перевода файла в «manual»</li>
+          <li data-ru="config.ini для параметров припусков и порогов" data-en="config.ini for offset and threshold parameters"><code>config.ini</code> для параметров припусков и порогов</li>
         </ul>
       </div>
       <div class="scope-col out">
-        <h3>✕ Не входит (намеренно)</h3>
+        <h3 data-ru="✕ Не входит (намеренно)" data-en="✕ Not included (by design)">✕ Не входит (намеренно)</h3>
         <ul>
-          <li>Nesting и оптимизация раскроя по листу</li>
-          <li>Полноценный CAD / CAM-редактор</li>
-          <li>Генерация G-code и постпроцессоры под конкретный ЧПУ</li>
-          <li>Автоматическое «залечивание» битых или разомкнутых контуров</li>
-          <li>Сложный графический интерфейс с предпросмотром деталей</li>
-          <li>Облачный сервис / SaaS — программа работает локально</li>
-          <li>Интеграция «под ключ» с произвольной ERP за пределами Excel-импорта</li>
+          <li data-ru="Nesting и оптимизация раскроя по листу" data-en="Nesting and sheet cutting optimisation">Nesting и оптимизация раскроя по листу</li>
+          <li data-ru="Полноценный CAD / CAM-редактор" data-en="Full CAD / CAM editor">Полноценный CAD / CAM-редактор</li>
+          <li data-ru="Генерация G-code и постпроцессоры под конкретный ЧПУ" data-en="G-code generation and machine-specific post-processors">Генерация G-code и постпроцессоры под конкретный ЧПУ</li>
+          <li data-ru="Автоматическое «залечивание» битых или разомкнутых контуров" data-en="Automatic healing of broken or open contours">Автоматическое «залечивание» битых или разомкнутых контуров</li>
+          <li data-ru="Сложный графический интерфейс с предпросмотром деталей" data-en="Complex GUI with part preview">Сложный графический интерфейс с предпросмотром деталей</li>
+          <li data-ru="Облачный сервис / SaaS — программа работает локально" data-en="Cloud service / SaaS — the app runs locally">Облачный сервис / SaaS — программа работает локально</li>
+          <li data-ru="Интеграция «под ключ» с произвольной ERP за пределами Excel-импорта" data-en="Turnkey integration with arbitrary ERP beyond Excel import">Интеграция «под ключ» с произвольной ERP за пределами Excel-импорта</li>
         </ul>
       </div>
     </div>
-    <p class="roi-caveat">Если задача шире — обсудим её отдельно. Часть пунктов из правой колонки может быть подключена как доработка по ТЗ.</p>
+    <p class="roi-caveat" data-ru="Если задача шире — обсудим её отдельно. Часть пунктов из правой колонки может быть подключена как доработка по ТЗ." data-en="If the scope is broader — let's discuss it separately. Some items from the right column can be added as custom development.">Если задача шире — обсудим её отдельно. Часть пунктов из правой колонки может быть подключена как доработка по ТЗ.</p>
   </section>
 
   <!-- PILOT 14 DAYS -->
   <section>
-    <div class="section-tag">Пилот</div>
-    <h2>Пилот 14 дней — без обязательств</h2>
-    <p class="lead">Подключаем процессор на ваших реальных DXF и смотрим вместе, что получается. Если не подходит — расходимся без счёта.</p>
+    <div class="section-tag" data-ru="Пилот" data-en="Pilot">Пилот</div>
+    <h2 data-ru="Пилот 14 дней — без обязательств" data-en="14-day pilot — no commitment">Пилот 14 дней — без обязательств</h2>
+    <p class="lead" data-ru="Подключаем процессор на ваших реальных DXF и смотрим вместе, что получается. Если не подходит — расходимся без счёта." data-en="We run the processor on your real DXF files and review the results together. If it doesn't fit — we part ways without any invoice.">Подключаем процессор на ваших реальных DXF и смотрим вместе, что получается. Если не подходит — расходимся без счёта.</p>
     <div class="pilot-box">
-      <h3>Как проходит пилот</h3>
+      <h3 data-ru="Как проходит пилот" data-en="How the pilot works">Как проходит пилот</h3>
       <div class="pilot-steps">
         <div class="pilot-step">
-          <div class="pilot-day">День 1–2</div>
-          <p>Вы присылаете 5–20 типовых DXF и описание текущего процесса. NDA по запросу.</p>
+          <div class="pilot-day" data-ru="День 1–2" data-en="Day 1–2">День 1–2</div>
+          <p data-ru="Вы присылаете 5–20 типовых DXF и описание текущего процесса. NDA по запросу." data-en="You send 5–20 typical DXF files and describe your current workflow. NDA on request.">Вы присылаете 5–20 типовых DXF и описание текущего процесса. NDA по запросу.</p>
         </div>
         <div class="pilot-step">
-          <div class="pilot-day">День 3–5</div>
-          <p>Настройка <code>config.ini</code> под ваши припуски, толщины и формат Excel-выгрузки.</p>
+          <div class="pilot-day" data-ru="День 3–5" data-en="Day 3–5">День 3–5</div>
+          <p data-ru="Настройка config.ini под ваши припуски, толщины и формат Excel-выгрузки." data-en="Tuning config.ini for your offsets, glass thicknesses, and Excel export format.">Настройка <code>config.ini</code> под ваши припуски, толщины и формат Excel-выгрузки.</p>
         </div>
         <div class="pilot-step">
-          <div class="pilot-day">День 6–10</div>
-          <p>Программа крутится у вас в цеху параллельно с ручной подготовкой. Сравниваем результат.</p>
+          <div class="pilot-day" data-ru="День 6–10" data-en="Day 6–10">День 6–10</div>
+          <p data-ru="Программа крутится у вас в цеху параллельно с ручной подготовкой. Сравниваем результат." data-en="The program runs in your workshop alongside manual preparation. We compare results.">Программа крутится у вас в цеху параллельно с ручной подготовкой. Сравниваем результат.</p>
         </div>
         <div class="pilot-step">
-          <div class="pilot-day">День 11–14</div>
-          <p>Дошлифовка под ваши кейсы, замер сэкономленного времени, решение о покупке.</p>
+          <div class="pilot-day" data-ru="День 11–14" data-en="Day 11–14">День 11–14</div>
+          <p data-ru="Дошлифовка под ваши кейсы, замер сэкономленного времени, решение о покупке." data-en="Fine-tuning for your edge cases, measuring time saved, purchase decision.">Дошлифовка под ваши кейсы, замер сэкономленного времени, решение о покупке.</p>
         </div>
       </div>
-      <p style="font-size:14px;color:var(--text);">Результат пилота — конкретные цифры по вашему цеху: сколько файлов прошло автоматически, сколько ушло в «ручную обработку», сколько часов в смену удалось снять с оператора.</p>
+      <p style="font-size:14px;color:var(--text);" data-ru="Результат пилота — конкретные цифры по вашему цеху: сколько файлов прошло автоматически, сколько ушло в «ручную обработку», сколько часов в смену удалось снять с оператора." data-en="The pilot delivers concrete numbers for your workshop: how many files were processed automatically, how many went to manual review, and how many hours per shift were saved.">Результат пилота — конкретные цифры по вашему цеху: сколько файлов прошло автоматически, сколько ушло в «ручную обработку», сколько часов в смену удалось снять с оператора.</p>
     </div>
   </section>
 
   <!-- HOW TO CHECK ON YOUR DXF -->
   <section>
-    <div class="section-tag">Проверка</div>
-    <h2>Как проверить на ваших DXF за 24 часа</h2>
-    <p class="lead">Если перед пилотом хочется быстро убедиться, что подход работает — можно сделать «мини-демо».</p>
+    <div class="section-tag" data-ru="Проверка" data-en="Quick check">Проверка</div>
+    <h2 data-ru="Как проверить на ваших DXF за 24 часа" data-en="How to test on your DXF files in 24 hours">Как проверить на ваших DXF за 24 часа</h2>
+    <p class="lead" data-ru="Если перед пилотом хочется быстро убедиться, что подход работает — можно сделать «мини-демо»." data-en="If you want a quick sanity check before committing to a pilot — we can do a mini-demo.">Если перед пилотом хочется быстро убедиться, что подход работает — можно сделать «мини-демо».</p>
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
         <div>
-          <h3>Пришлите 2–5 типовых DXF на rj93@mail.ru</h3>
-          <p>Лучше всего — разные кейсы: один файл с несколькими деталями, один с криволинейными сторонами, один с вырезами.</p>
+          <h3 data-ru="Пришлите 2–5 типовых DXF на rj93@mail.ru" data-en="Send 2–5 typical DXF files to rj93@mail.ru">Пришлите 2–5 типовых DXF на rj93@mail.ru</h3>
+          <p data-ru="Лучше всего — разные кейсы: один файл с несколькими деталями, один с криволинейными сторонами, один с вырезами." data-en="Best to cover different cases: one file with multiple parts, one with curved edges, one with cutouts.">Лучше всего — разные кейсы: один файл с несколькими деталями, один с криволинейными сторонами, один с вырезами.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <div>
-          <h3>Укажите технологию</h3>
-          <p>Какие припуски используете (1.5 / 2.0 мм / другое), для каких толщин, нужен ли припуск на обламывание, формат Excel под 1С.</p>
+          <h3 data-ru="Укажите технологию" data-en="Describe your technology">Укажите технологию</h3>
+          <p data-ru="Какие припуски используете (1.5 / 2.0 мм / другое), для каких толщин, нужен ли припуск на обламывание, формат Excel под 1С." data-en="Which offsets you use (1.5 / 2.0 mm / other), for which thicknesses, whether break allowance is needed, and your Excel format for 1C.">Какие припуски используете (1.5 / 2.0 мм / другое), для каких толщин, нужен ли припуск на обламывание, формат Excel под 1С.</p>
         </div>
       </div>
       <div class="step">
         <div class="step-num">3</div>
         <div>
-          <h3>Получите результат в течение 24 рабочих часов</h3>
-          <p>Обработанные DXF 2010, Excel-таблицу и краткий отчёт: что прошло автоматически, что попало в «ручную обработку» и почему.</p>
+          <h3 data-ru="Получите результат в течение 24 рабочих часов" data-en="Get results within 24 business hours">Получите результат в течение 24 рабочих часов</h3>
+          <p data-ru="Обработанные DXF 2010, Excel-таблицу и краткий отчёт: что прошло автоматически, что попало в «ручную обработку» и почему." data-en="Processed DXF 2010 files, an Excel sheet, and a brief report: what was processed automatically, what went to manual review and why.">Обработанные DXF 2010, Excel-таблицу и краткий отчёт: что прошло автоматически, что попало в «ручную обработку» и почему.</p>
         </div>
       </div>
     </div>
@@ -730,29 +771,29 @@
 
   <!-- PRICING -->
   <section>
-    <div class="section-tag">Цена</div>
-    <h2>Пакет Production — понятный ориентир</h2>
-    <p class="lead">Прозрачный B2B-офер: фиксированная стоимость внедрения и лицензии на цех. Без скрытых платежей и обязательной абонентки.</p>
+    <div class="section-tag" data-ru="Цена" data-en="Pricing">Цена</div>
+    <h2 data-ru="Пакет Production — понятный ориентир" data-en="Production package — a clear baseline">Пакет Production — понятный ориентир</h2>
+    <p class="lead" data-ru="Прозрачный B2B-офер: фиксированная стоимость внедрения и лицензии на цех. Без скрытых платежей и обязательной абонентки." data-en="Transparent B2B offer: fixed implementation and per-workshop licence fee. No hidden charges, no mandatory subscription.">Прозрачный B2B-офер: фиксированная стоимость внедрения и лицензии на цех. Без скрытых платежей и обязательной абонентки.</p>
     <div class="pricing-box">
-      <div class="from-label">Внедрение и лицензия — от</div>
-      <div class="price">300 000 ₽ <small>(разовый платёж за цех)</small></div>
-      <p class="price-note">Пакет Production: лицензия на цех + проверка на ваших DXF + пилот 14 дней + установка и базовая настройка <code>config.ini</code>. Финальная конфигурация под нестандартные кейсы и поддержка обсуждаются отдельно.</p>
+      <div class="from-label" data-ru="Внедрение и лицензия — от" data-en="Implementation &amp; licence — from">Внедрение и лицензия — от</div>
+      <div class="price">300 000 ₽ <small data-ru="(разовый платёж за цех)" data-en="(one-time per-workshop payment)">(разовый платёж за цех)</small></div>
+      <p class="price-note" data-ru="Пакет Production: лицензия на цех + проверка на ваших DXF + пилот 14 дней + установка и базовая настройка config.ini. Финальная конфигурация под нестандартные кейсы и поддержка обсуждаются отдельно." data-en="Production package: workshop licence + test run on your DXF files + 14-day pilot + installation and basic config.ini setup. Final configuration for edge cases and ongoing support are quoted separately.">Пакет Production: лицензия на цех + проверка на ваших DXF + пилот 14 дней + установка и базовая настройка <code>config.ini</code>. Финальная конфигурация под нестандартные кейсы и поддержка обсуждаются отдельно.</p>
       <div class="pricing-list">
         <div class="pi">
-          <strong>Пилот 14 дней</strong>
-          <span>Включён — на ваших файлах</span>
+          <strong data-ru="Пилот 14 дней" data-en="14-day pilot">Пилот 14 дней</strong>
+          <span data-ru="Включён — на ваших файлах" data-en="Included — on your own files">Включён — на ваших файлах</span>
         </div>
         <div class="pi">
-          <strong>Проверка на ваших DXF</strong>
-          <span>До договора, в течение 24 рабочих часов</span>
+          <strong data-ru="Проверка на ваших DXF" data-en="Test run on your DXF files">Проверка на ваших DXF</strong>
+          <span data-ru="До договора, в течение 24 рабочих часов" data-en="Before the contract, within 24 business hours">До договора, в течение 24 рабочих часов</span>
         </div>
         <div class="pi">
-          <strong>Установка и базовая настройка</strong>
-          <span>Включены в 300 000 ₽</span>
+          <strong data-ru="Установка и базовая настройка" data-en="Installation &amp; basic setup">Установка и базовая настройка</strong>
+          <span data-ru="Включены в 300 000 ₽" data-en="Included in 300 000 ₽">Включены в 300 000 ₽</span>
         </div>
         <div class="pi">
-          <strong>Финальная конфигурация и поддержка</strong>
-          <span>Обсуждаются отдельной сметой</span>
+          <strong data-ru="Финальная конфигурация и поддержка" data-en="Final config &amp; support">Финальная конфигурация и поддержка</strong>
+          <span data-ru="Обсуждаются отдельной сметой" data-en="Quoted separately">Обсуждаются отдельной сметой</span>
         </div>
       </div>
     </div>
@@ -760,76 +801,108 @@
 
   <!-- ROI -->
   <section>
-    <div class="section-tag">Экономика</div>
-    <h2>Когда лицензия окупается</h2>
-    <p class="lead">Ориентировочный расчёт — формулу и параметры подставите свои, цифры ниже только для примера.</p>
+    <div class="section-tag" data-ru="Экономика" data-en="ROI">Экономика</div>
+    <h2 data-ru="Когда лицензия окупается" data-en="When the licence pays for itself">Когда лицензия окупается</h2>
+    <p class="lead" data-ru="Ориентировочный расчёт — формулу и параметры подставите свои, цифры ниже только для примера." data-en="An indicative calculation — plug in your own figures; the numbers below are for illustration only.">Ориентировочный расчёт — формулу и параметры подставите свои, цифры ниже только для примера.</p>
     <div class="roi-box">
-      <div class="roi-formula">
+      <div class="roi-formula" id="roi-formula-ru">
         Экономия/мес = Часов_в_день × Ставка_часа × Рабочих_дней<br>
         Срок_окупаемости = Стоимость_лицензии ÷ Экономия_в_месяц
       </div>
+      <div class="roi-formula" id="roi-formula-en" style="display:none;">
+        Savings/month = Hours_per_day × Hourly_rate × Working_days<br>
+        Payback_period = Licence_cost ÷ Monthly_savings
+      </div>
       <table class="roi-table">
         <thead>
-          <tr><th>Параметр</th><th>Пример</th><th>Пояснение</th></tr>
+          <tr>
+            <th data-ru="Параметр" data-en="Parameter">Параметр</th>
+            <th data-ru="Пример" data-en="Example">Пример</th>
+            <th data-ru="Пояснение" data-en="Note">Пояснение</th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td>Экономия времени оператора</td><td>3 ч/день</td><td>Зависит от объёма DXF — измеряется на пилоте</td></tr>
-          <tr><td>Ставка оператора</td><td>500 ₽/час</td><td>Подставьте фактическую ставку с налогами</td></tr>
-          <tr><td>Рабочих дней</td><td>22 дня/мес</td><td>Стандартный производственный календарь</td></tr>
-          <tr><td><strong>Экономия в месяц</strong></td><td><strong>≈ 33 000 ₽</strong></td><td>3 × 500 × 22</td></tr>
-          <tr><td>Стоимость внедрения и лицензии</td><td>300 000 ₽</td><td>Пакет Production, разовый платёж за цех</td></tr>
-          <tr class="result-row"><td>Срок окупаемости</td><td>≈ 9 месяцев</td><td>300 000 ÷ 33 000</td></tr>
+          <tr>
+            <td data-ru="Экономия времени оператора" data-en="Operator time saved">Экономия времени оператора</td>
+            <td data-ru="3 ч/день" data-en="3 h/day">3 ч/день</td>
+            <td data-ru="Зависит от объёма DXF — измеряется на пилоте" data-en="Depends on DXF volume — measured during the pilot">Зависит от объёма DXF — измеряется на пилоте</td>
+          </tr>
+          <tr>
+            <td data-ru="Ставка оператора" data-en="Operator rate">Ставка оператора</td>
+            <td data-ru="500 ₽/час" data-en="500 ₽/h">500 ₽/час</td>
+            <td data-ru="Подставьте фактическую ставку с налогами" data-en="Use your actual fully-loaded rate">Подставьте фактическую ставку с налогами</td>
+          </tr>
+          <tr>
+            <td data-ru="Рабочих дней" data-en="Working days">Рабочих дней</td>
+            <td data-ru="22 дня/мес" data-en="22 days/month">22 дня/мес</td>
+            <td data-ru="Стандартный производственный календарь" data-en="Standard production calendar">Стандартный производственный календарь</td>
+          </tr>
+          <tr>
+            <td><strong data-ru="Экономия в месяц" data-en="Monthly savings">Экономия в месяц</strong></td>
+            <td><strong data-ru="≈ 33 000 ₽" data-en="≈ 33 000 ₽">≈ 33 000 ₽</strong></td>
+            <td>3 × 500 × 22</td>
+          </tr>
+          <tr>
+            <td data-ru="Стоимость внедрения и лицензии" data-en="Implementation &amp; licence cost">Стоимость внедрения и лицензии</td>
+            <td>300 000 ₽</td>
+            <td data-ru="Пакет Production, разовый платёж за цех" data-en="Production package, one-time per-workshop payment">Пакет Production, разовый платёж за цех</td>
+          </tr>
+          <tr class="result-row">
+            <td data-ru="Срок окупаемости" data-en="Payback period">Срок окупаемости</td>
+            <td data-ru="≈ 9 месяцев" data-en="≈ 9 months">≈ 9 месяцев</td>
+            <td>300 000 ÷ 33 000</td>
+          </tr>
         </tbody>
       </table>
-      <p class="roi-caveat">Цифры в таблице — иллюстрация, не оферта. Реальную экономию замеряем на пилоте по вашим DXF.</p>
+      <p class="roi-caveat" data-ru="Цифры в таблице — иллюстрация, не оферта. Реальную экономию замеряем на пилоте по вашим DXF." data-en="The table figures are illustrative, not an offer. Real savings are measured during the pilot on your own DXF files.">Цифры в таблице — иллюстрация, не оферта. Реальную экономию замеряем на пилоте по вашим DXF.</p>
     </div>
   </section>
 
   <!-- FEATURES -->
   <section>
-    <div class="section-tag">Возможности</div>
-    <h2>Что в коробке</h2>
+    <div class="section-tag" data-ru="Возможности" data-en="Features">Возможности</div>
+    <h2 data-ru="Что в коробке" data-en="What's in the box">Что в коробке</h2>
     <div class="features-list">
       <div class="feature">
         <div class="feature-check">✓</div>
         <div>
-          <h4>Фоновый watcher</h4>
-          <p>Программа запускается с Windows и обрабатывает файлы без участия оператора — следит за папкой «Новые DXF»</p>
+          <h4 data-ru="Фоновый watcher" data-en="Background watcher">Фоновый watcher</h4>
+          <p data-ru="Программа запускается с Windows и обрабатывает файлы без участия оператора — следит за папкой «Новые DXF»" data-en="Starts with Windows and processes files unattended — watches the &quot;New DXF&quot; folder">Программа запускается с Windows и обрабатывает файлы без участия оператора — следит за папкой «Новые DXF»</p>
         </div>
       </div>
       <div class="feature">
         <div class="feature-check">✓</div>
         <div>
-          <h4>DXF 2024 на входе</h4>
-          <p>Принимает современные DXF от любых CAD. На выходе — DXF 2010, совместимый с большинством ЧПУ-станков</p>
+          <h4 data-ru="DXF 2024 на входе" data-en="DXF 2024 input">DXF 2024 на входе</h4>
+          <p data-ru="Принимает современные DXF от любых CAD. На выходе — DXF 2010, совместимый с большинством ЧПУ-станков" data-en="Accepts modern DXF from any CAD. Outputs DXF 2010 compatible with most CNC machines">Принимает современные DXF от любых CAD. На выходе — DXF 2010, совместимый с большинством ЧПУ-станков</p>
         </div>
       </div>
       <div class="feature">
         <div class="feature-check">✓</div>
         <div>
-          <h4>Excel-отчёт для 1С</h4>
-          <p>Готовая таблица: габариты, площадь, периметр, число вырезов — для прямого импорта в учётную систему</p>
+          <h4 data-ru="Excel-отчёт для 1С" data-en="Excel report for ERP">Excel-отчёт для 1С</h4>
+          <p data-ru="Готовая таблица: габариты, площадь, периметр, число вырезов — для прямого импорта в учётную систему" data-en="Ready-made table: dimensions, area, perimeter, cutout count — for direct ERP import">Готовая таблица: габариты, площадь, периметр, число вырезов — для прямого импорта в учётную систему</p>
         </div>
       </div>
       <div class="feature">
         <div class="feature-check">✓</div>
         <div>
-          <h4>Папка ручной обработки</h4>
-          <p>Файлы с нестандартными контурами не теряются — отправляются в «manual» с причиной в логе</p>
+          <h4 data-ru="Папка ручной обработки" data-en="Manual review folder">Папка ручной обработки</h4>
+          <p data-ru="Файлы с нестандартными контурами не теряются — отправляются в «manual» с причиной в логе" data-en="Files with non-standard contours are never lost — routed to &quot;manual&quot; with a log entry explaining why">Файлы с нестандартными контурами не теряются — отправляются в «manual» с причиной в логе</p>
         </div>
       </div>
       <div class="feature">
         <div class="feature-check">✓</div>
         <div>
-          <h4>Готовый .exe без Python</h4>
-          <p>Установка — за 10 минут. Не нужно ставить Python или возиться с зависимостями</p>
+          <h4 data-ru="Готовый .exe без Python" data-en="Ready-to-run .exe, no Python needed">Готовый .exe без Python</h4>
+          <p data-ru="Установка — за 10 минут. Не нужно ставить Python или возиться с зависимостями" data-en="Setup in 10 minutes. No Python installation or dependency wrangling required">Установка — за 10 минут. Не нужно ставить Python или возиться с зависимостями</p>
         </div>
       </div>
       <div class="feature">
         <div class="feature-check">✓</div>
         <div>
-          <h4>Настройка через config.ini</h4>
-          <p>Припуски, пороги, толщины и формат Excel задаются текстовыми параметрами — без перекомпиляции</p>
+          <h4 data-ru="Настройка через config.ini" data-en="config.ini configuration">Настройка через config.ini</h4>
+          <p data-ru="Припуски, пороги, толщины и формат Excel задаются текстовыми параметрами — без перекомпиляции" data-en="Offsets, thresholds, thicknesses and Excel format are set via plain-text parameters — no recompilation needed">Припуски, пороги, толщины и формат Excel задаются текстовыми параметрами — без перекомпиляции</p>
         </div>
       </div>
     </div>
@@ -838,38 +911,38 @@
   <!-- FAQ -->
   <section>
     <div class="section-tag">FAQ</div>
-    <h2>Что обычно спрашивают до пилота</h2>
+    <h2 data-ru="Что обычно спрашивают до пилота" data-en="Common questions before the pilot">Что обычно спрашивают до пилота</h2>
     <div class="faq-item">
-      <h4>Заменит ли это нашего оператора?</h4>
-      <p>Нет. Снимает рутину — деление, поворот, припуски, Excel. Оператор остаётся для контроля, разбора «ручной» папки и работы с нестандартными случаями.</p>
+      <h4 data-ru="Заменит ли это нашего оператора?" data-en="Will this replace our operator?">Заменит ли это нашего оператора?</h4>
+      <p data-ru="Нет. Снимает рутину — деление, поворот, припуски, Excel. Оператор остаётся для контроля, разбора «ручной» папки и работы с нестандартными случаями." data-en="No. It removes the routine — splitting, rotation, offsets, Excel. The operator stays for quality control, handling the manual folder, and dealing with edge cases.">Нет. Снимает рутину — деление, поворот, припуски, Excel. Оператор остаётся для контроля, разбора «ручной» папки и работы с нестандартными случаями.</p>
     </div>
     <div class="faq-item">
-      <h4>Работает ли с нашим ЧПУ-станком?</h4>
-      <p>На выходе — стандартный DXF 2010. Если ваш станок принимает DXF (а не только G-code), то совместим. G-code и постпроцессоры программа не генерирует.</p>
+      <h4 data-ru="Работает ли с нашим ЧПУ-станком?" data-en="Does it work with our CNC machine?">Работает ли с нашим ЧПУ-станком?</h4>
+      <p data-ru="На выходе — стандартный DXF 2010. Если ваш станок принимает DXF (а не только G-code), то совместим. G-code и постпроцессоры программа не генерирует." data-en="The output is standard DXF 2010. If your machine accepts DXF (not only G-code), it will be compatible. The program does not generate G-code or post-processors.">На выходе — стандартный DXF 2010. Если ваш станок принимает DXF (а не только G-code), то совместим. G-code и постпроцессоры программа не генерирует.</p>
     </div>
     <div class="faq-item">
-      <h4>Что, если в DXF битый или разомкнутый контур?</h4>
-      <p>Такие файлы автоматически уходят в папку «Ручная обработка» с пояснением в логе. Программа не пытается «угадать» геометрию — это решение оператора.</p>
+      <h4 data-ru="Что, если в DXF битый или разомкнутый контур?" data-en="What if the DXF has a broken or open contour?">Что, если в DXF битый или разомкнутый контур?</h4>
+      <p data-ru="Такие файлы автоматически уходят в папку «Ручная обработка» с пояснением в логе. Программа не пытается «угадать» геометрию — это решение оператора." data-en="Such files are automatically routed to the &quot;Manual review&quot; folder with a log explanation. The program does not try to guess the geometry — that decision belongs to the operator.">Такие файлы автоматически уходят в папку «Ручная обработка» с пояснением в логе. Программа не пытается «угадать» геометрию — это решение оператора.</p>
     </div>
     <div class="faq-item">
-      <h4>Можно ли поменять припуски под нашу технологию?</h4>
-      <p>Да. Значения припусков, пороги по толщине и коэффициент на обламывание задаются в <code>config.ini</code>. Перекомпилировать ничего не нужно.</p>
+      <h4 data-ru="Можно ли поменять припуски под нашу технологию?" data-en="Can we adjust the offsets for our technology?">Можно ли поменять припуски под нашу технологию?</h4>
+      <p data-ru="Да. Значения припусков, пороги по толщине и коэффициент на обламывание задаются в config.ini. Перекомпилировать ничего не нужно." data-en="Yes. Offset values, thickness thresholds, and the break coefficient are all set in config.ini. No recompilation required.">Да. Значения припусков, пороги по толщине и коэффициент на обламывание задаются в <code>config.ini</code>. Перекомпилировать ничего не нужно.</p>
     </div>
     <div class="faq-item">
-      <h4>Есть ли SaaS-версия / облако?</h4>
-      <p>Нет, программа работает локально на Windows. Это сознательное решение: DXF в стекольных производствах часто конфиденциальны, и заказчики хотят держать файлы у себя.</p>
+      <h4 data-ru="Есть ли SaaS-версия / облако?" data-en="Is there a SaaS / cloud version?">Есть ли SaaS-версия / облако?</h4>
+      <p data-ru="Нет, программа работает локально на Windows. Это сознательное решение: DXF в стекольных производствах часто конфиденциальны, и заказчики хотят держать файлы у себя." data-en="No, the program runs locally on Windows. This is a deliberate choice: DXF files in glass manufacturing are often confidential, and clients want to keep their files on-premise.">Нет, программа работает локально на Windows. Это сознательное решение: DXF в стекольных производствах часто конфиденциальны, и заказчики хотят держать файлы у себя.</p>
     </div>
     <div class="faq-item">
-      <h4>Сколько занимает внедрение?</h4>
-      <p>Установка — ~1 час. Настройка <code>config.ini</code> под вашу технологию — обычно 1–3 рабочих дня вместе с пилотом.</p>
+      <h4 data-ru="Сколько занимает внедрение?" data-en="How long does implementation take?">Сколько занимает внедрение?</h4>
+      <p data-ru="Установка — ~1 час. Настройка config.ini под вашу технологию — обычно 1–3 рабочих дня вместе с пилотом." data-en="Installation — ~1 hour. Tuning config.ini to your technology — typically 1–3 business days, combined with the pilot.">Установка — ~1 час. Настройка <code>config.ini</code> под вашу технологию — обычно 1–3 рабочих дня вместе с пилотом.</p>
     </div>
   </section>
 
   <!-- TECH -->
   <section>
-    <div class="section-tag">Технологии</div>
-    <h2>Стек</h2>
-    <p class="lead">Надёжный Python-стек без экзотических зависимостей. Работает на Windows 10 / 11.</p>
+    <div class="section-tag" data-ru="Технологии" data-en="Tech stack">Технологии</div>
+    <h2 data-ru="Стек" data-en="Stack">Стек</h2>
+    <p class="lead" data-ru="Надёжный Python-стек без экзотических зависимостей. Работает на Windows 10 / 11." data-en="Solid Python stack with no exotic dependencies. Runs on Windows 10 / 11.">Надёжный Python-стек без экзотических зависимостей. Работает на Windows 10 / 11.</p>
     <div class="tags">
       <span class="tag">Python 3.11</span>
       <span class="tag">ezdxf</span>
@@ -885,14 +958,39 @@
 
 <!-- CTA -->
 <section class="cta-section">
-  <h2>Готовы автоматизировать подготовку DXF?</h2>
-  <p>Пришлите 2–5 реальных DXF-файлов — за 24 рабочих часа покажем результат обработки на вашей геометрии. Никаких обязательств.</p>
+  <h2 data-ru="Готовы автоматизировать подготовку DXF?" data-en="Ready to automate your DXF preparation?">Готовы автоматизировать подготовку DXF?</h2>
+  <p data-ru="Пришлите 2–5 реальных DXF-файлов — за 24 рабочих часа покажем результат обработки на вашей геометрии. Никаких обязательств." data-en="Send 2–5 real DXF files — within 24 business hours we'll show you the processing result on your own geometry. No strings attached.">Пришлите 2–5 реальных DXF-файлов — за 24 рабочих часа покажем результат обработки на вашей геометрии. Никаких обязательств.</p>
   <div class="cta-row">
-    <a href="mailto:rj93@mail.ru?subject=DXF%20Processor%20%E2%80%94%20%D0%BF%D0%B8%D0%BB%D0%BE%D1%82%2014%20%D0%B4%D0%BD%D0%B5%D0%B9" class="cta-btn">Запросить пилот 14 дней</a>
-    <a href="mailto:rj93@mail.ru?subject=DXF%20Processor%20%E2%80%94%20%D1%82%D0%B5%D1%81%D1%82%20%D0%BD%D0%B0%20%D0%BD%D0%B0%D1%88%D0%B8%D1%85%20DXF" class="cta-btn outline">Прислать DXF на тест</a>
+    <a href="mailto:rj93@mail.ru?subject=DXF%20Processor%20%E2%80%94%20pilot%2014%20days" class="cta-btn" data-ru="Запросить пилот 14 дней" data-en="Request 14-day pilot">Запросить пилот 14 дней</a>
+    <a href="mailto:rj93@mail.ru?subject=DXF%20Processor%20%E2%80%94%20test%20DXF" class="cta-btn outline" data-ru="Прислать DXF на тест" data-en="Send DXF for a test run">Прислать DXF на тест</a>
   </div>
-  <div class="cta-note">rj93@mail.ru · NDA по запросу · ответ в течение рабочего дня</div>
+  <div class="cta-note" data-ru="rj93@mail.ru · NDA по запросу · ответ в течение рабочего дня" data-en="rj93@mail.ru · NDA on request · reply within one business day">rj93@mail.ru · NDA по запросу · ответ в течение рабочего дня</div>
 </section>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-ru][data-en]').forEach(function(el) {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+    // ROI formula blocks (have HTML content, not just text)
+    document.getElementById('roi-formula-ru').style.display = (lang === 'ru') ? '' : 'none';
+    document.getElementById('roi-formula-en').style.display = (lang === 'en') ? '' : 'none';
+    // CTA buttons (links) — restore href text too
+    document.querySelectorAll('a[data-ru][data-en]').forEach(function(el) {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+    document.getElementById('btn-ru').classList.toggle('active', lang === 'ru');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('lang', lang); } catch(e) {}
+  }
+  // Restore saved lang
+  (function() {
+    var saved;
+    try { saved = localStorage.getItem('lang'); } catch(e) {}
+    if (saved === 'en') setLang('en');
+  })();
+</script>
 
 </body>
 </html>
