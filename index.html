@@ -652,6 +652,28 @@
             backdrop-filter: blur(4px);
         }
 
+        /* Case-study CTA link inside flagship card */
+        .flagship-case-link {
+            display: inline-block;
+            margin-top: 14px;
+            margin-left: 10px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .flagship-case-link:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.35);
+        }
+
         .education-item {
             margin-bottom: 20px;
         }
@@ -1371,6 +1393,7 @@
                 </div>
 
                 <div class="flagship-status" data-ru="🔒 Мой собственный продукт · исходники закрыты, демо по запросу" data-en="🔒 My own product · source code is private, demo on request">🔒 Мой собственный продукт · исходники закрыты, демо по запросу</div>
+                <a href="dxf-case.html" class="flagship-case-link" data-ru="📄 Открыть кейс DXF Processor →" data-en="📄 Open DXF Processor case study →">📄 Открыть кейс DXF Processor →</a>
             </div>
 
             <div class="projects-grid">
