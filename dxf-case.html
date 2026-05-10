@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DXF-процессор для ЧПУ-резки стекла | Кейс</title>
+  <style>
+    :root {
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --dark: #0f172a;
+      --text: #334155;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --green: #16a34a;
+      --green-light: #f0fdf4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background: #f8fafc;
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* HEADER */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+      color: #fff;
+      padding: 72px 24px 60px;
+      text-align: center;
+    }
+    .hero .badge {
+      display: inline-block;
+      background: rgba(37,99,235,0.35);
+      border: 1px solid rgba(96,165,250,0.4);
+      color: #93c5fd;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(26px, 5vw, 44px);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero p {
+      font-size: 18px;
+      color: #94a3b8;
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 14px 36px;
+      border-radius: 10px;
+      transition: background .2s;
+    }
+    .hero-cta:hover { background: #1d4ed8; text-decoration: none; }
+    .hero-sub {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    /* STATS BAR */
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+    }
+    .stat-item {
+      flex: 1 1 180px;
+      padding: 28px 24px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label { font-size: 13px; color: var(--muted); }
+
+    /* SECTIONS */
+    .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 64px 0; }
+    section + section { border-top: 1px solid var(--border); }
+    .section-tag {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .lead { font-size: 17px; color: var(--muted); margin-bottom: 32px; }
+
+    /* PROBLEM CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .card-icon { font-size: 28px; margin-bottom: 12px; }
+    .card h3 { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .card p { font-size: 14px; color: var(--muted); }
+
+    /* HOW IT WORKS */
+    .steps { counter-reset: step; margin-top: 24px; }
+    .step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 800;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .step h3 { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .step p { font-size: 14px; color: var(--muted); }
+
+    /* ROI CALCULATOR */
+    .roi-box {
+      background: var(--green-light);
+      border: 1px solid #bbf7d0;
+      border-radius: 16px;
+      padding: 36px;
+      margin-top: 24px;
+    }
+    .roi-formula {
+      font-size: 15px;
+      color: var(--dark);
+      background: #fff;
+      border: 1px solid #d1fae5;
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      font-family: 'Courier New', monospace;
+      line-height: 2;
+    }
+    .roi-table { width: 100%; border-collapse: collapse; }
+    .roi-table th, .roi-table td {
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 14px;
+      border-bottom: 1px solid #d1fae5;
+    }
+    .roi-table th { font-weight: 700; color: var(--dark); }
+    .roi-table td { color: var(--text); }
+    .roi-table .result-row td {
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--green);
+      border-bottom: none;
+    }
+
+    /* FEATURES */
+    .features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .feature {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .feature-check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 12px;
+      margin-top: 2px;
+    }
+    .feature h4 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 3px; }
+    .feature p { font-size: 13px; color: var(--muted); }
+
+    /* TECH STACK */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tag {
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+      color: #fff;
+      text-align: center;
+      padding: 72px 24px;
+    }
+    .cta-section h2 { color: #fff; font-size: clamp(22px,4vw,34px); margin-bottom: 16px; }
+    .cta-section p { color: #94a3b8; font-size: 17px; margin-bottom: 36px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-btn {
+      display: inline-block;
+      background: #fff;
+      color: var(--dark);
+      font-weight: 800;
+      font-size: 16px;
+      padding: 14px 40px;
+      border-radius: 10px;
+    }
+    .cta-btn:hover { background: #e2e8f0; text-decoration: none; }
+    .cta-note { margin-top: 16px; font-size: 13px; color: #475569; }
+
+    /* BACK LINK */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--muted);
+      padding: 16px 24px;
+    }
+    .back-link:hover { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .roi-box { padding: 24px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="back-link" href="index.html">&#8592; Назад к резюме</a>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge">Кейс · Python · Промышленная автоматизация</div>
+  <h1>DXF-процессор для ЧПУ-резки стекла</h1>
+  <p>Автоматическое разделение чертежей на детали, расчёт припусков и генерация Excel-отчётов — вместо 4 часов ручной работы оператора.</p>
+  <a href="mailto:your@email.com" class="hero-cta">Запросить демо</a>
+  <div class="hero-sub">Бесплатный пилот 14 дней · Установка за 1 час</div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat-item">
+    <div class="stat-num">95%</div>
+    <div class="stat-label">файлов в автообработке</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">4→0.1</div>
+    <div class="stat-label">часов оператора в день</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">~5 мес</div>
+    <div class="stat-label">срок окупаемости</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">DXF 2010</div>
+    <div class="stat-label">совместимый выход</div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<div class="container">
+  <section>
+    <div class="section-tag">Проблема</div>
+    <h2>Как выглядит работа без процессора</h2>
+    <p class="lead">Каждый день оператор вручную открывает DXF-файл, ищет контуры деталей, разбивает их, считает припуски — и вносит данные в 1С. Это рутина, которая съедает время и генерирует ошибки.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">⏱️</div>
+        <h3>3–4 часа в день</h3>
+        <p>На ручное разделение и подготовку файлов к резке при загрузке 80+ деталей</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">❌</div>
+        <h3>Ошибки в припусках</h3>
+        <p>Человеческий фактор при расчёте 1.5 / 2.0 мм и припуска на обламывание</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>Ручной Excel</h3>
+        <p>Оператор вручную вписывает размеры, площади и периметры для импорта в 1С</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔄</div>
+        <h3>Нет трассировки</h3>
+        <p>Непонятно, какой файл был обработан, когда и с каким результатом</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="section-tag">Решение</div>
+    <h2>Как работает процессор</h2>
+    <p class="lead">Программа следит за папкой «Новые файлы» в фоне. Как только появляется DXF — автоматически запускается цепочка обработки.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Разделение на детали</h3>
+          <p>Находит наибольший замкнутый контур — это деталь. Сохраняет каждую в отдельный файл вида <code>(толщина)номер-индекс.dxf</code>.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Поворот оптимальной стороной</h3>
+          <p>Разворачивает деталь так, чтобы наибольшая прямая сторона стала горизонтальной — для правильной подачи на станок.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Расчёт и добавление припусков</h3>
+          <p>Эквидистант 1.5 мм (2.0 мм для стекла ≥10 мм). Криволинейные стороны получают дополнительный припуск на обламывание = 3×толщина.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Генерация Excel для 1С</h3>
+          <p>Автоматически создаёт таблицу: Д×Ш, толщина, площадь, периметр, число вырезов — готово для импорта в 1С.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div>
+          <h3>Маршрутизация по папкам</h3>
+          <p>Готовые файлы — в «Файлы в резку». Нестандартные случаи — в «Ручная обработка» с пояснением в лог-файле.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROI -->
+  <section>
+    <div class="section-tag">Экономика</div>
+    <h2>ROI-калькулятор: когда окупится</h2>
+    <p class="lead">Введите параметры вашего производства — формула покажет срок возврата инвестиций.</p>
+    <div class="roi-box">
+      <div class="roi-formula">
+        Экономия/мес = Часов_день × Ставка_час × Рабочих_дней<br>
+        Окупаемость = Стоимость_лицензии ÷ Экономия_мес
+      </div>
+      <table class="roi-table">
+        <thead>
+          <tr><th>Параметр</th><th>Значение</th><th>Пояснение</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Экономия времени</td><td>3.5 ч/день</td><td>Оператор перестаёт делать рутину</td></tr>
+          <tr><td>Ставка оператора</td><td>500 ₽/час</td><td>Средняя по рынку стекольных производств</td></tr>
+          <tr><td>Рабочих дней</td><td>22 дня/мес</td><td>Стандартный производственный календарь</td></tr>
+          <tr><td><strong>Экономия в месяц</strong></td><td><strong>38 500 ₽</strong></td><td>3.5 × 500 × 22</td></tr>
+          <tr><td>Стоимость лицензии</td><td>200 000 ₽</td><td>Разовый платёж, без абонентки</td></tr>
+          <tr class="result-row"><td>✅ Окупаемость</td><td>~5 месяцев</td><td>200 000 ÷ 38 500</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section>
+    <div class="section-tag">Возможности</div>
+    <h2>Что входит в поставку</h2>
+    <div class="features-list">
+      <div class="feature">
+        <div class="feature-check">✓</div>
+        <div>
+          <h4>Фоновая работа (watcher)</h4>
+          <p>Программа запускается автоматически с Windows и обрабатывает файлы без участия оператора</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-check">✓</div>
+        <div>
+          <h4>Поддержка DXF до 2024</h4>
+          <p>Вход: любой DXF до версии 2024. Выход: DXF 2010, совместимый с большинством ЧПУ-станков</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-check">✓</div>
+        <div>
+          <h4>Excel-отчёт для 1С</h4>
+          <p>Готовый файл с габаритами, площадью, периметром и вырезами для прямого импорта</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-check">✓</div>
+        <div>
+          <h4>Папка ручной обработки</h4>
+          <p>Нестандартные файлы не теряются — попадают в отдельную папку с причиной в логе</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-check">✓</div>
+        <div>
+          <h4>Готовый .exe без Python</h4>
+          <p>Установка за 10 минут — не нужно устанавливать Python или зависимости</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-check">✓</div>
+        <div>
+          <h4>Настройка под ваш станок</h4>
+          <p>Параметры припусков и порогов задаются в config.ini без перекомпиляции</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH -->
+  <section>
+    <div class="section-tag">Технологии</div>
+    <h2>Стек</h2>
+    <p class="lead">Надёжный Python-стек без экзотических зависимостей — работает на любом Windows 10/11.</p>
+    <div class="tags">
+      <span class="tag">Python 3.11</span>
+      <span class="tag">ezdxf</span>
+      <span class="tag">Shapely</span>
+      <span class="tag">NumPy</span>
+      <span class="tag">openpyxl</span>
+      <span class="tag">watchdog</span>
+      <span class="tag">PyInstaller (.exe)</span>
+      <span class="tag">Windows Service</span>
+    </div>
+  </section>
+</div>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Готовы автоматизировать резку?</h2>
+  <p>Пришлите 2–3 реальных DXF-файла — покажем результат обработки в течение 24 часов.</p>
+  <a href="mailto:your@email.com" class="cta-btn">Написать — получить демо</a>
+  <div class="cta-note">Бесплатный пилот 14 дней · NDA по запросу</div>
+</section>
+
+</body>
+</html>
