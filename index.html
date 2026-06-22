@@ -1014,12 +1014,6 @@
                         <span class="stat-num">1</span>
                         <span class="stat-label" data-ru="собственный production-продукт" data-en="own production product">собственный production-продукт</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-num">3</span>
-                        <span class="stat-label"
-                              data-ru="проекта в разработке"
-                              data-en="products in development">проекта в разработке</span>
-                    </div>
                 </div>
 
                 <div class="contact-buttons">
@@ -1031,6 +1025,84 @@
                     <a href="https://kwork.ru/user/rj93" class="contact-btn" target="_blank" rel="noopener">🛒 Kwork</a>
                 </div>
             </div>
+        </div>
+
+        <!-- DXF Claw Production Product -->
+        <div class="projects-section" id="dxf-claw">
+            <div class="card-title">
+                <span data-ru="⭐ Собственный production-продукт" data-en="⭐ Own production product">⭐ Собственный production-продукт</span>
+            </div>
+            <!-- Flagship case: DXF Claw -->
+            <div class="flagship-card">
+                <span class="flagship-badge" data-ru="⭐ Флагманский кейс · в production" data-en="⭐ Flagship case · in production">⭐ Флагманский кейс · в production</span>
+                <div class="flagship-name" data-ru="📐 DXF Claw — конвертер для ЧПУ-резки стекла" data-en="📐 DXF Claw — DXF converter for CNC glass cutting">📐 DXF Claw — конвертер для ЧПУ-резки стекла</div>
+                <div class="flagship-role" data-ru="Создатель продукта · single-developer · от ТЗ до production-деплоя" data-en="Product creator · solo developer · from spec to production rollout">Создатель продукта · single-developer · от ТЗ до production-деплоя</div>
+                <p class="flagship-desc"
+                   data-ru="Самостоятельно с нуля разработал коммерческий продукт для стекольного производства: десктоп-приложение на Python, которое автоматически разбирает DXF-чертежи на отдельные детали, выполняет вычислительную геометрию (поворот по самой длинной стороне, эквидистанту 1.5/2.0 мм, припуск на обламывание 3 × толщина стекла, скругления R1 у открытых вырезов), формирует два DXF на каждую деталь — «в обработку» и «в резку» — и собирает Excel-спецификацию под импорт в 1С. Запускается как Windows-служба, работает в фоне 24/7, обрабатывает входные DXF до версии R2024, на выходе R2010 для совместимости с любыми старыми CAM/ЧПУ."
+                   data-en="Built a commercial product for glass manufacturing solo from scratch: a Python desktop app that automatically splits DXF drawings into individual parts, runs computational geometry (rotation along the longest edge, 1.5/2.0 mm equidistant offset, 3 × glass thickness break allowance, R1 fillets on open cutouts), generates two DXFs per part — “processing” and “cutting” — and builds an Excel spec ready for import into 1C. Runs as a Windows service, works 24/7 in the background, accepts input DXFs up to R2024 and outputs R2010 for compatibility with any legacy CAM/CNC.">Самостоятельно с нуля разработал коммерческий продукт для стекольного производства: десктоп-приложение на Python, которое автоматически разбирает DXF-чертежи на отдельные детали, выполняет вычислительную геометрию (поворот по самой длинной стороне, эквидистанту 1.5/2.0 мм, припуск на обламывание 3 × толщина стекла, скругления R1 у открытых вырезов), формирует два DXF на каждую деталь — «в обработку» и «в резку» — и собирает Excel-спецификацию под импорт в 1С. Запускается как Windows-служба, работает в фоне 24/7, обрабатывает входные DXF до версии R2024, на выходе R2010 для совместимости с любыми старыми CAM/ЧПУ.</p>
+
+                <div class="flagship-highlights">
+                    <div class="flagship-highlight">
+                        <div class="flagship-highlight-num" data-ru="−95%" data-en="−95%">−95%</div>
+                        <div class="flagship-highlight-label" data-ru="времени технолога на подготовку чертежей к резке" data-en="of technologist time on prepping drawings for cutting">времени технолога на подготовку чертежей к резке</div>
+                    </div>
+                    <div class="flagship-highlight">
+                        <div class="flagship-highlight-num" data-ru="24/7" data-en="24/7">24/7</div>
+                        <div class="flagship-highlight-label" data-ru="работает как Windows-служба, без оператора" data-en="runs as a Windows service, no operator needed">работает как Windows-служба, без оператора</div>
+                    </div>
+                    <div class="flagship-highlight">
+                        <div class="flagship-highlight-num" data-ru="DXF R2024 → R2010" data-en="DXF R2024 → R2010">DXF R2024 → R2010</div>
+                        <div class="flagship-highlight-label" data-ru="совместимость со всем парком CAM/ЧПУ" data-en="compatible with the entire CAM/CNC fleet">совместимость со всем парком CAM/ЧПУ</div>
+                    </div>
+                    <div class="flagship-highlight">
+                        <div class="flagship-highlight-num" data-ru="1С 2.5" data-en="1C 2.5">1С 2.5</div>
+                        <div class="flagship-highlight-label" data-ru="авто-Excel под импорт спецификаций в учётную систему" data-en="auto-generated Excel for spec import into the ERP">авто-Excel под импорт спецификаций в учётную систему</div>
+                    </div>
+                </div>
+
+                <div class="flagship-tech">
+                    <span>Python</span>
+                    <span>ezdxf</span>
+                    <span>Shapely</span>
+                    <span>NumPy</span>
+                    <span>OpenPyXL</span>
+                    <span>Watchdog</span>
+                    <span>PyInstaller</span>
+                    <span>pywin32</span>
+                    <span data-ru="Windows Service" data-en="Windows Service">Windows Service</span>
+                    <span data-ru="GitHub Actions (CI .exe)" data-en="GitHub Actions (CI .exe)">GitHub Actions (CI .exe)</span>
+                    <span data-ru="Вычислительная геометрия" data-en="Computational geometry">Вычислительная геометрия</span>
+                </div>
+
+                <div class="flagship-status" data-ru="🔒 Мой собственный продукт · исходники закрыты, демо по запросу" data-en="🔒 My own product · source code is private, demo on request">🔒 Мой собственный продукт · исходники закрыты, демо по запросу</div>
+                <a href="dxf-case.html" class="flagship-case-link" data-ru="📄 Открыть кейс DXF Claw →" data-en="📄 Open DXF Claw case study →">📄 Открыть кейс DXF Claw →</a>
+            </div>
+        </div>
+
+        <!-- In Development -->
+        <div class="projects-section" id="in-development">
+            <div class="card-title">
+                <span data-ru="🛠️ Продукты в разработке" data-en="🛠️ Products in Development">🛠️ Продукты в разработке</span>
+            </div>
+            <a href="agro-grain-automation.html" style="text-decoration:none;">
+                <div style="background:linear-gradient(135deg,#1a3a1a 0%,#2d5a27 60%,#1a4a2a 100%);border-radius:18px;padding:32px;margin-bottom:20px;position:relative;overflow:hidden;box-shadow:0 12px 30px rgba(26,74,26,0.30);cursor:pointer;transition:transform 0.2s ease,box-shadow 0.2s ease;"
+                     onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 18px 40px rgba(26,74,26,0.40)'"
+                     onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 12px 30px rgba(26,74,26,0.30)'">
+                    <div style="position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(72,187,120,0.25) 0%,transparent 70%);border-radius:50%;"></div>
+                    <span style="display:inline-block;background:linear-gradient(135deg,#48bb78,#38a169);color:white;padding:5px 14px;border-radius:20px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">🌾 В разработке · Agro SaaS</span>
+                    <div style="font-size:1.7rem;font-weight:700;color:white;margin-bottom:6px;">AgroFlow Grain</div>
+                    <div style="color:#a7f3a0;font-size:0.95rem;margin-bottom:16px;">Автоматизация зернового агробизнеса · учёт, логистика, аналитика</div>
+                    <p style="color:#d1fae5;line-height:1.7;margin-bottom:20px;font-size:1rem;max-width:680px;">SaaS-платформа для агропредприятий: сквозной учёт зерна от поля до продажи, управление элеватором и складом, логистика, весовой контроль, финансовая аналитика и AI-рекомендации по срокам продаж.</p>
+                    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;">
+                        <span style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.15);color:#d1fae5;padding:5px 12px;border-radius:12px;font-size:0.82rem;">Python / FastAPI</span>
+                        <span style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.15);color:#d1fae5;padding:5px 12px;border-radius:12px;font-size:0.82rem;">PostgreSQL</span>
+                        <span style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.15);color:#d1fae5;padding:5px 12px;border-radius:12px;font-size:0.82rem;">React / Next.js</span>
+                        <span style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.15);color:#d1fae5;padding:5px 12px;border-radius:12px;font-size:0.82rem;">AI-аналитика</span>
+                        <span style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.15);color:#d1fae5;padding:5px 12px;border-radius:12px;font-size:0.82rem;">Docker</span>
+                    </div>
+                    <span style="display:inline-block;background:linear-gradient(135deg,#48bb78,#38a169);color:white;padding:9px 20px;border-radius:10px;font-weight:600;font-size:0.95rem;">Подробнее о продукте →</span>
+                </div>
+            </a>
         </div>
 
         <!-- Specialization -->
@@ -1356,51 +1428,6 @@
             </div>
             <p class="projects-intro" data-ru="Активные проекты с измеримыми результатами" data-en="Active projects with measurable outcomes">Активные проекты с измеримыми результатами</p>
 
-            <!-- Flagship case: DXF Claw -->
-            <div class="flagship-card">
-                <span class="flagship-badge" data-ru="⭐ Флагманский кейс · в production" data-en="⭐ Flagship case · in production">⭐ Флагманский кейс · в production</span>
-                <div class="flagship-name" data-ru="📐 DXF Claw — конвертер для ЧПУ-резки стекла" data-en="📐 DXF Claw — DXF converter for CNC glass cutting">📐 DXF Claw — конвертер для ЧПУ-резки стекла</div>
-                <div class="flagship-role" data-ru="Создатель продукта · single-developer · от ТЗ до production-деплоя" data-en="Product creator · solo developer · from spec to production rollout">Создатель продукта · single-developer · от ТЗ до production-деплоя</div>
-                <p class="flagship-desc"
-                   data-ru="Самостоятельно с нуля разработал коммерческий продукт для стекольного производства: десктоп-приложение на Python, которое автоматически разбирает DXF-чертежи на отдельные детали, выполняет вычислительную геометрию (поворот по самой длинной стороне, эквидистанту 1.5/2.0 мм, припуск на обламывание 3 × толщина стекла, скругления R1 у открытых вырезов), формирует два DXF на каждую деталь — «в обработку» и «в резку» — и собирает Excel-спецификацию под импорт в 1С. Запускается как Windows-служба, работает в фоне 24/7, обрабатывает входные DXF до версии R2024, на выходе R2010 для совместимости с любыми старыми CAM/ЧПУ."
-                   data-en="Built a commercial product for glass manufacturing solo from scratch: a Python desktop app that automatically splits DXF drawings into individual parts, runs computational geometry (rotation along the longest edge, 1.5/2.0 mm equidistant offset, 3 × glass thickness break allowance, R1 fillets on open cutouts), generates two DXFs per part — “processing” and “cutting” — and builds an Excel spec ready for import into 1C. Runs as a Windows service, works 24/7 in the background, accepts input DXFs up to R2024 and outputs R2010 for compatibility with any legacy CAM/CNC.">Самостоятельно с нуля разработал коммерческий продукт для стекольного производства: десктоп-приложение на Python, которое автоматически разбирает DXF-чертежи на отдельные детали, выполняет вычислительную геометрию (поворот по самой длинной стороне, эквидистанту 1.5/2.0 мм, припуск на обламывание 3 × толщина стекла, скругления R1 у открытых вырезов), формирует два DXF на каждую деталь — «в обработку» и «в резку» — и собирает Excel-спецификацию под импорт в 1С. Запускается как Windows-служба, работает в фоне 24/7, обрабатывает входные DXF до версии R2024, на выходе R2010 для совместимости с любыми старыми CAM/ЧПУ.</p>
-
-                <div class="flagship-highlights">
-                    <div class="flagship-highlight">
-                        <div class="flagship-highlight-num" data-ru="−95%" data-en="−95%">−95%</div>
-                        <div class="flagship-highlight-label" data-ru="времени технолога на подготовку чертежей к резке" data-en="of technologist time on prepping drawings for cutting">времени технолога на подготовку чертежей к резке</div>
-                    </div>
-                    <div class="flagship-highlight">
-                        <div class="flagship-highlight-num" data-ru="24/7" data-en="24/7">24/7</div>
-                        <div class="flagship-highlight-label" data-ru="работает как Windows-служба, без оператора" data-en="runs as a Windows service, no operator needed">работает как Windows-служба, без оператора</div>
-                    </div>
-                    <div class="flagship-highlight">
-                        <div class="flagship-highlight-num" data-ru="DXF R2024 → R2010" data-en="DXF R2024 → R2010">DXF R2024 → R2010</div>
-                        <div class="flagship-highlight-label" data-ru="совместимость со всем парком CAM/ЧПУ" data-en="compatible with the entire CAM/CNC fleet">совместимость со всем парком CAM/ЧПУ</div>
-                    </div>
-                    <div class="flagship-highlight">
-                        <div class="flagship-highlight-num" data-ru="1С 2.5" data-en="1C 2.5">1С 2.5</div>
-                        <div class="flagship-highlight-label" data-ru="авто-Excel под импорт спецификаций в учётную систему" data-en="auto-generated Excel for spec import into the ERP">авто-Excel под импорт спецификаций в учётную систему</div>
-                    </div>
-                </div>
-
-                <div class="flagship-tech">
-                    <span>Python</span>
-                    <span>ezdxf</span>
-                    <span>Shapely</span>
-                    <span>NumPy</span>
-                    <span>OpenPyXL</span>
-                    <span>Watchdog</span>
-                    <span>PyInstaller</span>
-                    <span>pywin32</span>
-                    <span data-ru="Windows Service" data-en="Windows Service">Windows Service</span>
-                    <span data-ru="GitHub Actions (CI .exe)" data-en="GitHub Actions (CI .exe)">GitHub Actions (CI .exe)</span>
-                    <span data-ru="Вычислительная геометрия" data-en="Computational geometry">Вычислительная геометрия</span>
-                </div>
-
-                <div class="flagship-status" data-ru="🔒 Мой собственный продукт · исходники закрыты, демо по запросу" data-en="🔒 My own product · source code is private, demo on request">🔒 Мой собственный продукт · исходники закрыты, демо по запросу</div>
-                <a href="dxf-case.html" class="flagship-case-link" data-ru="📄 Открыть кейс DXF Claw →" data-en="📄 Open DXF Claw case study →">📄 Открыть кейс DXF Claw →</a>
-            </div>
 
             <div class="projects-grid">
 
@@ -1513,32 +1540,6 @@
                     <div class="project-status internal" data-ru="🔒 Внутренние корпоративные проекты" data-en="🔒 Internal corporate projects">🔒 Внутренние корпоративные проекты</div>
                 </div>
             </div>
-        </div>
-
-        <!-- In Development -->
-        <div class="projects-section" id="in-development">
-            <div class="card-title">
-                <span data-ru="🛠️ Продукты в разработке" data-en="🛠️ Products in Development">🛠️ Продукты в разработке</span>
-            </div>
-            <a href="agro-grain-automation.html" style="text-decoration:none;">
-                <div style="background:linear-gradient(135deg,#1a3a1a 0%,#2d5a27 60%,#1a4a2a 100%);border-radius:18px;padding:32px;margin-bottom:20px;position:relative;overflow:hidden;box-shadow:0 12px 30px rgba(26,74,26,0.30);cursor:pointer;transition:transform 0.2s ease,box-shadow 0.2s ease;"
-                     onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 18px 40px rgba(26,74,26,0.40)'"
-                     onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 12px 30px rgba(26,74,26,0.30)'">
-                    <div style="position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(72,187,120,0.25) 0%,transparent 70%);border-radius:50%;"></div>
-                    <span style="display:inline-block;background:linear-gradient(135deg,#48bb78,#38a169);color:white;padding:5px 14px;border-radius:20px;font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">🌾 В разработке · Agro SaaS</span>
-                    <div style="font-size:1.7rem;font-weight:700;color:white;margin-bottom:6px;">AgroFlow Grain</div>
-                    <div style="color:#a7f3a0;font-size:0.95rem;margin-bottom:16px;">Автоматизация зернового агробизнеса · учёт, логистика, аналитика</div>
-                    <p style="color:#d1fae5;line-height:1.7;margin-bottom:20px;font-size:1rem;max-width:680px;">SaaS-платформа для агропредприятий: сквозной учёт зерна от поля до продажи, управление элеватором и складом, логистика, весовой контроль, финансовая аналитика и AI-рекомендации по срокам продаж.</p>
-                    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;">
-                        <span style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.15);color:#d1fae5;padding:5px 12px;border-radius:12px;font-size:0.82rem;">Python / FastAPI</span>
-                        <span style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.15);color:#d1fae5;padding:5px 12px;border-radius:12px;font-size:0.82rem;">PostgreSQL</span>
-                        <span style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.15);color:#d1fae5;padding:5px 12px;border-radius:12px;font-size:0.82rem;">React / Next.js</span>
-                        <span style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.15);color:#d1fae5;padding:5px 12px;border-radius:12px;font-size:0.82rem;">AI-аналитика</span>
-                        <span style="background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.15);color:#d1fae5;padding:5px 12px;border-radius:12px;font-size:0.82rem;">Docker</span>
-                    </div>
-                    <span style="display:inline-block;background:linear-gradient(135deg,#48bb78,#38a169);color:white;padding:9px 20px;border-radius:10px;font-weight:600;font-size:0.95rem;">Подробнее о продукте →</span>
-                </div>
-            </a>
         </div>
 
         <!-- Testimonials -->
