@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DXF Claw — автоматизация подготовки DXF для ЧПУ-резки стекла</title>
+  <meta name="description" content="DXF Claw — production-инструмент для стекольных цехов: деление DXF на детали, поворот, припуски, Excel-выгрузка и DXF 2010 на выходе. Пилот 14 дней, тест 24 часа.">
+  <link rel="canonical" href="https://agronom28-crypto.github.io/resume/dxf-case-final.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="DXF Claw — автоматизация подготовки DXF для ЧПУ-резки стекла">
+  <meta property="og:description" content="Production-инструмент для стекольных производств: автоматическая подготовка DXF, Excel-выгрузка для 1С и DXF 2010 для станка.">
+  <meta property="og:url" content="https://agronom28-crypto.github.io/resume/dxf-case-final.html">
+  <meta property="og:image" content="https://agronom28-crypto.github.io/resume/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0%20DFX%20claw.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "DXF Claw — автоматизация подготовки DXF для ЧПУ-резки стекла",
+        "description": "Кейс production-инструмента для стекольных производств: деление DXF на детали, поворот, припуски, Excel-выгрузка и DXF 2010 на выходе.",
+        "author": {
+          "@type": "Person",
+          "name": "Николаенко Сергей Валерьевич",
+          "url": "https://agronom28-crypto.github.io/resume/"
+        },
+        "mainEntityOfPage": "https://agronom28-crypto.github.io/resume/dxf-case-final.html",
+        "image": "https://agronom28-crypto.github.io/resume/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0%20DFX%20claw.png",
+        "inLanguage": "ru-RU"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": "https://agronom28-crypto.github.io/resume/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "DXF Claw",
+            "item": "https://agronom28-crypto.github.io/resume/dxf-case-final.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Заменит ли это оператора?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Нет. Решение снимает повторяемую DXF-рутину, а оператор остаётся для контроля и нестандартных случаев."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Работает ли с нашим ЧПУ-станком?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "На выходе формируется DXF 2010, совместимый с большинством ЧПУ-станков для стекла, если они принимают DXF."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Можно ли проверить на наших DXF до пилота?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Да. Можно прислать 2–5 типовых DXF и получить результат обработки в течение 24 рабочих часов."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #09111e;
+      --bg-2: #0d1728;
+      --panel: rgba(12, 21, 38, 0.78);
+      --panel-2: rgba(16, 26, 45, 0.92);
+      --line: rgba(148, 163, 184, 0.14);
+      --line-strong: rgba(96, 165, 250, 0.26);
+      --text: #f8fafc;
+      --muted: #93a4bb;
+      --soft: #dbe7f5;
+      --accent: #60a5fa;
+      --accent-2: #22d3ee;
+      --good: #34d399;
+      --warn: #fbbf24;
+      --radius: 26px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --shadow: 0 24px 80px rgba(2, 6, 23, 0.34);
+      --content: 1220px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(34, 211, 238, 0.12), transparent 28%),
+        radial-gradient(circle at 88% 14%, rgba(96, 165, 250, 0.16), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, #0a1220 42%, var(--bg-2) 100%);
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
+    .wrap { width: min(calc(100% - 32px), var(--content)); margin: 0 auto; }
+    .skip-link {
+      position: absolute; left: -999px; top: 8px; background: #fff; color: #08111f;
+      padding: 10px 14px; border-radius: 10px; z-index: 50;
+    }
+    .skip-link:focus { left: 12px; }
+    .topbar {
+      position: sticky; top: 0; z-index: 30; backdrop-filter: blur(18px);
+      background: rgba(9, 17, 30, 0.72); border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner {
+      min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 18px;
+    }
+    .brand { display: flex; align-items: center; gap: 14px; font-weight: 800; letter-spacing: .02em; }
+    .logo {
+      width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center;
+      color: #dff6fb; background: linear-gradient(135deg, rgba(96,165,250,.24), rgba(34,211,238,.24));
+      border: 1px solid rgba(125,211,252,.22);
+    }
+    .nav { display: flex; gap: 10px; flex-wrap: wrap; }
+    .nav a {
+      min-height: 40px; display: inline-flex; align-items: center; padding: 0 14px;
+      color: var(--muted); border-radius: 999px; background: rgba(15,23,42,.46); border: 1px solid rgba(148,163,184,.1);
+      font-size: 14px; font-weight: 600;
+    }
+    .nav a:hover { color: var(--text); border-color: var(--line-strong); }
+    .hero { padding: 56px 0 34px; }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.18fr .82fr; gap: 24px; align-items: stretch;
+    }
+    .panel, .hero-main, .hero-side, .metric, .feature, .timeline, .pricing, .cta-box, .compare-note {
+      background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); backdrop-filter: blur(20px);
+    }
+    .hero-main { padding: 34px; position: relative; overflow: hidden; }
+    .hero-main::after {
+      content: ""; position: absolute; inset: auto -6% -36% auto; width: 340px; height: 340px;
+      background: radial-gradient(circle, rgba(96,165,250,.16), transparent 62%); filter: blur(20px);
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px;
+      background: rgba(96,165,250,.1); border: 1px solid rgba(96,165,250,.18); color: #bfdbfe;
+      font-size: 13px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase;
+    }
+    h1 {
+      margin: 18px 0 16px; font-size: clamp(38px, 5.8vw, 72px); line-height: .98; letter-spacing: -.045em; max-width: 11ch;
+    }
+    .lead { margin: 0 0 24px; color: var(--soft); font-size: clamp(17px, 2vw, 21px); max-width: 43ch; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px;
+      padding: 0 22px; border-radius: 999px; font-weight: 800; border: 1px solid transparent; transition: .2s ease;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color: #06101c; box-shadow: 0 14px 34px rgba(34,211,238,.16); }
+    .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.04); }
+    .btn-secondary { background: rgba(15,23,42,.58); border-color: var(--line); color: var(--text); }
+    .btn-secondary:hover { background: rgba(15,23,42,.88); border-color: var(--line-strong); }
+    .proof-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; }
+    .proof-item {
+      padding: 14px 16px; border-radius: 18px; background: rgba(2,6,23,.3); border: 1px solid rgba(148,163,184,.1);
+    }
+    .proof-item strong { display: block; font-size: 24px; margin-bottom: 4px; }
+    .proof-item span { color: var(--muted); font-size: 13px; }
+    .hero-side { padding: 22px; display: grid; gap: 16px; }
+    .visual {
+      min-height: 300px; border-radius: 22px; position: relative; overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(8,17,31,.14), rgba(8,17,31,.7)),
+        url('https://agronom28-crypto.github.io/resume/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0%20DFX%20claw.png') center/cover no-repeat;
+      border: 1px solid rgba(148,163,184,.12);
+    }
+    .visual-badge {
+      position: absolute; left: 16px; right: 16px; bottom: 16px; padding: 14px 16px; border-radius: 18px;
+      background: rgba(8,17,31,.74); border: 1px solid rgba(148,163,184,.12);
+    }
+    .visual-badge strong { display: block; margin-bottom: 6px; }
+    .side-list { display: grid; gap: 12px; }
+    .side-row {
+      display: grid; grid-template-columns: 16px 1fr; gap: 12px; align-items: start; padding-top: 14px; border-top: 1px solid rgba(148,163,184,.1);
+    }
+    .side-row:first-child { border-top: 0; padding-top: 0; }
+    .dot {
+      width: 10px; height: 10px; border-radius: 50%; margin-top: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2)); box-shadow: 0 0 24px rgba(34,211,238,.42);
+    }
+    main section { padding: 28px 0; }
+    .metric-grid, .feature-grid { display: grid; gap: 16px; }
+    .metric-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+    .metric { padding: 22px; border-radius: 22px; }
+    .metric strong { display: block; font-size: clamp(24px, 3vw, 36px); margin-bottom: 6px; }
+    .metric span { color: var(--muted); font-size: 14px; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 20px; }
+    .section-head h2 { font-size: clamp(26px, 4vw, 42px); margin: 0; letter-spacing: -.03em; }
+    .section-head p { margin: 0; color: var(--muted); max-width: 48ch; }
+    .bento { display: grid; grid-template-columns: 1.05fr .95fr; gap: 20px; }
+    .card { padding: 26px; }
+    .card h3 { margin-bottom: 12px; font-size: 22px; }
+    .card p { color: var(--muted); }
+    .rows { display: grid; gap: 14px; margin-top: 20px; }
+    .row {
+      display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: start; padding-top: 14px; border-top: 1px solid rgba(148,163,184,.1);
+    }
+    .row:first-child { border-top: 0; padding-top: 0; }
+    .badge-num {
+      width: 28px; height: 28px; border-radius: 10px; display: grid; place-items: center; font-size: 13px; font-weight: 800;
+      color: #08111f; background: linear-gradient(135deg, #93c5fd, #67e8f9);
+    }
+    .feature-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .feature { padding: 24px; }
+    .feature .icon {
+      width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center;
+      background: rgba(96,165,250,.12); border: 1px solid rgba(96,165,250,.18); color: #bfdbfe; font-weight: 800;
+    }
+    .feature h3 { margin: 14px 0 10px; font-size: 18px; }
+    .feature p { color: var(--muted); }
+    .timeline { padding: 16px; }
+    .stage {
+      display: grid; grid-template-columns: 108px 1fr; gap: 18px; padding: 16px; border-radius: 18px;
+      border: 1px solid rgba(148,163,184,.08); background: rgba(2,6,23,.22); margin-bottom: 12px;
+    }
+    .stage:last-child { margin-bottom: 0; }
+    .day { color: #93c5fd; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .compare-note { padding: 24px; }
+    .compare-note p { color: var(--muted); }
+    .pricing {
+      padding: 30px; position: relative; overflow: hidden; background: linear-gradient(180deg, rgba(15,23,42,.82), rgba(9,14,26,.96));
+    }
+    .pricing::after {
+      content: ""; position: absolute; right: -80px; top: -80px; width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(52,211,153,.14), transparent 62%);
+    }
+    .price-main {
+      display: flex; justify-content: space-between; gap: 20px; align-items: end; flex-wrap: wrap; margin-bottom: 22px;
+    }
+    .price { font-size: clamp(44px, 5vw, 72px); line-height: .95; letter-spacing: -.05em; }
+    .price small { display: block; font-size: 14px; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; margin-bottom: 10px; }
+    .price-list { display: grid; gap: 14px; }
+    .note {
+      margin-top: 18px; padding: 14px 16px; border-radius: 16px; color: #cfe9db;
+      background: rgba(52,211,153,.08); border: 1px solid rgba(52,211,153,.16);
+    }
+    .cta-box {
+      padding: 32px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 24px; align-items: center; margin-bottom: 56px;
+    }
+    .cta-box h2 { margin-bottom: 12px; font-size: clamp(30px, 4vw, 44px); }
+    .cta-box p { color: var(--muted); }
+    .cta-side {
+      padding: 20px; border-radius: 20px; background: rgba(2,6,23,.28); border: 1px solid rgba(148,163,184,.1);
+    }
+    .mail { color: #bfdbfe; font-weight: 800; }
+    footer { padding: 0 0 40px; color: var(--muted); font-size: 14px; }
+    @media (max-width: 1080px) {
+      .hero-grid, .metric-grid, .feature-grid, .bento, .cta-box { grid-template-columns: 1fr; }
+      .proof-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 760px) {
+      .topbar-inner { min-height: auto; padding: 16px 0; align-items: flex-start; flex-direction: column; }
+      .hero-main, .hero-side, .metric, .feature, .pricing, .cta-box, .compare-note, .card { border-radius: 22px; }
+      .section-head { align-items: start; flex-direction: column; }
+      .stage, .price-main { grid-template-columns: 1fr; }
+      h1 { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Перейти к содержанию</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="index.html" aria-label="На главную">
+        <div class="logo" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M5 18L12 5L19 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.5 14H15.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span>DXF Claw</span>
+      </a>
+      <nav class="nav" aria-label="Навигация по кейсу">
+        <a href="#problem">Проблема</a>
+        <a href="#workflow">Как работает</a>
+        <a href="#pilot">Пилот</a>
+        <a href="#pricing">Цена</a>
+        <a href="#contact">Контакт</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-main">
+          <div class="eyebrow">Production-инструмент для стекольного цеха</div>
+          <h1>Снимает ручную подготовку DXF перед ЧПУ-резкой стекла</h1>
+          <p class="lead">DXF Claw — внутренний инструмент, который делит составные DXF на детали, разворачивает их, считает припуски, собирает Excel для 1С и отдаёт DXF 2010 для станка. Без облака и без лишней ручной рутины.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:rj2biz@mail.ru?subject=DXF%20Claw%20%E2%80%94%20pilot%2014%20days">Запросить пилот 14 дней</a>
+            <a class="btn btn-secondary" href="mailto:rj2biz@mail.ru?subject=DXF%20Claw%20%E2%80%94%20test%20DXF">Прислать DXF на тест</a>
+          </div>
+          <div class="proof-grid">
+            <div class="proof-item"><strong>DXF 2024 → 2010</strong><span>совместимость со станками без ручной конвертации</span></div>
+            <div class="proof-item"><strong>1.5 / 2.0 мм</strong><span>припуски по толщине и технологии цеха</span></div>
+            <div class="proof-item"><strong>24 часа</strong><span>быстрый тест на 2–5 ваших DXF до пилота</span></div>
+          </div>
+        </div>
+        <aside class="hero-side">
+          <div class="visual">
+            <div class="visual-badge">
+              <strong>Не просто кейс, а коммерческая подача продукта</strong>
+              <span>Страница собрана так, чтобы заказчик сразу видел бизнес-смысл: где теряется время, как выглядит workflow и почему пилот снижает риск внедрения.</span>
+            </div>
+          </div>
+          <div class="side-list">
+            <div class="side-row"><div class="dot"></div><div><strong>Локально, без облака</strong><br><span style="color:var(--muted)">DXF-файлы остаются внутри контура заказчика.</span></div></div>
+            <div class="side-row"><div class="dot"></div><div><strong>Честный edge-case flow</strong><br><span style="color:var(--muted)">Нестандартные файлы уходят в manual-папку с логом причины.</span></div></div>
+            <div class="side-row"><div class="dot"></div><div><strong>Внятный первый шаг</strong><br><span style="color:var(--muted)">Сначала тест, потом пилот, потом решение о внедрении.</span></div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <main id="content">
+      <section>
+        <div class="metric-grid">
+          <div class="metric"><strong>3–4 часа</strong><span>типичный объём ручной рутины в смену, который проще всего убрать первым</span></div>
+          <div class="metric"><strong>5–20 DXF</strong><span>достаточно для пилота и первичной калибровки сценариев</span></div>
+          <div class="metric"><strong>14 дней</strong><span>реалистичный цикл проверки на потоке цеха</span></div>
+          <div class="metric"><strong>300 000 ₽</strong><span>ориентир production-пакета для одного цеха</span></div>
+        </div>
+      </section>
+
+      <section id="problem">
+        <div class="section-head">
+          <h2>Где болит процесс</h2>
+          <p>Сначала эта страница продаёт не «функции программы», а снятие ручной рутины, ошибок и зависимости от конкретного оператора.</p>
+        </div>
+        <div class="bento">
+          <article class="panel card">
+            <h3>Ручная подготовка съедает смену</h3>
+            <p>Когда оператор открывает каждый DXF, ищет контуры, разворачивает детали, считает припуски и заносит данные в Excel, бизнес платит не за производство, а за повторяемую рутину.</p>
+            <div class="rows">
+              <div class="row"><div class="badge-num">01</div><div><strong>Потеря темпа.</strong> Пачки DXF скапливаются ещё до станка, хотя задержка начинается на этапе подготовки.</div></div>
+              <div class="row"><div class="badge-num">02</div><div><strong>Ошибки в припусках.</strong> Неправильный выбор 1.5 / 2.0 мм или логики обламывания бьёт по браку и переделкам.</div></div>
+              <div class="row"><div class="badge-num">03</div><div><strong>Хрупкий процесс.</strong> Всё держится на конкретном операторе, а не на воспроизводимом workflow.</div></div>
+            </div>
+          </article>
+          <article class="panel card">
+            <h3>Что получает руководитель</h3>
+            <p>Не «ещё одну программу», а предсказуемый участок процесса: стандартные файлы уходят дальше автоматически, а нестандарт не ломает поток и фиксируется отдельно.</p>
+            <div class="rows">
+              <div class="row"><div class="badge-num">✓</div><div><strong>Прозрачный pipeline.</strong> Новые DXF → автообработка → ready/manual с логом.</div></div>
+              <div class="row"><div class="badge-num">✓</div><div><strong>Проверка до договора.</strong> Сначала тест на ваших файлах, а не «продажа по красивому PDF».</div></div>
+              <div class="row"><div class="badge-num">✓</div><div><strong>Локальный контур.</strong> Это важно для производств, где геометрия не должна уходить наружу.</div></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="workflow">
+        <div class="section-head">
+          <h2>Как выглядит workflow</h2>
+          <p>Тут уже идёт продуктовая подача: не длинное описание, а ясная цепочка обработки, понятная собственнику и технарю.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature"><div class="icon">1</div><h3>Деление на детали</h3><p>Программа находит замкнутые контуры и раскладывает составной DXF на отдельные файлы по согласованной схеме именования.</p></article>
+          <article class="feature"><div class="icon">2</div><h3>Поворот по длинной стороне</h3><p>Деталь разворачивается так, чтобы подача на станок оставалась предсказуемой и технологически удобной.</p></article>
+          <article class="feature"><div class="icon">3</div><h3>Припуски под толщину</h3><p>Логика 1.5 / 2.0 мм и коэффициент на обламывание выносятся в настраиваемый слой, а не живут в голове оператора.</p></article>
+          <article class="feature"><div class="icon">4</div><h3>Excel-выгрузка</h3><p>Размеры, площадь, периметр и число вырезов автоматически собираются для последующей загрузки в 1С или учётную систему.</p></article>
+          <article class="feature"><div class="icon">5</div><h3>Маршрутизация файлов</h3><p>Стандартный поток уходит в «Файлы в резку», нестандарт — в «Ручную обработку» с пояснением причины.</p></article>
+          <article class="feature"><div class="icon">6</div><h3>Конвертация на выходе</h3><p>На входе возможны современные DXF, на выходе — DXF 2010, совместимый с большинством ЧПУ-станков.</p></article>
+        </div>
+      </section>
+
+      <section id="pilot">
+        <div class="section-head">
+          <h2>Пилот как нормальный B2B-шаг</h2>
+          <p>Пилот 14 дней здесь вынесен в отдельный сильный блок, потому что именно он снимает риск и делает оффер взрослым.</p>
+        </div>
+        <div class="timeline">
+          <div class="stage"><div class="day">День 1–2</div><div><strong>Получаем ваши DXF и контекст процесса.</strong><br><span style="color:var(--muted)">Нужны реальные типовые файлы, текущие припуски и ожидания по Excel-выгрузке.</span></div></div>
+          <div class="stage"><div class="day">День 3–5</div><div><strong>Калибруем правила обработки.</strong><br><span style="color:var(--muted)">Настраиваем логику под толщины, коэффициенты и структуру output-потока.</span></div></div>
+          <div class="stage"><div class="day">День 6–10</div><div><strong>Запускаем параллельно с ручным процессом.</strong><br><span style="color:var(--muted)">Сравниваем результат не на словах, а на ежедневном объёме цеха.</span></div></div>
+          <div class="stage"><div class="day">День 11–14</div><div><strong>Фиксируем цифры и решение.</strong><br><span style="color:var(--muted)">Считаем автопроход, ручные случаи, экономию времени и готовность к внедрению.</span></div></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="compare-note">
+          <h2 style="margin-bottom:12px;font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;">Быстрый тест до пилота</h2>
+          <p>Если перед пилотом хочется быстро убедиться, что логика подходит вашему цеху, присылайте 2–5 типовых DXF на <a class="mail" href="mailto:rj2biz@mail.ru">rj2biz@mail.ru</a>. За 24 рабочих часа можно получить обработанные DXF, Excel и короткий отчёт: что прошло автоматически, а что ушло в ручную папку.</p>
+        </div>
+      </section>
+
+      <section id="pricing">
+        <div class="pricing">
+          <div class="price-main">
+            <div>
+              <div class="eyebrow">Production package</div>
+              <div class="price"><small>Ориентир стоимости</small>300 000 ₽</div>
+            </div>
+            <div style="max-width:430px;color:var(--muted)">Разовый платёж за цех: лицензия, проверка на ваших DXF, пилот 14 дней, установка и базовая настройка. Поддержка и нестандартные доработки обсуждаются отдельной сметой.</div>
+          </div>
+          <div class="price-list">
+            <div class="row"><div class="badge-num">✓</div><div><strong>Тест до договора.</strong> Быстрый прогон 2–5 DXF в течение 24 рабочих часов.</div></div>
+            <div class="row"><div class="badge-num">✓</div><div><strong>Пилот 14 дней.</strong> Проверка не на демо-файлах, а на вашей геометрии и потоке.</div></div>
+            <div class="row"><div class="badge-num">✓</div><div><strong>Локальная установка.</strong> Без SaaS, без обязательной подписки и без передачи файлов наружу.</div></div>
+            <div class="row"><div class="badge-num">✓</div><div><strong>Отдельная смета на нестандарт.</strong> Сложные доработки не прячутся внутрь «магической цены».</div></div>
+          </div>
+          <div class="note">Такой блок цены воспринимается как предложение зрелого B2B-продукта, а не как обычный прайс на лендинге.</div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="cta-box">
+          <div>
+            <h2>Готовы проверить DXF Claw на реальных файлах</h2>
+            <p>Присылайте 2–5 типовых DXF, текущие припуски и требования к Excel-выгрузке. Это лучший формат первого касания: быстро, предметно и без долгих созвонов ради созвонов.</p>
+          </div>
+          <div class="cta-side">
+            <div class="rows" style="margin-top:0;">
+              <div class="row"><div class="badge-num">A</div><div>Почта для теста: <a class="mail" href="mailto:rj2biz@mail.ru">rj2biz@mail.ru</a>.</div></div>
+              <div class="row"><div class="badge-num">B</div><div>Тема письма: DXF Claw — test DXF или pilot 14 days.</div></div>
+              <div class="row"><div class="badge-num">C</div><div>На главной можно дать ссылку на эту финальную версию как на основной DXF-кейс.</div></div>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;">
+              <a class="btn btn-primary" href="mailto:rj2biz@mail.ru?subject=DXF%20Claw%20%E2%80%94%20test%20DXF">Отправить DXF на тест</a>
+              <a class="btn btn-secondary" href="index.html">Вернуться на главную</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Финальная версия DXF-страницы для публикации на сайте: отдельный HTML-файл, готовый к загрузке в корень репозитория.
+    </footer>
+  </div>
+</body>
+</html>
