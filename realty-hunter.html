@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Охотник за недвижимостью — бот для риелторов и клиентов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+/* Art direction: Telegram-бот для недвижимости → деловой, но живой, скорость и надёжность
+   Palette: тёплый нейтральный бежевый + один акцент тил-зелёный (доверие, "в реальном времени")
+   Typography: Cabinet Grotesk (display) + Satoshi (body) — чёткий геометричный, но не холодный
+   Density: сбалансированная, с одним ярким hero-моментом */
+
+:root, [data-theme="light"] {
+  --color-bg: #f7f6f2;
+  --color-surface: #f9f8f5;
+  --color-surface-2: #fbfbf9;
+  --color-surface-offset: #f3f0ec;
+  --color-surface-offset-2: #edeae5;
+  --color-surface-dynamic: #e6e4df;
+  --color-divider: #dcd9d5;
+  --color-border: #d4d1ca;
+  --color-text: #28251d;
+  --color-text-muted: #7a7974;
+  --color-text-faint: #bab9b4;
+  --color-text-inverse: #f9f8f4;
+  --color-primary: #01696f;
+  --color-primary-hover: #0c4e54;
+  --color-primary-active: #0f3638;
+  --color-primary-highlight: #cedcd8;
+  --color-success: #437a22;
+  --color-success-highlight: #d4dfcc;
+  --color-warning: #964219;
+  --color-warning-highlight: #ddcfc6;
+  --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem; --radius-xl: 1rem; --radius-full: 9999px;
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06);
+  --shadow-md: 0 4px 12px oklch(0.2 0.01 80 / 0.08);
+  --shadow-lg: 0 12px 32px oklch(0.2 0.01 80 / 0.12);
+  --content-narrow: 640px; --content-default: 960px; --content-wide: 1200px; --content-full: 100%;
+  --font-display: 'Cabinet Grotesk', Georgia, serif;
+  --font-body: 'Satoshi', 'Helvetica Neue', sans-serif;
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+  --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+  --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+  --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem;
+  --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
+  --space-20: 5rem; --space-24: 6rem; --space-32: 8rem;
+}
+[data-theme="dark"] {
+  --color-bg: #171614; --color-surface: #1c1b19; --color-surface-2: #201f1d;
+  --color-surface-offset: #1d1c1a; --color-surface-offset-2: #22211f; --color-surface-dynamic: #2d2c2a;
+  --color-divider: #262523; --color-border: #393836;
+  --color-text: #cdccca; --color-text-muted: #797876; --color-text-faint: #5a5957; --color-text-inverse: #2b2a28;
+  --color-primary: #4f98a3; --color-primary-hover: #227f8b; --color-primary-active: #1a626b; --color-primary-highlight: #313b3b;
+  --color-success: #6daa45; --color-success-highlight: #3a4435;
+  --color-warning: #bb653b; --color-warning-highlight: #564942;
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.2); --shadow-md: 0 4px 12px oklch(0 0 0 / 0.3); --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.4);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: none; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth; scroll-padding-top: var(--space-16); }
+body { min-height: 100dvh; line-height: 1.6; font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text); background: var(--color-bg); }
+img { display: block; max-width: 100%; height: auto; }
+h1,h2,h3,h4 { font-family: var(--font-display); text-wrap: balance; line-height: 1.1; font-weight: 700; }
+p, li { text-wrap: pretty; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+button { cursor: pointer; background: none; border: none; font: inherit; color: inherit; }
+input, textarea { font: inherit; color: inherit; }
+.container { max-width: var(--content-wide); margin-inline: auto; padding-inline: var(--space-5); }
+.container-narrow { max-width: var(--content-default); margin-inline: auto; padding-inline: var(--space-5); }
+
+/* Header */
+header { position: sticky; top: 0; z-index: 50; background: color-mix(in oklab, var(--color-bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-divider); }
+.nav-wrap { display: flex; align-items: center; justify-content: space-between; padding-block: var(--space-4); }
+.logo { display: flex; align-items: center; gap: var(--space-2); font-family: var(--font-display); font-size: var(--text-lg); font-weight: 700; }
+.logo svg { color: var(--color-primary); }
+.nav-links { display: none; gap: var(--space-6); font-size: var(--text-sm); color: var(--color-text-muted); }
+@media (min-width: 860px) { .nav-links { display: flex; } }
+.nav-links a:hover { color: var(--color-text); }
+.nav-actions { display: flex; align-items: center; gap: var(--space-3); }
+.theme-toggle { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-full); border: 1px solid var(--color-border); transition: var(--transition-interactive); }
+.theme-toggle:hover { background: var(--color-surface-offset); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); padding: var(--space-3) var(--space-6); border-radius: var(--radius-md); font-size: var(--text-sm); font-weight: 600; transition: var(--transition-interactive); white-space: nowrap; }
+.btn-primary { background: var(--color-primary); color: var(--color-text-inverse); }
+.btn-primary:hover { background: var(--color-primary-hover); }
+.btn-primary:active { background: var(--color-primary-active); }
+.btn-ghost { border: 1px solid var(--color-border); color: var(--color-text); }
+.btn-ghost:hover { background: var(--color-surface-offset); border-color: var(--color-text-faint); }
+
+/* Hero */
+.hero { padding-block: clamp(var(--space-12), 8vw, var(--space-24)) clamp(var(--space-10), 6vw, var(--space-16)); }
+.hero-grid { display: grid; gap: var(--space-10); align-items: center; }
+@media (min-width: 960px) { .hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: var(--space-16); } }
+.eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-primary); background: var(--color-primary-highlight); padding: var(--space-2) var(--space-3); border-radius: var(--radius-full); margin-bottom: var(--space-5); }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary); display: inline-block; animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hero h1 { font-size: var(--text-2xl); margin-bottom: var(--space-5); }
+.hero h1 em { font-style: normal; color: var(--color-primary); }
+.hero p.lead { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 46ch; margin-bottom: var(--space-8); font-family: var(--font-body); font-weight: 400; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-8); }
+.hero-stats { display: flex; gap: var(--space-8); flex-wrap: wrap; }
+.stat b { display: block; font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-text); }
+.stat span { font-size: var(--text-xs); color: var(--color-text-muted); }
+.hero-visual { position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); }
+.hero-visual img { width: 100%; }
+
+/* Sections */
+section { padding-block: clamp(var(--space-12), 6vw, var(--space-20)); }
+.section-head { max-width: 62ch; margin-bottom: var(--space-10); }
+.section-tag { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-primary); margin-bottom: var(--space-3); display: block; }
+.section-head h2 { font-size: var(--text-xl); margin-bottom: var(--space-3); }
+.section-head p { color: var(--color-text-muted); font-size: var(--text-base); }
+
+/* What it does */
+#features { background: var(--color-surface); border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); }
+.feature-list { display: grid; gap: var(--space-4); }
+.feature-row { display: grid; grid-template-columns: 1fr; gap: var(--space-4); padding: var(--space-6); border-radius: var(--radius-lg); background: var(--color-surface-2); box-shadow: var(--shadow-sm); transition: var(--transition-interactive); }
+@media (min-width: 720px) { .feature-row { grid-template-columns: 220px 1fr; align-items: start; padding: var(--space-8); } }
+.feature-row:hover { box-shadow: var(--shadow-md); }
+.feature-row h3 { font-size: var(--text-lg); margin-bottom: var(--space-2); font-family: var(--font-body); font-weight: 700; }
+.feature-num { font-family: var(--font-display); font-size: var(--text-xl); color: var(--color-text-faint); }
+.feature-row p { color: var(--color-text-muted); margin-bottom: var(--space-3); }
+.tag-row { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.tag { font-size: var(--text-xs); padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); background: var(--color-primary-highlight); color: var(--color-primary-active); font-weight: 600; }
+
+/* For whom */
+.audience-grid { display: grid; gap: var(--space-5); grid-template-columns: 1fr; }
+@media (min-width: 700px) { .audience-grid { grid-template-columns: repeat(3, 1fr); } }
+.audience-card { padding: var(--space-6); border-radius: var(--radius-lg); background: var(--color-surface-2); border: 1px solid var(--color-divider); }
+.audience-card:nth-child(2) { background: var(--color-primary); color: var(--color-text-inverse); border-color: transparent; }
+.audience-card:nth-child(2) h3, .audience-card:nth-child(2) p, .audience-card:nth-child(2) li { color: var(--color-text-inverse); }
+.audience-card h3 { font-size: var(--text-lg); margin-bottom: var(--space-3); font-family: var(--font-body); font-weight: 700; }
+.audience-card ul { list-style: none; display: grid; gap: var(--space-2); margin-top: var(--space-4); }
+.audience-card li { font-size: var(--text-sm); display: flex; gap: var(--space-2); align-items: flex-start; }
+.audience-card li svg { flex-shrink: 0; margin-top: 3px; }
+
+/* How implemented */
+#implementation { background: var(--color-surface); border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); }
+.steps { display: grid; gap: var(--space-6); }
+@media (min-width: 860px) { .steps { grid-template-columns: repeat(5, 1fr); gap: var(--space-4); } }
+.step { position: relative; padding: var(--space-5) var(--space-4); }
+.step-num { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: var(--radius-full); background: var(--color-primary); color: var(--color-text-inverse); font-weight: 700; font-size: var(--text-sm); margin-bottom: var(--space-4); }
+.step h4 { font-size: var(--text-base); font-family: var(--font-body); font-weight: 700; margin-bottom: var(--space-2); }
+.step p { font-size: var(--text-sm); color: var(--color-text-muted); }
+.step-line { display: none; }
+@media (min-width: 860px) { .step:not(:last-child)::after { content: ''; position: absolute; top: 18px; left: calc(100% - var(--space-4)); width: calc(var(--space-8)); height: 1px; background: var(--color-border); } }
+
+/* Tariffs strip */
+.tariff-strip { display: grid; gap: var(--space-4); grid-template-columns: 1fr; margin-top: var(--space-10); }
+@media (min-width: 700px) { .tariff-strip { grid-template-columns: repeat(4, 1fr); } }
+.tariff-card { border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: var(--space-5); background: var(--color-surface-2); }
+.tariff-card.featured { border-color: var(--color-primary); box-shadow: var(--shadow-md); }
+.tariff-card h5 { font-family: var(--font-body); font-weight: 700; margin-bottom: var(--space-1); }
+.tariff-price { font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: var(--space-3); }
+.tariff-price span { font-size: var(--text-xs); color: var(--color-text-muted); font-family: var(--font-body); }
+.tariff-card ul { list-style: none; display: grid; gap: var(--space-1); font-size: var(--text-xs); color: var(--color-text-muted); }
+
+/* Contact form */
+#contact-section { }
+.contact-grid { display: grid; gap: var(--space-10); }
+@media (min-width: 900px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+.contact-card { background: var(--color-surface-2); border: 1px solid var(--color-divider); border-radius: var(--radius-xl); padding: var(--space-8); box-shadow: var(--shadow-md); }
+.field { margin-bottom: var(--space-5); }
+.field label { display: block; font-size: var(--text-sm); font-weight: 600; margin-bottom: var(--space-2); }
+.field input, .field textarea, .field select { width: 100%; padding: var(--space-3) var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); font-size: var(--text-base); transition: var(--transition-interactive); }
+.field input:focus, .field textarea:focus, .field select:focus { border-color: var(--color-primary); outline: none; box-shadow: 0 0 0 3px var(--color-primary-highlight); }
+.field textarea { min-height: 100px; resize: vertical; }
+.consent { display: flex; gap: var(--space-2); align-items: flex-start; font-size: var(--text-xs); color: var(--color-text-muted); margin-bottom: var(--space-5); }
+.consent input { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; }
+.submit-btn { width: 100%; padding: var(--space-4); }
+.form-success { display: none; text-align: center; padding: var(--space-10) var(--space-6); }
+.form-success.active { display: block; }
+.form-success svg { color: var(--color-success); margin: 0 auto var(--space-4); }
+.contact-info h3 { font-size: var(--text-lg); margin-bottom: var(--space-4); font-family: var(--font-body); font-weight: 700; }
+.contact-info p { color: var(--color-text-muted); margin-bottom: var(--space-6); }
+.contact-list { list-style: none; display: grid; gap: var(--space-4); }
+.contact-list li { display: flex; gap: var(--space-3); align-items: flex-start; }
+.contact-list .ic { flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-md); background: var(--color-primary-highlight); color: var(--color-primary); }
+.contact-list b { display: block; font-size: var(--text-sm); }
+.contact-list span { font-size: var(--text-xs); color: var(--color-text-muted); }
+
+footer { border-top: 1px solid var(--color-divider); padding-block: var(--space-8); }
+.footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-4); align-items: center; }
+.footer-row p { font-size: var(--text-xs); color: var(--color-text-faint); }
+.footer-links { display: flex; gap: var(--space-5); font-size: var(--text-xs); color: var(--color-text-muted); }
+
+@media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity 600ms cubic-bezier(0.16,1,0.3,1), transform 600ms cubic-bezier(0.16,1,0.3,1); }
+.reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<a href="#main" class="sr-only">Перейти к содержимому</a>
+
+<header>
+  <div class="container nav-wrap">
+    <a class="logo" href="#main">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 16L16 6l10 10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="23" cy="9" r="2.4" fill="currentColor"/></svg>
+      Охотник
+    </a>
+    <nav class="nav-links" aria-label="Разделы">
+      <a href="#features">Что умеет</a>
+      <a href="#audience">Для кого</a>
+      <a href="#implementation">Внедрение</a>
+      <a href="#contact-section">Контакты</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Переключить тему">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="#contact-section" class="btn btn-primary">Оставить заявку</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span>Работает 24/7 в Telegram</span>
+      <h1>Бот, который находит новые объявления о недвижимости <em>раньше конкурентов</em></h1>
+      <p class="lead">«Охотник» мониторит Авито и ЦИАН в реальном времени и присылает уведомление о новом объявлении в первые минуты после публикации — плюс выгрузка в Excel по заданным параметрам.</p>
+      <div class="hero-actions">
+        <a href="#contact-section" class="btn btn-primary">Получить доступ</a>
+        <a href="#implementation" class="btn btn-ghost">Как это работает</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>2 площадки</b><span>Авито и ЦИАН из коробки</span></div>
+        <div class="stat"><b>193 теста</b><span>покрытие ключевой логики</span></div>
+        <div class="stat"><b>Мульти-тенант</b><span>изоляция данных клиентов</span></div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <img src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/34744b2b-644a-4090-b1b6-7336b69d1d62.png?AWSAccessKeyId=ASIA2F3EMEYEXPOLSHOU&Signature=OzZ4McMqfJwIEeyCzRUi1UJWGuI%3D&x-amz-security-token=IQoJb3JpZ2luX2VjENb%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIH8iCzkCt6XXNYyF5C2UBAB9mqu7M3lSDlTrYP0utMkJAiAqmSRXYq4UrwiYyHN5FWS2qficx2nmSpknQv937b%2FBnir8BAif%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAEaDDY5OTc1MzMwOTcwNSIMLznx%2Fd6RIfnUPCpnKtAENcJlGSCNdHi32Nb2lZixXBQE%2FpFEuUaEVWXBb1%2FO%2F9bnyOazGGAYrqqFVALaEgHaW9ZSyCyQcfwTkwTQcF5lJhMd1sECpSLQXm0s24WyagUH%2FFKlOUOwjozUsIqB40q1%2B9peaSMehsYc9427chvaSGxzCq88syrCEFWb%2BzaSXY4YFtS01A8hbiM3GQUi30URfKkuaYAtn2Em99OCG01tFuA%2FeVZT79%2BCcD83cmOJpydbYvd%2Bvhk5uBzmL1VO0gU7oykXlR3jp7cTwcV6IqjcTWbYqukC%2BpB8zik1vX7lSxqFKQwzsvODC9VpG49Qqs0x35FM8LvJwxfWp7jcG5jATBo480dUAbm9xD2myeRwvDkz%2FPHXmIR912OGhmOcdkyXMDj6QhAYN3kbBYDFf5ZLmagYEBaVaC523yLoUNPWMvgvoxzq%2FEhEe0CniM0O5bmzYo3HmyE5YDiahIkmJLj176U4IN64hzQi6w%2FX5iFTAf2btpRFcGMrhAV6kY3rRw7xArKrutty%2BwgD%2FS%2F1%2BCtSVXl4Kfd0CJYgkEPjtljvzxIdMdZLcabhhBWHh05W1BAFreoxvMtynkD5omN3xUKXvApaLFEaGkPX9HuoiNVuoh%2BqtEPrQk0kX68y%2FE0RarwEXI5MUC%2F5a8UrHrp1enlWeXCfSdrWLPm9Y1CR1dHt%2BZtqBeogkppQ6cLnuL%2BU%2BlTv1JqSm7uSBg4Tvol37wfztOWselPnNlyzrmcMeQKc1PoXZxW3aXUzQpdnFzkWwkLFdn8EJSQROxXhrQo8f89tFjCc8vbSBjqZAZ1jpw3i6AMjZ5GHSSYpV%2BvwJPAwWr%2BTLWbEZvEeVXsvinxGnx1L1%2FXUIKlHJcV4cvyTWP2QeTM%2FFUuSIUSvBlu3aUIs2T7bXUeXx1zFyvmp2aUzp4qEZqFun7LcviAJPogpgkylEk3Rgg5Z9HWiwOBQBbYAFJzjnWjzz8O39LyiHoV6ElLHi958pYw0ZoQyzk4nbWTcJ6Oa7w%3D%3D&Expires=1784530671" alt="Иллюстрация Telegram-бота, находящего объявления о недвижимости" width="900" height="600" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Что умеет</span>
+      <h2>Функции, которые уже работают в проекте</h2>
+      <p>Основано на архитектуре ядра + адаптеров и текущем README проекта — без обещаний, только реализованный функционал.</p>
+    </div>
+    <div class="feature-list">
+      <div class="feature-row reveal">
+        <div><span class="feature-num">01</span></div>
+        <div>
+          <h3>Мониторинг новых объявлений в реальном времени</h3>
+          <p>Модуль «Охотник» (<code>realty_monitor_task</code>) регулярно опрашивает источники и присылает уведомление в Telegram сразу после появления нового объявления, подходящего под заданные параметры.</p>
+          <div class="tag-row"><span class="tag">Авито</span><span class="tag">ЦИАН</span><span class="tag">arq-очередь задач</span></div>
+        </div>
+      </div>
+      <div class="feature-row reveal">
+        <div><span class="feature-num">02</span></div>
+        <div>
+          <h3>Гибкий поиск по единому контракту фильтров</h3>
+          <p>Единый модуль поиска нормализует тип сделки (продажа/аренда/посуточно), тип объекта, цену, площадь, метро, район, ключевые слова и тип продавца — и одинаково применяет их для обеих площадок.</p>
+          <div class="tag-row"><span class="tag">Цена и площадь</span><span class="tag">Метро и район</span><span class="tag">Владелец / агент</span></div>
+        </div>
+      </div>
+      <div class="feature-row reveal">
+        <div><span class="feature-num">03</span></div>
+        <div>
+          <h3>Выгрузка в Excel по заданным параметрам</h3>
+          <p>Команда экспорта запускает отдельную задачу в очереди, которая формирует файл и отправляет его клиенту — весь путь запроса помечен идентификатором клиента для отдельного учёта.</p>
+          <div class="tag-row"><span class="tag">По расписанию тарифа</span><span class="tag">История запусков</span></div>
+        </div>
+      </div>
+      <div class="feature-row reveal">
+        <div><span class="feature-num">04</span></div>
+        <div>
+          <h3>Управление через Telegram без веб-панели</h3>
+          <p>Команды <code>/run</code>, <code>/stop</code>, <code>/status</code>, <code>/history</code>, <code>/menu</code> дают полный контроль над источниками мониторинга прямо в чате, включая FSM-меню для добавления и редактирования.</p>
+          <div class="tag-row"><span class="tag">aiogram 3</span><span class="tag">FSM-меню</span></div>
+        </div>
+      </div>
+      <div class="feature-row reveal">
+        <div><span class="feature-num">05</span></div>
+        <div>
+          <h3>Мультитенантность — один бот, много клиентов</h3>
+          <p>Каждый клиент (тенант) видит только свои источники и запуски; роли user/admin/superadmin разграничивают доступ, а строгая изоляция закрыта регрессионными тестами.</p>
+          <div class="tag-row"><span class="tag">Изоляция данных</span><span class="tag">Роли доступа</span><span class="tag">9 regression-тестов</span></div>
+        </div>
+      </div>
+      <div class="feature-row reveal">
+        <div><span class="feature-num">06</span></div>
+        <div>
+          <h3>Тарифы и оплата через Telegram Stars</h3>
+          <p>Встроенный биллинг (Free / Start / Pro / Max) ограничивает число активных «охотников» и частоту экспортов на клиента, с автоматическим учётом истечения подписки.</p>
+          <div class="tag-row"><span class="tag">Telegram Stars</span><span class="tag">4 тарифа</span></div>
+        </div>
+      </div>
+      <div class="feature-row reveal">
+        <div><span class="feature-num">07</span></div>
+        <div>
+          <h3>Расширяемая архитектура адаптеров</h3>
+          <p>Новая площадка подключается без изменения ядра — достаточно реализовать интерфейс адаптера (список страниц, парсинг карточки, отпечаток объявления) и зарегистрировать его.</p>
+          <div class="tag-row"><span class="tag">Registry-паттерн</span><span class="tag">Готово к новым площадкам</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="audience">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Для кого</span>
+      <h2>Кому этот бот экономит время и деньги</h2>
+      <p>Продукт полезен и профессионалам рынка, и частным пользователям, которые ищут жильё.</p>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card reveal">
+        <h3>Риелторам и агентствам</h3>
+        <p>Первыми видят новые объявления собственников и клиентов — до того, как их разберут конкуренты.</p>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Мониторинг по своим критериям поиска</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Выгрузки для отчётов клиентам</li>
+        </ul>
+      </div>
+      <div class="audience-card reveal">
+        <h3>Инвесторам в недвижимость</h3>
+        <p>Отслеживают появление объектов ниже рынка в конкретном районе, чтобы успеть первыми предложить сделку.</p>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Фильтры по цене и площади</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Несколько «охотников» на тарифе</li>
+        </ul>
+      </div>
+      <div class="audience-card reveal">
+        <h3>Тем, кто ищет жильё</h3>
+        <p>Получают уведомление о подходящей квартире раньше остальных — критично на конкурентном рынке аренды.</p>
+        <ul>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Поиск от собственника или агента</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Уведомления прямо в Telegram</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="implementation">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-tag">Как внедряется</span>
+      <h2>От заявки до первого уведомления</h2>
+      <p>Платформа развёртывается через Docker Compose и управляется полностью из Telegram — без необходимости в веб-интерфейсе для клиента.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-num">1</div><h4>Заявка и брифинг</h4><p>Уточняем площадки, регионы и критерии поиска под ваш кейс.</p></div>
+      <div class="step reveal"><div class="step-num">2</div><h4>Создание тенанта</h4><p>Суперадмин создаёт изолированный тенант с лимитами вашего тарифа.</p></div>
+      <div class="step reveal"><div class="step-num">3</div><h4>Подключение в Telegram</h4><p>Вы пишете боту, вас привязывают к тенанту командой <code>/invite</code>.</p></div>
+      <div class="step reveal"><div class="step-num">4</div><h4>Настройка источников</h4><p>Через <code>/menu</code> задаются параметры поиска — цена, район, тип сделки.</p></div>
+      <div class="step reveal"><div class="step-num">5</div><h4>Запуск и уведомления</h4><p>Бот начинает присылать объявления и готовить выгрузки по расписанию.</p></div>
+    </div>
+    <div class="tariff-strip">
+      <div class="tariff-card reveal"><h5>Free</h5><div class="tariff-price">0 <span>Stars</span></div><ul><li>1 охотник</li><li>1 экспорт / мес</li></ul></div>
+      <div class="tariff-card reveal"><h5>Start</h5><div class="tariff-price">75 <span>Stars</span></div><ul><li>3 охотника</li><li>2 экспорта / нед</li></ul></div>
+      <div class="tariff-card featured reveal"><h5>Pro</h5><div class="tariff-price">150 <span>Stars</span></div><ul><li>5 охотников</li><li>5 экспортов / нед</li></ul></div>
+      <div class="tariff-card reveal"><h5>Max</h5><div class="tariff-price">300 <span>Stars</span></div><ul><li>7 охотников</li><li>10 экспортов / нед</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact-section">
+  <div class="container contact-grid">
+    <div class="contact-card reveal">
+      <div id="form-view">
+        <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2);font-family:var(--font-body);font-weight:700;">Оставьте заявку</h3>
+        <p style="color:var(--color-text-muted);margin-bottom:var(--space-6);font-size:var(--text-sm);">Ответим и настроим тестовый доступ к боту в течение рабочего дня.</p>
+        <form id="lead-form">
+          <div class="field"><label for="name">Имя</label><input id="name" name="name" type="text" required placeholder="Как к вам обращаться"></div>
+          <div class="field"><label for="contact">Telegram или телефон</label><input id="contact" name="contact" type="text" required placeholder="@username или +7 900 000 00 00"></div>
+          <div class="field"><label for="role">Кто вы</label>
+            <select id="role" name="role">
+              <option>Риелтор / агентство</option>
+              <option>Инвестор</option>
+              <option>Ищу жильё для себя</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <div class="field"><label for="message">Комментарий (необязательно)</label><textarea id="message" name="message" placeholder="Какой город, тип сделки, что важно"></textarea></div>
+          <div class="consent"><input type="checkbox" id="consent" required><label for="consent">Согласен на обработку данных для связи по заявке</label></div>
+          <button type="submit" class="btn btn-primary submit-btn">Отправить заявку</button>
+        </form>
+      </div>
+      <div id="form-success" class="form-success">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+        <h3 style="font-family:var(--font-body);font-size:var(--text-lg);margin-bottom:var(--space-2);">Заявка принята</h3>
+        <p style="color:var(--color-text-muted);font-size:var(--text-sm);">Мы свяжемся с вами в ближайшее время, чтобы настроить доступ к боту.</p>
+      </div>
+    </div>
+    <div class="contact-info reveal">
+      <span class="section-tag">Контакты</span>
+      <h3>Готовы подключить бота под ваш кейс</h3>
+      <p>Работаем как с частными пользователями, так и с агентствами, которым нужен изолированный тенант и собственные лимиты.</p>
+      <ul class="contact-list">
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg></span><div><b>Telegram-бот</b><span>Основной канал управления и уведомлений</span></div></li>
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><div><b>Настройка за 1 день</b><span>После заявки — брифинг и создание тенанта</span></div></li>
+        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg></span><div><b>Изоляция данных</b><span>Каждый клиент видит только свои источники</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-row">
+    <p>© 2026 Охотник за недвижимостью · parser_platform</p>
+    <div class="footer-links">
+      <a href="https://github.com/agronom28-crypto/parser_platform" target="_blank" rel="noopener noreferrer">GitHub-репозиторий</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const t=document.querySelector('[data-theme-toggle]'), r=document.documentElement;
+  let d = matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
+  r.setAttribute('data-theme', d);
+  function setIcon(){ t.innerHTML = d==='dark' ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>' : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'; }
+  setIcon();
+  t.addEventListener('click', ()=>{ d = d==='dark' ? 'light' : 'dark'; r.setAttribute('data-theme', d); t.setAttribute('aria-label','Переключить тему'); setIcon(); });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold:0.12});
+  revealEls.forEach(el=>io.observe(el));
+
+  const form = document.getElementById('lead-form');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('form-view').style.display = 'none';
+    document.getElementById('form-success').classList.add('active');
+  });
+})();
+</script>
+
+</body>
+</html>
