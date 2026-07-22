@@ -3,350 +3,274 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Обучение ИИ и автоматизации бизнеса</title>
-  <meta name="description" content="Премиальное обучение ИИ-инструментам и автоматизации бизнеса: внедрение, обучение команд, разбор процессов и рост эффективности." />
+  <title>Обучение ИИ и автоматизации бизнеса — Николай Соловьёв</title>
+  <meta name="description" content="Корпоративное обучение ИИ-инструментам и автоматизации бизнеса. Практические сессии, внедрение в процессы, рост скорости и снижение затрат." />
   <meta property="og:title" content="Обучение ИИ и автоматизации бизнеса" />
-  <meta property="og:description" content="Покажу, как внедрять ИИ в продажи, маркетинг, сервис и внутренние процессы без хаоса и лишних затрат." />
+  <meta property="og:description" content="Практическое внедрение ИИ в продажи, маркетинг, операции и сервис. Результат — не вдохновение, а работающая система." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://api.fontshare.com" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet" />
   <style>
-    :root, [data-theme="light"] {
-      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
-      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
-      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
-      --text-2xl: clamp(2.4rem, 1.5rem + 4vw, 5.6rem);
-      --text-3xl: clamp(3.2rem, 1rem + 6vw, 7rem);
-
-      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem;
-      --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
-      --space-20: 5rem; --space-24: 6rem; --space-32: 8rem;
-
-      --color-bg: #f6f4ef;
-      --color-surface: #fbfaf7;
-      --color-surface-2: #f1ede6;
-      --color-surface-offset: #ebe4d8;
-      --color-surface-dynamic: #dfd5c4;
-      --color-border: rgba(40, 37, 29, 0.12);
-      --color-divider: rgba(40, 37, 29, 0.08);
-      --color-text: #1e1d1a;
-      --color-text-muted: #67625b;
-      --color-text-faint: #8a847a;
-      --color-text-inverse: #f8f6f1;
-      --color-primary: #0b6a6f;
-      --color-primary-hover: #0a5257;
-      --color-primary-active: #07393d;
-      --color-primary-highlight: #d3e2df;
-      --color-gold: #aa7a16;
-      --color-success: #437a22;
-      --radius-sm: 0.5rem;
-      --radius-md: 0.9rem;
-      --radius-lg: 1.4rem;
-      --radius-xl: 2rem;
-      --radius-full: 9999px;
-      --shadow-sm: 0 1px 2px rgba(25, 20, 13, 0.06);
-      --shadow-md: 0 12px 30px rgba(25, 20, 13, 0.09);
-      --shadow-lg: 0 24px 80px rgba(25, 20, 13, 0.12);
-      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
-      --content-default: 1200px;
-      --font-body: 'General Sans', 'Inter', sans-serif;
-      --font-display: 'Cabinet Grotesk', 'Inter', sans-serif;
+    :root,[data-theme="light"]{
+      --text-xs:clamp(.75rem,.7rem + .25vw,.875rem);
+      --text-sm:clamp(.875rem,.8rem + .35vw,1rem);
+      --text-base:clamp(1rem,.95rem + .25vw,1.125rem);
+      --text-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+      --text-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+      --text-2xl:clamp(2.2rem,1.2rem + 4vw,5.2rem);
+      --text-3xl:clamp(2.8rem,.8rem + 6vw,6.4rem);
+      --sp1:.25rem;--sp2:.5rem;--sp3:.75rem;--sp4:1rem;--sp5:1.25rem;
+      --sp6:1.5rem;--sp8:2rem;--sp10:2.5rem;--sp12:3rem;--sp16:4rem;
+      --sp20:5rem;--sp24:6rem;
+      --bg:#f5f3ee;--surf:#faf9f6;--surf2:#f0ebe3;--surf-off:#e8e0d3;
+      --border:rgba(30,25,15,.11);--div:rgba(30,25,15,.07);
+      --txt:#1c1b18;--txt-m:#6a6560;--txt-f:#9a948c;--txt-inv:#f7f5f0;
+      --pr:#0a6568;--pr-h:#08504f;--pr-a:#063534;--pr-hl:#d0e3e1;
+      --gold:#9e7312;--gold-l:#f5e6c8;
+      --r-sm:.5rem;--r-md:.9rem;--r-lg:1.4rem;--r-xl:2rem;--r-full:9999px;
+      --sh-sm:0 1px 3px rgba(20,15,5,.07);
+      --sh-md:0 10px 32px rgba(20,15,5,.1);
+      --sh-lg:0 28px 80px rgba(20,15,5,.13);
+      --ease:180ms cubic-bezier(.16,1,.3,1);
+      --w:1200px;
+      --font-b:'General Sans','Inter',sans-serif;
+      --font-d:'Cabinet Grotesk','Inter',sans-serif;
     }
-
-    [data-theme="dark"] {
-      --color-bg: #131311;
-      --color-surface: #1a1917;
-      --color-surface-2: #23211f;
-      --color-surface-offset: #2a2723;
-      --color-surface-dynamic: #37332e;
-      --color-border: rgba(236, 231, 221, 0.12);
-      --color-divider: rgba(236, 231, 221, 0.08);
-      --color-text: #ece7dd;
-      --color-text-muted: #b3ada4;
-      --color-text-faint: #8d877e;
-      --color-text-inverse: #171613;
-      --color-primary: #66aeb1;
-      --color-primary-hover: #84bec0;
-      --color-primary-active: #a7d1d2;
-      --color-primary-highlight: rgba(102, 174, 177, 0.15);
-      --color-gold: #d3aa54;
-      --color-success: #80b55f;
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.22);
-      --shadow-md: 0 14px 36px rgba(0, 0, 0, 0.26);
-      --shadow-lg: 0 30px 90px rgba(0, 0, 0, 0.34);
+    [data-theme="dark"]{
+      --bg:#111009;--surf:#181713;--surf2:#211f1b;--surf-off:#272420;
+      --border:rgba(235,228,215,.12);--div:rgba(235,228,215,.07);
+      --txt:#ece5d8;--txt-m:#b0a99f;--txt-f:#8a837a;--txt-inv:#161510;
+      --pr:#5eacaf;--pr-h:#7ec0c2;--pr-a:#9dd0d1;--pr-hl:rgba(94,172,175,.14);
+      --gold:#d0a845;--gold-l:rgba(208,168,69,.15);
+      --sh-sm:0 1px 3px rgba(0,0,0,.25);
+      --sh-md:0 12px 38px rgba(0,0,0,.3);
+      --sh-lg:0 32px 90px rgba(0,0,0,.38);
     }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    body{min-height:100dvh;background:var(--bg);color:var(--txt);font-family:var(--font-b);font-size:var(--text-base);line-height:1.62}
+    img,svg{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button{border:0;background:none;font:inherit;color:inherit;cursor:pointer}
+    h1,h2,h3{font-family:var(--font-d);line-height:.98;letter-spacing:-.036em}
+    p{max-width:68ch}
+    :focus-visible{outline:2px solid var(--pr);outline-offset:3px;border-radius:var(--r-sm)}
 
-    * , *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-    body { min-height: 100dvh; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); font-size: var(--text-base); line-height: 1.6; }
-    img, svg { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    button { border: 0; background: none; font: inherit; color: inherit; cursor: pointer; }
-    h1, h2, h3 { font-family: var(--font-display); line-height: 0.98; letter-spacing: -0.035em; }
-    p { max-width: 68ch; }
-    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+    .skip{position:absolute;left:-9999px;top:var(--sp4)}
+    .skip:focus{left:var(--sp4);z-index:1000;background:var(--surf);padding:var(--sp3) var(--sp4)}
+    .wrap{width:min(calc(100% - 2rem),var(--w));margin:0 auto}
+    .sec{padding:clamp(var(--sp12),8vw,var(--sp24)) 0}
 
-    .skip-link { position: absolute; left: -9999px; top: var(--space-4); }
-    .skip-link:focus { left: var(--space-4); z-index: 1000; background: var(--color-surface); padding: var(--space-3) var(--space-4); }
-    .container { width: min(calc(100% - 2rem), var(--content-default)); margin: 0 auto; }
-    .section { padding: clamp(var(--space-12), 8vw, var(--space-24)) 0; }
+    /* ── NAV ── */
+    .hdr{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 83%,transparent);backdrop-filter:blur(20px);border-bottom:1px solid transparent;transition:border-color var(--ease),box-shadow var(--ease)}
+    .hdr.on{border-color:var(--div);box-shadow:var(--sh-sm)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:var(--sp6)}
+    .logo{display:inline-flex;align-items:center;gap:var(--sp3);font-size:var(--text-sm);font-weight:700;letter-spacing:.02em}
+    .logo-mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,var(--pr),color-mix(in srgb,var(--pr) 58%,var(--gold)));color:#fff;box-shadow:var(--sh-md)}
+    .logo-mark svg{width:22px;height:22px}
+    .nav-l{display:flex;align-items:center;gap:var(--sp6);color:var(--txt-m);font-size:var(--text-sm)}
+    .nav-l a:hover{color:var(--txt)}
+    .nav-r{display:flex;align-items:center;gap:var(--sp3)}
+    .ith,.mth{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;background:var(--surf)}
+    .mth{display:none}
+    .btn{min-height:46px;padding:0 var(--sp5);border-radius:var(--r-full);display:inline-flex;align-items:center;justify-content:center;gap:var(--sp2);font-size:var(--text-sm);font-weight:600;transition:transform var(--ease),background var(--ease),color var(--ease),border-color var(--ease)}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-p{background:var(--pr);color:var(--txt-inv)}
+    .btn-p:hover{background:var(--pr-h)}
+    .btn-s{background:var(--surf);border:1px solid var(--border)}
 
-    .site-header {
-      position: sticky; top: 0; z-index: 50;
-      background: color-mix(in srgb, var(--color-bg) 82%, transparent);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid transparent;
-      transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive), transform .3s ease;
+    /* ── HERO ── */
+    .hero{padding:clamp(var(--sp10),5vw,var(--sp16)) 0 clamp(var(--sp16),8vw,var(--sp24))}
+    .hero-g{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(var(--sp8),5vw,var(--sp20));align-items:end}
+    .pill{display:inline-flex;align-items:center;gap:var(--sp2);padding:var(--sp2) var(--sp3);border-radius:var(--r-full);background:var(--pr-hl);color:var(--pr);font-size:var(--text-xs);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .hero h1{font-size:var(--text-3xl);max-width:11ch;margin-top:var(--sp5)}
+    .hero-sub{margin-top:var(--sp6);color:var(--txt-m);font-size:var(--text-lg);max-width:36ch}
+    .hero-btns{display:flex;flex-wrap:wrap;gap:var(--sp3);margin-top:var(--sp8)}
+    .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp4);margin-top:var(--sp10)}
+    .stat{padding-top:var(--sp4);border-top:1px solid var(--div)}
+    .stat strong{display:block;font-family:var(--font-d);font-size:var(--text-xl)}
+    .stat span{color:var(--txt-m);font-size:var(--text-sm)}
+
+    /* hero panel */
+    .panel{position:relative;border-radius:32px;overflow:hidden;background:radial-gradient(circle at 40% 0%,color-mix(in srgb,var(--pr) 20%,transparent),transparent 55%),var(--surf);border:1px solid var(--border);box-shadow:var(--sh-lg);min-height:660px}
+    .pgrid{position:absolute;inset:0;background-image:linear-gradient(var(--div) 1px,transparent 1px),linear-gradient(90deg,var(--div) 1px,transparent 1px);background-size:50px 50px;opacity:.32}
+    .pc{position:relative;padding:var(--sp8);display:grid;gap:var(--sp5);min-height:100%}
+    .gc{background:color-mix(in srgb,var(--surf) 86%,transparent);border:1px solid var(--border);backdrop-filter:blur(14px);border-radius:24px;padding:var(--sp5);box-shadow:var(--sh-md)}
+    .gc h3{font-size:var(--text-lg);font-family:var(--font-b);letter-spacing:-.02em}
+    .alist{display:grid;gap:var(--sp3);margin-top:var(--sp4)}
+    .alist li{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:var(--sp3);padding:var(--sp3) 0;border-bottom:1px solid var(--div);font-size:var(--text-sm)}
+    .chip{display:inline-flex;align-items:center;padding:.3rem .65rem;border-radius:var(--r-full);background:color-mix(in srgb,var(--pr) 11%,transparent);color:var(--pr);font-size:var(--text-xs);font-weight:700}
+    .metric{font-family:var(--font-d);font-size:clamp(1.8rem,1rem + 2.5vw,3.2rem);line-height:1}
+
+    /* ── TRUST BAR ── */
+    .trust{padding:var(--sp8);border:1px solid var(--border);background:var(--surf);border-radius:28px;display:grid;grid-template-columns:1.3fr 1fr;gap:var(--sp10);align-items:center}
+    .tgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp3)}
+    .tbox{padding:var(--sp4);border-radius:16px;background:var(--bg);border:1px solid var(--div);text-align:center;color:var(--txt-m);font-size:var(--text-xs);font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+
+    /* ── RESULTS ── */
+    .res-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp4)}
+    .res-card{padding:var(--sp6);border-radius:28px;background:var(--surf);border:1px solid var(--border);box-shadow:var(--sh-sm)}
+    .res-num{font-family:var(--font-d);font-size:clamp(2.2rem,1rem + 3.5vw,4.2rem);line-height:1;color:var(--pr)}
+    .res-card p{color:var(--txt-m);margin-top:var(--sp3);font-size:var(--text-sm)}
+
+    /* ── SECTION HEAD ── */
+    .sh{display:grid;grid-template-columns:1fr auto;gap:var(--sp6);align-items:end;margin-bottom:var(--sp10)}
+    .sh h2{font-size:var(--text-2xl);max-width:13ch}
+    .sh p{color:var(--txt-m);max-width:42ch}
+
+    /* ── SERVICES ── */
+    .svc-g{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--sp4)}
+    .svc{grid-column:span 4;padding:var(--sp6);border-radius:28px;background:var(--surf);border:1px solid var(--border);box-shadow:var(--sh-sm);min-height:290px;display:flex;flex-direction:column;justify-content:space-between}
+    .svc.big{grid-column:span 8;background:color-mix(in srgb,var(--pr) 7%,var(--surf))}
+    .svc h3{font-family:var(--font-b);font-size:var(--text-lg);letter-spacing:-.03em}
+    .svc p,.svc li{color:var(--txt-m)}
+    .svc ul{margin-top:var(--sp5);display:grid;gap:var(--sp2);padding-left:1.1rem}
+
+    /* ── AUDIENCE ── */
+    .aud-g{display:grid;grid-template-columns:.95fr 1.05fr;gap:var(--sp6)}
+    .card{background:var(--surf);border:1px solid var(--border);border-radius:28px;padding:var(--sp6);box-shadow:var(--sh-sm)}
+    .aud-list{display:grid;gap:var(--sp4)}
+    .aud-list article{padding-bottom:var(--sp4);border-bottom:1px solid var(--div)}
+    .aud-list article:last-child{border-bottom:0;padding-bottom:0}
+
+    /* ── PROCESS ── */
+    .proc-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp4)}
+    .step-n{color:var(--pr);font-size:var(--text-xs);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:var(--sp4)}
+    .card p{color:var(--txt-m);margin-top:var(--sp3)}
+
+    /* ── QUOTE ── */
+    .q-g{display:grid;grid-template-columns:1.2fr .8fr;gap:var(--sp6)}
+    .big-q{font-family:var(--font-d);font-size:clamp(1.5rem,.8rem + 2.2vw,2.6rem);line-height:1.05;max-width:17ch}
+    .card small{color:var(--txt-f);font-size:var(--text-sm)}
+
+    /* ── CONTACT ── */
+    .ct-g{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--sp6)}
+    .card.prim{background:linear-gradient(145deg,color-mix(in srgb,var(--pr) 12%,var(--surf)),var(--surf))}
+    .ct-links{display:grid;gap:var(--sp3);margin-top:var(--sp6)}
+    .ct-link{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:var(--sp3);padding:var(--sp4) var(--sp5);border-radius:20px;border:1px solid var(--border);background:color-mix(in srgb,var(--surf) 90%,transparent);transition:background var(--ease),transform var(--ease)}
+    .ct-link:hover{background:var(--surf);transform:translateX(3px)}
+    .ct-link span{color:var(--txt-m);font-size:var(--text-sm)}
+    .ct-note{color:var(--txt-f);font-size:var(--text-sm);margin-top:var(--sp4)}
+
+    /* ── FOOTER ── */
+    .foot{padding:var(--sp8) 0 var(--sp10);border-top:1px solid var(--div);color:var(--txt-m)}
+    .foot-r{display:flex;justify-content:space-between;gap:var(--sp4);font-size:var(--text-sm)}
+    .foot-r a{color:var(--pr)}
+
+    /* ── REVEAL ── */
+    [data-r]{opacity:0;transform:translateY(22px);transition:opacity .75s ease,transform .75s ease}
+    [data-r].vis{opacity:1;transform:none}
+
+    @media(max-width:1080px){
+      .hero-g,.trust,.aud-g,.q-g,.ct-g,.sh{grid-template-columns:1fr}
+      .svc,.svc.big{grid-column:span 12}
+      .proc-g{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .panel{min-height:560px}
+      .res-grid{grid-template-columns:1fr 1fr}
     }
-    .site-header.scrolled { border-color: var(--color-divider); box-shadow: var(--shadow-sm); }
-    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-6); }
-    .brand { display: inline-flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.02em; }
-    .brand-mark {
-      width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center;
-      background: linear-gradient(145deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 62%, var(--color-gold)));
-      color: white; box-shadow: var(--shadow-md);
+    @media(max-width:820px){
+      .nav-l{position:fixed;inset:76px 1rem auto 1rem;background:var(--surf);border:1px solid var(--border);border-radius:24px;padding:var(--sp5);display:none;flex-direction:column;align-items:flex-start;box-shadow:var(--sh-lg)}
+      .nav-l.open{display:flex}
+      .mth{display:grid}
+      .nav-r .btn-p{display:none}
+      .stats,.tgrid,.proc-g,.res-grid{grid-template-columns:1fr}
+      .panel{min-height:auto}
     }
-    .brand-mark svg { width: 24px; height: 24px; }
-    .nav-links { display: flex; align-items: center; gap: var(--space-6); color: var(--color-text-muted); font-size: var(--text-sm); }
-    .nav-actions { display: flex; align-items: center; gap: var(--space-3); }
-
-    .theme-toggle, .menu-toggle {
-      width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--color-border);
-      display: grid; place-items: center; background: var(--color-surface);
+    @media(max-width:560px){
+      .wrap{width:min(calc(100% - 1rem),var(--w))}
+      .nav{min-height:70px}
+      .hero-btns,.nav-r,.foot-r{flex-direction:column;align-items:stretch}
+      .btn,.ith,.mth{width:100%}
+      .ith,.mth{height:50px;border-radius:18px}
+      .ct-link{flex-direction:column;align-items:flex-start}
     }
-    .menu-toggle { display: none; }
-
-    .btn {
-      min-height: 48px; padding: 0 var(--space-5); border-radius: var(--radius-full);
-      display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
-      font-size: var(--text-sm); font-weight: 600; transition: transform var(--transition-interactive), background var(--transition-interactive), color var(--transition-interactive), border-color var(--transition-interactive);
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn-primary { background: var(--color-primary); color: var(--color-text-inverse); }
-    .btn-primary:hover { background: var(--color-primary-hover); }
-    .btn-secondary { background: var(--color-surface); border: 1px solid var(--color-border); }
-    .btn-ghost { color: var(--color-text-muted); }
-
-    .hero { padding: clamp(var(--space-10), 5vw, var(--space-16)) 0 clamp(var(--space-16), 8vw, var(--space-24)); }
-    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(var(--space-8), 5vw, var(--space-20)); align-items: end; }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-3);
-      border-radius: var(--radius-full); background: var(--color-primary-highlight); color: var(--color-primary);
-      font-size: var(--text-xs); font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-    }
-    .hero h1 { font-size: var(--text-3xl); max-width: 10ch; margin-top: var(--space-5); }
-    .hero-lead { margin-top: var(--space-6); color: var(--color-text-muted); font-size: var(--text-lg); max-width: 34ch; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-8); }
-    .hero-proof { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--space-4); margin-top: var(--space-10); }
-    .proof-item { padding-top: var(--space-4); border-top: 1px solid var(--color-divider); }
-    .proof-item strong { display: block; font-family: var(--font-display); font-size: var(--text-xl); }
-    .proof-item span { color: var(--color-text-muted); font-size: var(--text-sm); }
-
-    .hero-panel {
-      position: relative; border-radius: 32px; overflow: hidden; background: radial-gradient(circle at top, color-mix(in srgb, var(--color-primary) 22%, transparent), transparent 52%), var(--color-surface);
-      border: 1px solid var(--color-border); box-shadow: var(--shadow-lg); min-height: 680px;
-    }
-    .panel-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--color-divider) 1px, transparent 1px), linear-gradient(90deg, var(--color-divider) 1px, transparent 1px); background-size: 52px 52px; opacity: .35; }
-    .panel-content { position: relative; padding: var(--space-8); display: grid; gap: var(--space-5); min-height: 100%; }
-    .glass-card {
-      background: color-mix(in srgb, var(--color-surface) 88%, transparent); border: 1px solid var(--color-border);
-      backdrop-filter: blur(12px); border-radius: 24px; padding: var(--space-5); box-shadow: var(--shadow-md);
-    }
-    .glass-card h3 { font-size: var(--text-lg); font-family: var(--font-body); letter-spacing: -0.02em; }
-    .automation-list { display: grid; gap: var(--space-3); margin-top: var(--space-4); }
-    .automation-list li {
-      list-style: none; display: flex; justify-content: space-between; align-items: center; gap: var(--space-3);
-      padding: var(--space-3) 0; border-bottom: 1px solid var(--color-divider); font-size: var(--text-sm);
-    }
-    .chip { display: inline-flex; align-items: center; padding: .35rem .7rem; border-radius: var(--radius-full); background: color-mix(in srgb, var(--color-primary) 12%, transparent); color: var(--color-primary); font-size: var(--text-xs); font-weight: 700; }
-    .result-card { margin-left: auto; max-width: 300px; }
-    .result-metric { font-family: var(--font-display); font-size: clamp(2rem, 1.3rem + 2vw, 3.5rem); line-height: 1; }
-
-    .clients-strip {
-      display: grid; grid-template-columns: 1.4fr 1fr; gap: var(--space-10); align-items: center;
-      padding: var(--space-8); border: 1px solid var(--color-border); background: var(--color-surface); border-radius: 28px;
-    }
-    .client-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--space-3); }
-    .client-logo {
-      padding: var(--space-4); border-radius: 18px; background: var(--color-bg); border: 1px solid var(--color-divider);
-      text-align: center; color: var(--color-text-muted); font-size: var(--text-xs); font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-    }
-
-    .section-head { display: grid; grid-template-columns: 1fr auto; gap: var(--space-6); align-items: end; margin-bottom: var(--space-10); }
-    .section-head h2 { font-size: var(--text-2xl); max-width: 11ch; }
-    .section-head p { color: var(--color-text-muted); max-width: 44ch; }
-
-    .services-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--space-4); }
-    .service-card {
-      grid-column: span 4; padding: var(--space-6); border-radius: 28px; background: var(--color-surface);
-      border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); min-height: 280px; display: flex; flex-direction: column; justify-content: space-between;
-    }
-    .service-card.featured { grid-column: span 8; background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface)); }
-    .service-card h3 { font-family: var(--font-body); font-size: var(--text-lg); letter-spacing: -0.03em; }
-    .service-card p, .service-card li { color: var(--color-text-muted); }
-    .service-card ul { margin-top: var(--space-5); display: grid; gap: var(--space-2); padding-left: 1.1rem; }
-
-    .audience-layout { display: grid; grid-template-columns: .95fr 1.05fr; gap: var(--space-6); }
-    .audience-card, .process-card, .testimonial-card, .contact-card, .offer-card {
-      background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 28px; padding: var(--space-6); box-shadow: var(--shadow-sm);
-    }
-    .audience-list { display: grid; gap: var(--space-4); }
-    .audience-list article { padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-divider); }
-    .audience-list article:last-child { border-bottom: 0; padding-bottom: 0; }
-
-    .process-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--space-4); }
-    .step-number { color: var(--color-primary); font-size: var(--text-xs); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: var(--space-4); }
-    .process-card p { color: var(--color-text-muted); margin-top: var(--space-3); }
-
-    .testimonial-wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: var(--space-6); }
-    .quote {
-      font-family: var(--font-display); font-size: clamp(1.6rem, 1rem + 2vw, 2.7rem); line-height: 1.06; max-width: 16ch;
-    }
-    .testimonial-card small, .contact-meta, .offer-meta { color: var(--color-text-faint); font-size: var(--text-sm); }
-
-    .contact-section { padding-bottom: clamp(var(--space-16), 10vw, var(--space-24)); }
-    .contact-layout { display: grid; grid-template-columns: 1.1fr .9fr; gap: var(--space-6); }
-    .contact-card.primary {
-      background: linear-gradient(145deg, color-mix(in srgb, var(--color-primary) 14%, var(--color-surface)), var(--color-surface));
-    }
-    .contact-links { display: grid; gap: var(--space-3); margin-top: var(--space-6); }
-    .contact-link {
-      min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
-      padding: var(--space-4) var(--space-5); border-radius: 20px; border: 1px solid var(--color-border); background: color-mix(in srgb, var(--color-surface) 92%, transparent);
-    }
-    .contact-link span { color: var(--color-text-muted); font-size: var(--text-sm); }
-    .offer-meta { margin-top: var(--space-4); }
-
-    .footer { padding: var(--space-8) 0 var(--space-10); border-top: 1px solid var(--color-divider); color: var(--color-text-muted); }
-    .footer-row { display: flex; justify-content: space-between; gap: var(--space-4); font-size: var(--text-sm); }
-
-    [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
-    [data-reveal].visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 1080px) {
-      .hero-grid, .clients-strip, .audience-layout, .testimonial-wrap, .contact-layout, .section-head { grid-template-columns: 1fr; }
-      .service-card, .service-card.featured { grid-column: span 12; }
-      .process-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
-      .hero-panel { min-height: 560px; }
-    }
-
-    @media (max-width: 820px) {
-      .nav-links {
-        position: fixed; inset: 78px 1rem auto 1rem; background: var(--color-surface); border: 1px solid var(--color-border);
-        border-radius: 24px; padding: var(--space-5); display: none; flex-direction: column; align-items: flex-start; box-shadow: var(--shadow-lg);
-      }
-      .nav-links.open { display: flex; }
-      .menu-toggle { display: grid; }
-      .nav .btn-primary.header-cta { display: none; }
-      .hero-proof, .client-grid, .process-grid { grid-template-columns: 1fr; }
-      .hero-panel { min-height: auto; }
-    }
-
-    @media (max-width: 560px) {
-      .container { width: min(calc(100% - 1.1rem), var(--content-default)); }
-      .nav { min-height: 72px; }
-      .hero h1 { max-width: 12ch; }
-      .hero-actions, .nav-actions, .footer-row { flex-direction: column; align-items: stretch; }
-      .btn, .theme-toggle, .menu-toggle { width: 100%; }
-      .theme-toggle, .menu-toggle { height: 52px; border-radius: 18px; }
-      .contact-link { align-items: flex-start; flex-direction: column; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
-      [data-reveal] { opacity: 1; transform: none; }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *{transition-duration:.01ms !important;animation-duration:.01ms !important}
+      [data-r]{opacity:1;transform:none}
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#content">Перейти к содержанию</a>
-  <header class="site-header" id="header">
-    <div class="container nav">
-      <a class="brand" href="#top" aria-label="Главная">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 16.5L12 4l7 12.5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M8.5 16.5h7" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>
-            <circle cx="12" cy="16.5" r="2.2" fill="currentColor"/>
+  <a class="skip" href="#main">Перейти к содержанию</a>
+
+  <header class="hdr" id="hdr">
+    <div class="wrap nav">
+      <a class="logo" href="#top" aria-label="На главную">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M5 17L12 4l7 13" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.5 17h7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="12" cy="17" r="2" fill="currentColor"/>
           </svg>
         </span>
-        <span>AI обучение и автоматизация</span>
+        <span>ИИ и автоматизация</span>
       </a>
-      <nav class="nav-links" id="navLinks" aria-label="Основная навигация">
+      <nav class="nav-l" id="navL" aria-label="Основная навигация">
+        <a href="#results">Результаты</a>
         <a href="#services">Форматы</a>
-        <a href="#audience">Кому подойдёт</a>
-        <a href="#process">Как проходит</a>
+        <a href="#process">Процесс</a>
         <a href="#contact">Контакты</a>
       </nav>
-      <div class="nav-actions">
-        <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+      <div class="nav-r">
+        <button class="mth" id="mth" aria-label="Меню">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
-        <button class="theme-toggle" data-theme-toggle aria-label="Переключить тему">
+        <button class="ith" data-tt aria-label="Переключить тему">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
-        <a class="btn btn-primary header-cta" href="#contact">Записаться на обучение</a>
+        <a class="btn btn-p" href="#contact">Записаться</a>
       </div>
     </div>
   </header>
 
-  <main id="content">
+  <main id="main">
+
+    <!-- HERO -->
     <section class="hero" id="top">
-      <div class="container hero-grid">
-        <div data-reveal>
-          <span class="eyebrow">Премиальное обучение для бизнеса</span>
-          <h1>Обучаю ИИ-инструментам и автоматизации так, чтобы это приносило деньги, а не хаос.</h1>
-          <p class="hero-lead">Помогаю собственникам, экспертам и командам быстро внедрить ИИ в продажи, маркетинг, клиентский сервис и внутренние процессы. Без воды, с упором на результат, скорость и практику на ваших задачах.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Обсудить обучение</a>
-            <a class="btn btn-secondary" href="https://t.me/nsv_01" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+      <div class="wrap hero-g">
+        <div data-r>
+          <span class="pill">Обучение ИИ для бизнеса</span>
+          <h1>Внедряю ИИ в бизнес так, чтобы это давало деньги, а не хаос.</h1>
+          <p class="hero-sub">Помогаю собственникам и командам быстро внедрить ИИ-инструменты в продажи, маркетинг, клиентский сервис и операции. Практика на ваших задачах, готовые сценарии и поддержка внедрения.</p>
+          <div class="hero-btns">
+            <a class="btn btn-p" href="#contact">Обсудить обучение</a>
+            <a class="btn btn-s" href="https://t.me/nsv_01" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
           </div>
-          <div class="hero-proof">
-            <div class="proof-item">
-              <strong>1:1</strong>
-              <span>персональные разборы под ваши процессы</span>
-            </div>
-            <div class="proof-item">
-              <strong>AI + Ops</strong>
-              <span>не просто инструменты, а рабочая система</span>
-            </div>
-            <div class="proof-item">
-              <strong>Практика</strong>
-              <span>сценарии, промты, регламенты и автоматизации</span>
-            </div>
+          <div class="stats">
+            <div class="stat"><strong>50+</strong><span>компаний прошли обучение</span></div>
+            <div class="stat"><strong>B2B</strong><span>команды, отделы, собственники</span></div>
+            <div class="stat"><strong>Практика</strong><span>на реальных задачах бизнеса</span></div>
           </div>
         </div>
 
-        <div class="hero-panel" data-reveal>
-          <div class="panel-grid" aria-hidden="true"></div>
-          <div class="panel-content">
-            <div class="glass-card">
-              <span class="chip">Разбор бизнес-процессов</span>
-              <h3 style="margin-top:1rem;">Что даёт обучение</h3>
-              <ul class="automation-list">
-                <li><span>Контент и маркетинг с ИИ</span><span class="chip">быстрее</span></li>
-                <li><span>Автоматизация рутины команды</span><span class="chip">дешевле</span></li>
+        <div class="panel" data-r>
+          <div class="pgrid" aria-hidden="true"></div>
+          <div class="pc">
+            <div class="gc">
+              <span class="chip">Разбор процессов</span>
+              <h3 style="margin-top:.9rem">Что получает бизнес</h3>
+              <ul class="alist">
+                <li><span>Маркетинг и контент с ИИ</span><span class="chip">быстрее ×3</span></li>
+                <li><span>Автоматизация рутины</span><span class="chip">дешевле</span></li>
                 <li><span>Скрипты, офферы, промты</span><span class="chip">точнее</span></li>
-                <li><span>Система внедрения без перегруза</span><span class="chip">понятнее</span></li>
+                <li><span>Система без перегруза</span><span class="chip">понятнее</span></li>
               </ul>
             </div>
-            <div class="glass-card result-card">
-              <div class="step-number">Фокус обучения</div>
-              <div class="result-metric">ROI</div>
-              <p>Я не продаю “волшебную кнопку”. Я выстраиваю подход, в котором ИИ начинает окупаться через скорость, качество и повторяемость процессов.</p>
+            <div class="gc" style="margin-left:auto;max-width:290px">
+              <div class="step-n">Фокус</div>
+              <div class="metric">ROI</div>
+              <p style="margin-top:.6rem;font-size:var(--text-sm);color:var(--txt-m)">Не "волшебная кнопка" — рабочая система, которая окупается через скорость, качество и повторяемость.</p>
             </div>
-            <div class="glass-card">
-              <div style="display:flex; justify-content:space-between; gap:1rem; align-items:flex-start;">
+            <div class="gc">
+              <div style="display:flex;justify-content:space-between;gap:1rem;align-items:flex-start">
                 <div>
-                  <div class="step-number">Формат</div>
-                  <h3>Живые сессии, готовые сценарии, поддержка внедрения</h3>
+                  <div class="step-n">Формат</div>
+                  <h3>Живые сессии, сценарии, поддержка внедрения</h3>
                 </div>
-                <span class="chip">B2B / эксперты / команды</span>
+                <span class="chip">B2B / команды</span>
               </div>
             </div>
           </div>
@@ -354,234 +278,252 @@
       </div>
     </section>
 
-    <section class="section" aria-label="Позиционирование">
-      <div class="container clients-strip" data-reveal>
+    <!-- TRUST -->
+    <section class="sec" aria-label="Направления">
+      <div class="wrap trust" data-r>
         <div>
-          <span class="eyebrow">Для тех, кто хочет внедрять серьёзно</span>
-          <h2 style="font-size:var(--text-xl); margin-top:1rem; max-width:16ch;">Эта страница продаёт не “модный ИИ”, а вашу управляемую эффективность.</h2>
+          <span class="pill">Охват задач</span>
+          <h2 style="font-size:var(--text-xl);margin-top:1rem;max-width:18ch">Обучение охватывает все ключевые функции современного бизнеса.</h2>
         </div>
-        <div class="client-grid" aria-hidden="true">
-          <div class="client-logo">Sales</div>
-          <div class="client-logo">Ops</div>
-          <div class="client-logo">HR</div>
-          <div class="client-logo">Support</div>
-          <div class="client-logo">Content</div>
-          <div class="client-logo">CRM</div>
-          <div class="client-logo">Funnels</div>
-          <div class="client-logo">Analytics</div>
+        <div class="tgrid" aria-hidden="true">
+          <div class="tbox">Sales</div>
+          <div class="tbox">Ops</div>
+          <div class="tbox">HR</div>
+          <div class="tbox">Support</div>
+          <div class="tbox">Content</div>
+          <div class="tbox">CRM</div>
+          <div class="tbox">Funnels</div>
+          <div class="tbox">Analytics</div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-head" data-reveal>
+    <!-- RESULTS -->
+    <section class="sec" id="results">
+      <div class="wrap">
+        <div class="sh" data-r>
           <div>
-            <span class="eyebrow">Форматы работы</span>
-            <h2>Обучение, после которого команда начинает применять ИИ в работе сразу.</h2>
+            <span class="pill">Результаты клиентов</span>
+            <h2>Не вдохновение после семинара, а измеримые изменения в процессах.</h2>
           </div>
-          <p>Вы можете использовать страницу как продающую витрину: здесь упор сделан на ценность для бизнеса, ясность формата и премиальное ощущение от контакта.</p>
+          <p>Каждый формат обучения завершается фиксацией конкретных шагов: что внедряется, кто отвечает, как измерять.</p>
         </div>
-        <div class="services-grid">
-          <article class="service-card featured" data-reveal>
+        <div class="res-grid">
+          <article class="res-card" data-r>
+            <div class="res-num">×3</div>
+            <h3>Скорость контент-производства</h3>
+            <p>Команда маркетинга начала выпускать тексты, посты и письма в три раза быстрее после внедрения связки ИИ-инструментов в редакционный процесс.</p>
+          </article>
+          <article class="res-card" data-r>
+            <div class="res-num">−40%</div>
+            <h3>Снижение рутинной нагрузки</h3>
+            <p>Отдел поддержки снизил время обработки типовых обращений на 40% за счёт автоматизации ответов и классификации запросов с ИИ.</p>
+          </article>
+          <article class="res-card" data-r>
+            <div class="res-num">+25%</div>
+            <h3>Конверсия в продажах</h3>
+            <p>Рост конверсии у команды продаж после внедрения ИИ-скриптов, персонализированных офферов и анализа возражений на базе реальных звонков.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="sec" id="services">
+      <div class="wrap">
+        <div class="sh" data-r>
+          <div>
+            <span class="pill">Форматы работы</span>
+            <h2>Обучение, после которого команда применяет ИИ в работе сразу.</h2>
+          </div>
+          <p>Каждый формат адаптируется под конкретный бизнес: уровень команды, задачи, инструменты и точки роста.</p>
+        </div>
+        <div class="svc-g">
+          <article class="svc big" data-r>
             <div>
               <span class="chip">Флагманский формат</span>
-              <h3 style="margin-top:1rem;">Корпоративное обучение по ИИ и автоматизации</h3>
-              <p style="margin-top:1rem;">Разбираем реальные процессы компании, находим узкие места, подбираем стек инструментов и учим сотрудников работать с ИИ осмысленно: от промтов и исследований до контента, продаж и операционных задач.</p>
+              <h3 style="margin-top:1rem">Корпоративное обучение по ИИ и автоматизации</h3>
+              <p style="margin-top:1rem">Разбираем реальные процессы компании, находим узкие места, подбираем стек инструментов и обучаем команду работать с ИИ осмысленно: от промтов и исследований до контента, продаж и операционных задач.</p>
             </div>
             <ul>
               <li>Аудит задач и точек роста.</li>
-              <li>Программа под вашу нишу и команду.</li>
-              <li>Практика прямо на кейсах бизнеса.</li>
-              <li>Список инструментов, шаблонов и регламентов.</li>
+              <li>Программа под вашу нишу и состав команды.</li>
+              <li>Практика на реальных кейсах бизнеса.</li>
+              <li>Инструменты, шаблоны, регламенты в итоге.</li>
             </ul>
           </article>
-          <article class="service-card" data-reveal>
+          <article class="svc" data-r>
             <div>
               <span class="chip">1:1</span>
-              <h3 style="margin-top:1rem;">Индивидуальное обучение</h3>
-              <p style="margin-top:1rem;">Для собственников, экспертов и фрилансеров, которым нужен быстрый апгрейд без лишней теории.</p>
+              <h3 style="margin-top:1rem">Индивидуальное обучение</h3>
+              <p style="margin-top:1rem">Для собственников и экспертов, которым нужен быстрый апгрейд без лишней теории.</p>
             </div>
             <ul>
-              <li>Подбор ИИ-инструментов под вашу модель дохода.</li>
+              <li>ИИ-инструменты под вашу модель дохода.</li>
               <li>Промты, упаковка, контент, продажи.</li>
               <li>Личный маршрут внедрения.</li>
             </ul>
           </article>
-          <article class="service-card" data-reveal>
+          <article class="svc" data-r>
             <div>
               <span class="chip">Команда</span>
-              <h3 style="margin-top:1rem;">Мастер-класс для отдела</h3>
-              <p style="margin-top:1rem;">Интенсив для маркетинга, продаж, поддержки или продакшна с практикой и разбором роли каждого сотрудника.</p>
+              <h3 style="margin-top:1rem">Мастер-класс для отдела</h3>
+              <p style="margin-top:1rem">Интенсив для маркетинга, продаж, поддержки с практикой на роли каждого.</p>
             </div>
             <ul>
               <li>Живой формат без перегруза.</li>
-              <li>Чёткие примеры и сценарии.</li>
-              <li>Материалы после сессии.</li>
+              <li>Конкретные сценарии по задачам отдела.</li>
+              <li>Материалы и шаблоны после сессии.</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="audience">
-      <div class="container audience-layout">
-        <div class="audience-card" data-reveal>
-          <span class="eyebrow">Кому подойдёт</span>
-          <h2 style="font-size:var(--text-2xl); margin-top:1rem; max-width:10ch;">Тем, кто хочет не “играться” с ИИ, а усиливать бизнес.</h2>
+    <!-- AUDIENCE -->
+    <section class="sec" id="audience">
+      <div class="wrap aud-g">
+        <div class="card" data-r>
+          <span class="pill">Кому подойдёт</span>
+          <h2 style="font-size:var(--text-2xl);margin-top:1rem;max-width:11ch">Тем, кто хочет усиливать бизнес, а не "играться" с ИИ.</h2>
         </div>
-        <div class="audience-list audience-card" data-reveal>
+        <div class="card aud-list" data-r>
           <article>
             <h3>Собственникам бизнеса</h3>
-            <p>Чтобы быстрее видеть, где ИИ сокращает затраты, ускоряет выполнение задач и помогает команде делать больше без расширения штата.</p>
+            <p>Видеть, где ИИ сокращает затраты и помогает команде делать больше без расширения штата. Принимать решения быстрее и точнее.</p>
           </article>
           <article>
             <h3>Экспертам и консультантам</h3>
-            <p>Чтобы выстроить систему производства контента, упаковки офферов, аналитики и клиентской коммуникации на новом уровне скорости.</p>
+            <p>Выстроить систему производства контента, упаковки офферов и клиентской коммуникации на новом уровне скорости и качества.</p>
           </article>
           <article>
             <h3>Отделам продаж, маркетинга и сервиса</h3>
-            <p>Чтобы превратить ИИ в рабочий инструмент, а не в хаотичный набор случайных сервисов, которые никто не использует стабильно.</p>
+            <p>Превратить ИИ в стабильный рабочий инструмент, а не набор случайных сервисов, которые никто не использует системно.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section" id="process">
-      <div class="container">
-        <div class="section-head" data-reveal>
+    <!-- PROCESS -->
+    <section class="sec" id="process">
+      <div class="wrap">
+        <div class="sh" data-r>
           <div>
-            <span class="eyebrow">Как проходит работа</span>
-            <h2>Премиальная подача, но жёсткая логика внедрения.</h2>
+            <span class="pill">Как проходит работа</span>
+            <h2>Чёткая логика от диагностики до внедрения.</h2>
           </div>
-          <p>Сильная страница должна не только красиво выглядеть, но и отвечать на главный вопрос заказчика: как именно это поможет бизнесу и как быстро можно стартовать.</p>
+          <p>Каждый шаг имеет конкретный результат. Никакой абстракции — только то, что реально работает в вашем бизнесе.</p>
         </div>
-        <div class="process-grid">
-          <article class="process-card" data-reveal>
-            <div class="step-number">Шаг 01</div>
+        <div class="proc-g">
+          <article class="card" data-r>
+            <div class="step-n">Шаг 01</div>
             <h3>Диагностика</h3>
-            <p>Разбираем текущие задачи, инструменты, боли команды и точки, где ИИ может дать быстрый эффект.</p>
+            <p>Разбираем текущие задачи, инструменты, боли команды и точки, где ИИ даёт быстрый эффект.</p>
           </article>
-          <article class="process-card" data-reveal>
-            <div class="step-number">Шаг 02</div>
+          <article class="card" data-r>
+            <div class="step-n">Шаг 02</div>
             <h3>Программа</h3>
-            <p>Собираю обучение под конкретный состав участников, уровень подготовки и задачи бизнеса.</p>
+            <p>Формируем обучение под конкретный состав участников, уровень подготовки и задачи бизнеса.</p>
           </article>
-          <article class="process-card" data-reveal>
-            <div class="step-number">Шаг 03</div>
+          <article class="card" data-r>
+            <div class="step-n">Шаг 03</div>
             <h3>Практика</h3>
-            <p>Показываю инструменты, связки, промты и подходы на ваших реальных сценариях, а не на абстрактных примерах.</p>
+            <p>Инструменты, связки, промты и подходы — на реальных сценариях компании, не на абстрактных примерах.</p>
           </article>
-          <article class="process-card" data-reveal>
-            <div class="step-number">Шаг 04</div>
+          <article class="card" data-r>
+            <div class="step-n">Шаг 04</div>
             <h3>Внедрение</h3>
-            <p>Фиксируем, что команда делает дальше: шаблоны, регламенты, роли, контроль качества и точки измерения результата.</p>
+            <p>Фиксируем что делать дальше: шаблоны, регламенты, роли, контроль качества и точки измерения результата.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container testimonial-wrap">
-        <article class="testimonial-card" data-reveal>
-          <span class="eyebrow">Сообщение рынку</span>
-          <p class="quote" style="margin-top:1rem;">Обучение по ИИ должно повышать управляемость бизнеса. Если после сессии люди вдохновились, но ничего не изменили в процессе, это была не работа, а шоу.</p>
+    <!-- QUOTE -->
+    <section class="sec">
+      <div class="wrap q-g">
+        <article class="card" data-r>
+          <span class="pill">Принцип работы</span>
+          <p class="big-q" style="margin-top:1rem">"Обучение ИИ должно повышать управляемость бизнеса. Если после сессии люди вдохновились, но ничего не изменили — это было шоу, а не работа."</p>
         </article>
-        <article class="offer-card" data-reveal>
-          <div class="step-number">Что видит заказчик</div>
-          <h3 style="font-size:var(--text-lg); font-family:var(--font-body);">У вас не просто красивая страница, а сильная коммерческая упаковка.</h3>
-          <p style="margin-top:1rem; color:var(--color-text-muted);">Эта структура помогает продавать обучение дороже: она говорит на языке результата, статуса и ясного процесса, а не общих обещаний.</p>
-          <div class="offer-meta">Подходит для отправки в откликах, личных переговорах и как персональный лендинг.</div>
+        <article class="card" data-r>
+          <div class="step-n">Почему это важно</div>
+          <h3 style="font-size:var(--text-lg);font-family:var(--font-b)">Каждая сессия завершается конкретным планом внедрения, а не просто презентацией.</h3>
+          <p style="margin-top:1rem;color:var(--txt-m)">Шаблоны, промты, регламенты и маршрут по инструментам — всё передаётся в рабочем виде. Команда знает, что делать в первый день после обучения.</p>
+          <small style="display:block;margin-top:var(--sp4)">Резюме и портфолио: <a href="https://agronom28-crypto.github.io/resume" target="_blank" rel="noopener noreferrer" style="color:var(--pr)">agronom28-crypto.github.io/resume</a></small>
         </article>
       </div>
     </section>
 
-    <section class="section contact-section" id="contact">
-      <div class="container contact-layout">
-        <article class="contact-card primary" data-reveal>
-          <span class="eyebrow">Контакты</span>
-          <h2 style="font-size:var(--text-2xl); margin-top:1rem; max-width:10ch;">Покажите заказчику уровень уже на первом касании.</h2>
-          <p style="margin-top:1rem; color:var(--color-text-muted);">Для связи используйте удобный канал. Лучше всего вести клиента в Telegram, а страницу применять как премиальную точку доверия и презентации вашего подхода.</p>
-          <div class="contact-links">
-            <a class="contact-link" href="tel:+79057972562">
-              <strong>+7 905 797-25-62</strong>
-              <span>Телефон для быстрых договорённостей</span>
-            </a>
-            <a class="contact-link" href="https://t.me/nsv_01" target="_blank" rel="noopener noreferrer">
+    <!-- CONTACT -->
+    <section class="sec" id="contact" style="padding-bottom:clamp(var(--sp16),10vw,var(--sp24))">
+      <div class="wrap ct-g">
+        <article class="card prim" data-r>
+          <span class="pill">Связаться</span>
+          <h2 style="font-size:var(--text-2xl);margin-top:1rem;max-width:11ch">Обсудим задачи и подберём формат.</h2>
+          <p style="margin-top:1rem;color:var(--txt-m)">Расскажите о своём бизнесе и команде — предложу конкретный формат и ориентировочную программу. Обычно отвечаю в течение нескольких часов.</p>
+          <div class="ct-links">
+            <a class="ct-link" href="https://t.me/nsv_01" target="_blank" rel="noopener noreferrer">
               <strong>@nsv_01</strong>
-              <span>Telegram для оперативной связи</span>
+              <span>Telegram — быстрее всего</span>
             </a>
-            <a class="contact-link" href="mailto:rj2biz@mail.ru">
+            <a class="ct-link" href="tel:+79057972562">
+              <strong>+7 905 797-25-62</strong>
+              <span>Телефон для звонков</span>
+            </a>
+            <a class="ct-link" href="mailto:rj2biz@mail.ru">
               <strong>rj2biz@mail.ru</strong>
               <span>Почта для коммерческих запросов</span>
             </a>
           </div>
         </article>
 
-        <article class="contact-card" data-reveal>
-          <div class="step-number">Позиционирование</div>
-          <h3 style="font-size:var(--text-xl);">Обучение ИИ, которое помогает зарабатывать, масштабировать и принимать решения быстрее.</h3>
-          <p style="margin-top:1rem; color:var(--color-text-muted);">Используйте эту страницу как главный продающий актив: отправляйте клиентам, прикладывайте к откликам и показывайте на созвонах. Она собрана так, чтобы повысить восприятие вашей цены и экспертизы.</p>
-          <div class="offer-meta">Совет по продажам: не демпингуйте. Такой уровень упаковки нужно монетизировать уверенно.</div>
-          <div class="hero-actions" style="margin-top:1.5rem;">
-            <a class="btn btn-primary" href="https://t.me/nsv_01" target="_blank" rel="noopener noreferrer">Связаться сейчас</a>
-            <a class="btn btn-secondary" href="mailto:rj2biz@mail.ru">Отправить запрос</a>
+        <article class="card" data-r>
+          <div class="step-n">Что обсудим</div>
+          <h3 style="font-size:var(--text-xl)">Обучение ИИ, после которого бизнес начинает расти быстрее.</h3>
+          <p style="margin-top:1rem;color:var(--txt-m)">На первом созвоне разберём текущие задачи, уровень команды и то, какой формат даст максимальный эффект за минимальное время.</p>
+          <div class="ct-note">Подходит для разового обучения, корпоративных программ и постоянного сопровождения внедрения ИИ.</div>
+          <div class="hero-btns" style="margin-top:var(--sp6)">
+            <a class="btn btn-p" href="https://t.me/nsv_01" target="_blank" rel="noopener noreferrer">Написать в Telegram</a>
+            <a class="btn btn-s" href="mailto:rj2biz@mail.ru">Отправить запрос</a>
           </div>
         </article>
       </div>
     </section>
+
   </main>
 
-  <footer class="footer">
-    <div class="container footer-row">
+  <footer class="foot">
+    <div class="wrap foot-r">
       <span>Обучение ИИ-инструментам и автоматизации бизнеса</span>
-      <span>Премиальная страница для привлечения заказчиков</span>
+      <a href="https://agronom28-crypto.github.io/resume" target="_blank" rel="noopener noreferrer">Резюме и портфолио</a>
     </div>
   </footer>
 
   <script>
-    (function () {
-      const root = document.documentElement;
-      const toggle = document.querySelector('[data-theme-toggle]');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      let theme = prefersDark ? 'dark' : 'light';
-      root.setAttribute('data-theme', theme);
+  (function(){
+    var root=document.documentElement,tt=document.querySelector('[data-tt]');
+    var d=matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+    root.setAttribute('data-theme',d);
+    function icon(){tt.innerHTML=d==='dark'?'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>':'<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>'}
+    icon();
+    tt.addEventListener('click',function(){d=d==='dark'?'light':'dark';root.setAttribute('data-theme',d);icon()});
 
-      const setIcon = () => {
-        toggle.innerHTML = theme === 'dark'
-          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
-          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
-      };
-      setIcon();
-      toggle.addEventListener('click', () => {
-        theme = theme === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', theme);
-        setIcon();
-      });
+    var mt=document.getElementById('mth'),nl=document.getElementById('navL');
+    mt&&mt.addEventListener('click',function(){nl.classList.toggle('open')});
+    nl&&nl.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nl.classList.remove('open')})});
 
-      const menuToggle = document.getElementById('menuToggle');
-      const navLinks = document.getElementById('navLinks');
-      menuToggle?.addEventListener('click', () => navLinks.classList.toggle('open'));
-      navLinks?.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', () => navLinks.classList.remove('open'));
-      });
+    var hdr=document.getElementById('hdr');
+    function sc(){hdr.classList.toggle('on',scrollY>8)}sc();
+    addEventListener('scroll',sc,{passive:true});
 
-      const header = document.getElementById('header');
-      const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
-      onScroll();
-      window.addEventListener('scroll', onScroll, { passive: true });
-
-      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) entry.target.classList.add('visible');
-          });
-        }, { threshold: 0.15 });
-        document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
-      } else {
-        document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('visible'));
-      }
-    })();
+    if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
+      var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('vis')})},{threshold:.12});
+      document.querySelectorAll('[data-r]').forEach(function(el){obs.observe(el)});
+    }else{
+      document.querySelectorAll('[data-r]').forEach(function(el){el.classList.add('vis')});
+    }
+  })();
   </script>
 </body>
 </html>
