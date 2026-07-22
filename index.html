@@ -1431,6 +1431,29 @@ body {
 .training-panel-list span{padding:10px 0;border-bottom:1px solid rgba(255,255,255,.09);color:#d1e7e3;font-size:.84rem}
 @media(max-width:900px){.training-feature{grid-template-columns:1fr}.training-feature h2{max-width:16ch}.training-feature-panel{min-height:300px}}
 @media(max-width:560px){.training-feature{padding:22px 18px;border-radius:22px}.training-actions{width:100%}.training-primary,.training-secondary{width:100%}.training-feature-panel{min-height:280px;padding:18px}.training-panel-top{align-items:flex-start;flex-direction:column}}
+
+
+/* Realty Hunter feature */
+.realty-feature{margin:28px 0;padding:clamp(26px,4vw,46px);display:grid;grid-template-columns:minmax(0,.95fr) minmax(360px,1.05fr);gap:clamp(24px,4vw,50px);align-items:center;overflow:hidden;position:relative;background:linear-gradient(145deg,#f8fafc 0%,#eef3f7 100%);border:1px solid rgba(64,83,103,.15);border-radius:28px;box-shadow:0 18px 50px rgba(15,23,42,.09)}
+.realty-copy{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.realty-kicker{display:inline-flex;padding:7px 12px;border-radius:999px;background:#e2ecea;color:#40665f;font-size:.75rem;font-weight:800;letter-spacing:.075em;text-transform:uppercase}
+.realty-feature h2{margin:16px 0 14px;color:#17202c;font-size:clamp(1.75rem,3.2vw,3.05rem);line-height:1.03;letter-spacing:-.04em;max-width:15ch}
+.realty-copy>p{margin:0;color:#596574;line-height:1.68;max-width:61ch}
+.realty-benefits{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.realty-benefits span{padding:7px 11px;border:1px solid rgba(64,83,103,.14);border-radius:999px;background:rgba(255,255,255,.72);color:#475569;font-size:.81rem;font-weight:700}
+.realty-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.realty-primary,.realty-secondary{min-height:46px;padding:0 19px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-weight:800;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.realty-primary{background:#34495e;color:#fff;box-shadow:0 10px 24px rgba(52,73,94,.2)}
+.realty-secondary{background:rgba(255,255,255,.76);border:1px solid rgba(52,73,94,.19);color:#34495e}
+.realty-primary:hover,.realty-secondary:hover{transform:translateY(-2px)}
+.realty-visual{position:relative;display:block;overflow:hidden;min-height:330px;border-radius:23px;background:#dfe7ec;border:1px solid rgba(52,73,94,.13);box-shadow:0 18px 42px rgba(31,41,55,.16)}
+.realty-visual img{width:100%;height:100%;min-height:330px;aspect-ratio:3/2;object-fit:cover;object-position:center;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.realty-visual:hover img{transform:scale(1.025)}
+.realty-visual::after{content:"";position:absolute;inset:auto 0 0;height:42%;background:linear-gradient(transparent,rgba(14,24,33,.84));pointer-events:none}
+.realty-visual-caption{position:absolute;z-index:1;left:20px;right:20px;bottom:18px;display:flex;align-items:flex-end;justify-content:space-between;gap:14px;color:#fff}
+.realty-visual-caption b{font-size:1.05rem}.realty-visual-caption small{color:#d8e0e6;font-size:.78rem}
+@media(max-width:900px){.realty-feature{grid-template-columns:1fr}.realty-feature h2{max-width:18ch}.realty-visual{min-height:280px}.realty-visual img{min-height:280px}}
+@media(max-width:560px){.realty-feature{padding:20px 17px;border-radius:22px}.realty-actions{width:100%}.realty-primary,.realty-secondary{width:100%}.realty-visual,.realty-visual img{min-height:220px}.realty-visual-caption{align-items:flex-start;flex-direction:column;gap:2px}}
 </style>
 <meta content="Сергей Николаенко — разработчик Python, AI-автоматизаций и внутреннего софта для B2B" name="twitter:image:alt"/><link as="image" fetchpriority="high" href="785632494.jpg" rel="preload"/><script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -1770,6 +1793,23 @@ body {
 <div class="flagship-status">Формат кейса: внутренний production-инструмент под конкретный бизнес-процесс.</div>
 <a class="flagship-case-link" href="https://agronom28-crypto.github.io/resume/dxf-case">Подробнее о кейсе</a>
 </div>
+</div><div class="realty-feature section-anchor" id="realty-hunter-feature">
+<div class="realty-copy">
+<span class="realty-kicker">Telegram · PropTech · Automation</span>
+<h2>Realty Hunter — новые объявления без ручного мониторинга</h2>
+<p>Telegram-сервис для риелторов, агентств и инвесторов: отслеживает подходящие объекты, фильтрует поток и отправляет уведомления, чтобы пользователь быстрее реагировал на новые предложения.</p>
+<div class="realty-benefits">
+<span>Мониторинг источников</span><span>Фильтры под запрос</span><span>Telegram-уведомления</span>
+</div>
+<div class="realty-actions">
+<a class="realty-primary" href="./realty-hunter.html">Посмотреть проект</a>
+<a class="realty-secondary" href="https://t.me/nsv_01" rel="noopener noreferrer" target="_blank">Обсудить похожую разработку</a>
+</div>
+</div>
+<a aria-label="Открыть страницу проекта Realty Hunter" class="realty-visual" href="./realty-hunter.html">
+<img alt="Интерфейс Realty Hunter для мониторинга объявлений о недвижимости" decoding="async" height="600" loading="lazy" src="./hero-realty-hunter.png" width="900"/>
+<span class="realty-visual-caption"><b>Realty Hunter</b><small>Автоматизация поиска объектов</small></span>
+</a>
 </div><div class="projects-section section-anchor" id="cases">
 <h2 class="card-title">Кейсы Python, AI/RAG, LMS и CRM-автоматизации</h2>
 <p class="projects-intro">Показываю не стек ради стека, а тип задачи, решение и бизнес-смысл. Технологии оставлены коротко, чтобы не перегружать страницу.</p>
