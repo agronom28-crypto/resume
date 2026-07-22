@@ -224,6 +224,18 @@
       .pc{grid-template-rows:auto}
       .ct-links{margin-top:var(--sp6);padding-top:0}
     }
+
+    /* Focus KPI card alignment */
+    .focus-card{width:100%;max-width:none!important;margin:0!important;display:grid;grid-template-columns:minmax(120px,.42fr) minmax(0,1fr);align-items:center;gap:var(--sp6);padding:var(--sp6)}
+    .focus-card .focus-label{padding-right:var(--sp6);border-right:1px solid var(--div)}
+    .focus-card .step-n{margin-bottom:var(--sp2)}
+    .focus-card .metric{font-size:clamp(2.8rem,2rem + 3vw,4.8rem);color:var(--pr)}
+    .focus-card p{margin:0!important;color:var(--txt-m);font-size:var(--text-base);max-width:31ch}
+    @media(max-width:560px){
+      .focus-card{grid-template-columns:1fr;gap:var(--sp4)}
+      .focus-card .focus-label{padding-right:0;padding-bottom:var(--sp4);border-right:0;border-bottom:1px solid var(--div)}
+      .focus-card p{max-width:none}
+    }
 </style>
 </head>
 <body>
@@ -292,10 +304,12 @@
                 <li><span>Система без перегруза</span><span class="chip">понятнее</span></li>
               </ul>
             </div>
-            <div class="gc" style="margin-left:auto;max-width:290px">
-              <div class="step-n">Фокус</div>
-              <div class="metric">ROI</div>
-              <p style="margin-top:.6rem;font-size:var(--text-sm);color:var(--txt-m)">Не "волшебная кнопка" — рабочая система, которая окупается через скорость, качество и повторяемость.</p>
+            <div class="gc focus-card">
+              <div class="focus-label">
+                <div class="step-n">Фокус обучения</div>
+                <div class="metric">ROI</div>
+              </div>
+              <p>Рабочая система, которая окупается через скорость, качество и повторяемость процессов.</p>
             </div>
             <div class="gc">
               <div style="display:flex;justify-content:space-between;gap:1rem;align-items:flex-start">
