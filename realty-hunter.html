@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Охотник за недвижимостью — бот для риелторов и клиентов</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Realty Hunter — бот мониторинга недвижимости для риелторов</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700&amp;f[]=satoshi@400,500,700&amp;display=swap" rel="stylesheet"/>
 <style>
 /* Art direction: Telegram-бот для недвижимости → деловой, но живой, скорость и надёжность
    Palette: тёплый нейтральный бежевый + один акцент тил-зелёный (доверие, "в реальном времени")
@@ -199,236 +200,225 @@ footer { border-top: 1px solid var(--color-divider); padding-block: var(--space-
 .home-link{font-weight:700;color:var(--color-primary)!important}
 .home-link:hover{color:var(--color-primary-hover)!important}
 </style>
-</head>
+<meta content="Telegram-бот для мониторинга новых объявлений о недвижимости: фильтры, уведомления, выгрузка в Excel и автоматизация поиска объектов для риелторов." name="description"/><meta content="бот для риелторов, мониторинг объявлений недвижимости, парсер недвижимости, Telegram бот недвижимость, парсер ЦИАН, автоматизация поиска квартир" name="keywords"/><meta content="Сергей Николаенко" name="author"/><meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/><link href="https://agronom28-crypto.github.io/resume/realty-hunter.html" rel="canonical"/><meta content="ru_RU" property="og:locale"/><meta content="website" property="og:type"/><meta content="Realty Hunter — бот мониторинга недвижимости для риелторов" property="og:title"/><meta content="Telegram-бот для мониторинга новых объявлений о недвижимости: фильтры, уведомления, выгрузка в Excel и автоматизация поиска объектов для риелторов." property="og:description"/><meta content="https://agronom28-crypto.github.io/resume/realty-hunter.html" property="og:url"/><meta content="Сергей Николаенко — Python и AI" property="og:site_name"/><meta content="https://agronom28-crypto.github.io/resume/hero-realty-hunter.png" property="og:image"/><meta content="Realty Hunter — бот мониторинга недвижимости для риелторов" property="og:image:alt"/><meta content="summary_large_image" name="twitter:card"/><meta content="Realty Hunter — бот мониторинга недвижимости для риелторов" name="twitter:title"/><meta content="Telegram-бот для мониторинга новых объявлений о недвижимости: фильтры, уведомления, выгрузка в Excel и автоматизация поиска объектов для риелторов." name="twitter:description"/><meta content="https://agronom28-crypto.github.io/resume/hero-realty-hunter.png" name="twitter:image"/><script data-seo-schema="true" type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Realty Hunter", "description": "Telegram-бот для мониторинга новых объявлений о недвижимости: фильтры, уведомления, выгрузка в Excel и автоматизация поиска объектов для риелторов.", "url": "https://agronom28-crypto.github.io/resume/realty-hunter.html", "image": "https://agronom28-crypto.github.io/resume/hero-realty-hunter.png", "applicationCategory": "BusinessApplication", "operatingSystem": "Web, Telegram", "author": {"@type": "Person", "name": "Сергей Николаенко", "url": "https://agronom28-crypto.github.io/resume/"}, "offers": {"@type": "Offer", "priceCurrency": "RUB", "availability": "https://schema.org/InStock"}}</script></head>
 <body>
-
-<a href="#main" class="sr-only">Перейти к содержимому</a>
-
+<a class="sr-only" href="#main">Перейти к содержимому</a>
 <header>
-  <div class="container nav-wrap">
-    <a class="logo" href="./index.html" aria-label="Вернуться на главную страницу">
-      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M6 16L16 6l10 10" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 14v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="23" cy="9" r="2.4" fill="currentColor"/></svg>
+<div class="container nav-wrap">
+<a aria-label="Вернуться на главную страницу" class="logo" href="./index.html">
+<svg aria-hidden="true" fill="none" height="28" viewbox="0 0 32 32" width="28"><path d="M6 16L16 6l10 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path><path d="M9 14v10a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"></path><circle cx="23" cy="9" fill="currentColor" r="2.4"></circle></svg>
       Охотник
     </a>
-    <nav class="nav-links" aria-label="Разделы">
-      <a href="./index.html" class="home-link">← Главная</a>
-      <a href="#features">Что умеет</a>
-      <a href="#audience">Для кого</a>
-      <a href="#implementation">Внедрение</a>
-      <a href="#contact-section">Контакты</a>
-    </nav>
-    <div class="nav-actions">
-      <button class="theme-toggle" data-theme-toggle aria-label="Переключить тему">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </button>
-      <a href="#contact-section" class="btn btn-primary">Оставить заявку</a>
-    </div>
-  </div>
+<nav aria-label="Разделы" class="nav-links">
+<a class="home-link" href="./index.html">← Главная</a>
+<a href="#features">Что умеет</a>
+<a href="#audience">Для кого</a>
+<a href="#implementation">Внедрение</a>
+<a href="#contact-section">Контакты</a>
+</nav>
+<div class="nav-actions">
+<button aria-label="Переключить тему" class="theme-toggle" data-theme-toggle="">
+<svg fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+</button>
+<a class="btn btn-primary" href="#contact-section">Оставить заявку</a>
+</div>
+</div>
 </header>
-
 <main id="main">
-
 <section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <span class="eyebrow"><span class="dot"></span>Работает 24/7 в Telegram</span>
-      <h1>Бот, который находит новые объявления о недвижимости <em>раньше конкурентов</em></h1>
-      <p class="lead">«Охотник» мониторит Авито и ЦИАН в реальном времени и присылает уведомление о новом объявлении в первые минуты после публикации — плюс выгрузка в Excel по заданным параметрам.</p>
-      <div class="hero-actions">
-        <a href="#contact-section" class="btn btn-primary">Получить доступ</a>
-        <a href="#implementation" class="btn btn-ghost">Как это работает</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><b>2 площадки</b><span>Авито и ЦИАН из коробки</span></div>
-        <div class="stat"><b>193 теста</b><span>покрытие ключевой логики</span></div>
-        <div class="stat"><b>Мульти-тенант</b><span>изоляция данных клиентов</span></div>
-      </div>
-    </div>
-    <div class="hero-visual reveal">
-      <img src="./hero-realty-hunter.png" alt="Интерфейс Realty Hunter — Telegram-сервис для мониторинга объявлений о недвижимости" width="900" height="600" loading="eager" decoding="async" fetchpriority="high">
-    </div>
-  </div>
+<div class="container hero-grid">
+<div>
+<span class="eyebrow"><span class="dot"></span>Работает 24/7 в Telegram</span>
+<h1>Бот, который находит новые объявления о недвижимости <em>раньше конкурентов</em></h1>
+<p class="lead">«Охотник» мониторит Авито и ЦИАН в реальном времени и присылает уведомление о новом объявлении в первые минуты после публикации — плюс выгрузка в Excel по заданным параметрам.</p>
+<div class="hero-actions">
+<a class="btn btn-primary" href="#contact-section">Получить доступ</a>
+<a class="btn btn-ghost" href="#implementation">Как это работает</a>
+</div>
+<div class="hero-stats">
+<div class="stat"><b>2 площадки</b><span>Авито и ЦИАН из коробки</span></div>
+<div class="stat"><b>193 теста</b><span>покрытие ключевой логики</span></div>
+<div class="stat"><b>Мульти-тенант</b><span>изоляция данных клиентов</span></div>
+</div>
+</div>
+<div class="hero-visual reveal">
+<img alt="Интерфейс Realty Hunter — Telegram-сервис для мониторинга объявлений о недвижимости" decoding="async" fetchpriority="high" height="600" loading="eager" src="./hero-realty-hunter.png" width="900"/>
+</div>
+</div>
 </section>
-
 <section id="features">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-tag">Что умеет</span>
-      <h2>Функции, которые уже работают в проекте</h2>
-      <p>Основано на архитектуре ядра + адаптеров и текущем README проекта — без обещаний, только реализованный функционал.</p>
-    </div>
-    <div class="feature-list">
-      <div class="feature-row reveal">
-        <div><span class="feature-num">01</span></div>
-        <div>
-          <h3>Мониторинг новых объявлений в реальном времени</h3>
-          <p>Модуль «Охотник» (<code>realty_monitor_task</code>) регулярно опрашивает источники и присылает уведомление в Telegram сразу после появления нового объявления, подходящего под заданные параметры.</p>
-          <div class="tag-row"><span class="tag">Авито</span><span class="tag">ЦИАН</span><span class="tag">arq-очередь задач</span></div>
-        </div>
-      </div>
-      <div class="feature-row reveal">
-        <div><span class="feature-num">02</span></div>
-        <div>
-          <h3>Гибкий поиск по единому контракту фильтров</h3>
-          <p>Единый модуль поиска нормализует тип сделки (продажа/аренда/посуточно), тип объекта, цену, площадь, метро, район, ключевые слова и тип продавца — и одинаково применяет их для обеих площадок.</p>
-          <div class="tag-row"><span class="tag">Цена и площадь</span><span class="tag">Метро и район</span><span class="tag">Владелец / агент</span></div>
-        </div>
-      </div>
-      <div class="feature-row reveal">
-        <div><span class="feature-num">03</span></div>
-        <div>
-          <h3>Выгрузка в Excel по заданным параметрам</h3>
-          <p>Команда экспорта запускает отдельную задачу в очереди, которая формирует файл и отправляет его клиенту — весь путь запроса помечен идентификатором клиента для отдельного учёта.</p>
-          <div class="tag-row"><span class="tag">По расписанию тарифа</span><span class="tag">История запусков</span></div>
-        </div>
-      </div>
-      <div class="feature-row reveal">
-        <div><span class="feature-num">04</span></div>
-        <div>
-          <h3>Управление через Telegram без веб-панели</h3>
-          <p>Команды <code>/run</code>, <code>/stop</code>, <code>/status</code>, <code>/history</code>, <code>/menu</code> дают полный контроль над источниками мониторинга прямо в чате, включая FSM-меню для добавления и редактирования.</p>
-          <div class="tag-row"><span class="tag">aiogram 3</span><span class="tag">FSM-меню</span></div>
-        </div>
-      </div>
-      <div class="feature-row reveal">
-        <div><span class="feature-num">05</span></div>
-        <div>
-          <h3>Мультитенантность — один бот, много клиентов</h3>
-          <p>Каждый клиент (тенант) видит только свои источники и запуски; роли user/admin/superadmin разграничивают доступ, а строгая изоляция закрыта регрессионными тестами.</p>
-          <div class="tag-row"><span class="tag">Изоляция данных</span><span class="tag">Роли доступа</span><span class="tag">9 regression-тестов</span></div>
-        </div>
-      </div>
-      <div class="feature-row reveal">
-        <div><span class="feature-num">06</span></div>
-        <div>
-          <h3>Тарифы и оплата через Telegram Stars</h3>
-          <p>Встроенный биллинг (Free / Start / Pro / Max) ограничивает число активных «охотников» и частоту экспортов на клиента, с автоматическим учётом истечения подписки.</p>
-          <div class="tag-row"><span class="tag">Telegram Stars</span><span class="tag">4 тарифа</span></div>
-        </div>
-      </div>
-      <div class="feature-row reveal">
-        <div><span class="feature-num">07</span></div>
-        <div>
-          <h3>Расширяемая архитектура адаптеров</h3>
-          <p>Новая площадка подключается без изменения ядра — достаточно реализовать интерфейс адаптера (список страниц, парсинг карточки, отпечаток объявления) и зарегистрировать его.</p>
-          <div class="tag-row"><span class="tag">Registry-паттерн</span><span class="tag">Готово к новым площадкам</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="section-head reveal">
+<span class="section-tag">Что умеет</span>
+<h2>Функции, которые уже работают в проекте</h2>
+<p>Основано на архитектуре ядра + адаптеров и текущем README проекта — без обещаний, только реализованный функционал.</p>
+</div>
+<div class="feature-list">
+<div class="feature-row reveal">
+<div><span class="feature-num">01</span></div>
+<div>
+<h3>Мониторинг новых объявлений в реальном времени</h3>
+<p>Модуль «Охотник» (<code>realty_monitor_task</code>) регулярно опрашивает источники и присылает уведомление в Telegram сразу после появления нового объявления, подходящего под заданные параметры.</p>
+<div class="tag-row"><span class="tag">Авито</span><span class="tag">ЦИАН</span><span class="tag">arq-очередь задач</span></div>
+</div>
+</div>
+<div class="feature-row reveal">
+<div><span class="feature-num">02</span></div>
+<div>
+<h3>Гибкий поиск по единому контракту фильтров</h3>
+<p>Единый модуль поиска нормализует тип сделки (продажа/аренда/посуточно), тип объекта, цену, площадь, метро, район, ключевые слова и тип продавца — и одинаково применяет их для обеих площадок.</p>
+<div class="tag-row"><span class="tag">Цена и площадь</span><span class="tag">Метро и район</span><span class="tag">Владелец / агент</span></div>
+</div>
+</div>
+<div class="feature-row reveal">
+<div><span class="feature-num">03</span></div>
+<div>
+<h3>Выгрузка в Excel по заданным параметрам</h3>
+<p>Команда экспорта запускает отдельную задачу в очереди, которая формирует файл и отправляет его клиенту — весь путь запроса помечен идентификатором клиента для отдельного учёта.</p>
+<div class="tag-row"><span class="tag">По расписанию тарифа</span><span class="tag">История запусков</span></div>
+</div>
+</div>
+<div class="feature-row reveal">
+<div><span class="feature-num">04</span></div>
+<div>
+<h3>Управление через Telegram без веб-панели</h3>
+<p>Команды <code>/run</code>, <code>/stop</code>, <code>/status</code>, <code>/history</code>, <code>/menu</code> дают полный контроль над источниками мониторинга прямо в чате, включая FSM-меню для добавления и редактирования.</p>
+<div class="tag-row"><span class="tag">aiogram 3</span><span class="tag">FSM-меню</span></div>
+</div>
+</div>
+<div class="feature-row reveal">
+<div><span class="feature-num">05</span></div>
+<div>
+<h3>Мультитенантность — один бот, много клиентов</h3>
+<p>Каждый клиент (тенант) видит только свои источники и запуски; роли user/admin/superadmin разграничивают доступ, а строгая изоляция закрыта регрессионными тестами.</p>
+<div class="tag-row"><span class="tag">Изоляция данных</span><span class="tag">Роли доступа</span><span class="tag">9 regression-тестов</span></div>
+</div>
+</div>
+<div class="feature-row reveal">
+<div><span class="feature-num">06</span></div>
+<div>
+<h3>Тарифы и оплата через Telegram Stars</h3>
+<p>Встроенный биллинг (Free / Start / Pro / Max) ограничивает число активных «охотников» и частоту экспортов на клиента, с автоматическим учётом истечения подписки.</p>
+<div class="tag-row"><span class="tag">Telegram Stars</span><span class="tag">4 тарифа</span></div>
+</div>
+</div>
+<div class="feature-row reveal">
+<div><span class="feature-num">07</span></div>
+<div>
+<h3>Расширяемая архитектура адаптеров</h3>
+<p>Новая площадка подключается без изменения ядра — достаточно реализовать интерфейс адаптера (список страниц, парсинг карточки, отпечаток объявления) и зарегистрировать его.</p>
+<div class="tag-row"><span class="tag">Registry-паттерн</span><span class="tag">Готово к новым площадкам</span></div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <section id="audience">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-tag">Для кого</span>
-      <h2>Кому этот бот экономит время и деньги</h2>
-      <p>Продукт полезен и профессионалам рынка, и частным пользователям, которые ищут жильё.</p>
-    </div>
-    <div class="audience-grid">
-      <div class="audience-card reveal">
-        <h3>Риелторам и агентствам</h3>
-        <p>Первыми видят новые объявления собственников и клиентов — до того, как их разберут конкуренты.</p>
-        <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Мониторинг по своим критериям поиска</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Выгрузки для отчётов клиентам</li>
-        </ul>
-      </div>
-      <div class="audience-card reveal">
-        <h3>Инвесторам в недвижимость</h3>
-        <p>Отслеживают появление объектов ниже рынка в конкретном районе, чтобы успеть первыми предложить сделку.</p>
-        <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Фильтры по цене и площади</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Несколько «охотников» на тарифе</li>
-        </ul>
-      </div>
-      <div class="audience-card reveal">
-        <h3>Тем, кто ищет жильё</h3>
-        <p>Получают уведомление о подходящей квартире раньше остальных — критично на конкурентном рынке аренды.</p>
-        <ul>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Поиск от собственника или агента</li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Уведомления прямо в Telegram</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="section-head reveal">
+<span class="section-tag">Для кого</span>
+<h2>Кому этот бот экономит время и деньги</h2>
+<p>Продукт полезен и профессионалам рынка, и частным пользователям, которые ищут жильё.</p>
+</div>
+<div class="audience-grid">
+<div class="audience-card reveal">
+<h3>Риелторам и агентствам</h3>
+<p>Первыми видят новые объявления собственников и клиентов — до того, как их разберут конкуренты.</p>
+<ul>
+<li><svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M20 6 9 17l-5-5"></path></svg>Мониторинг по своим критериям поиска</li>
+<li><svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M20 6 9 17l-5-5"></path></svg>Выгрузки для отчётов клиентам</li>
+</ul>
+</div>
+<div class="audience-card reveal">
+<h3>Инвесторам в недвижимость</h3>
+<p>Отслеживают появление объектов ниже рынка в конкретном районе, чтобы успеть первыми предложить сделку.</p>
+<ul>
+<li><svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M20 6 9 17l-5-5"></path></svg>Фильтры по цене и площади</li>
+<li><svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M20 6 9 17l-5-5"></path></svg>Несколько «охотников» на тарифе</li>
+</ul>
+</div>
+<div class="audience-card reveal">
+<h3>Тем, кто ищет жильё</h3>
+<p>Получают уведомление о подходящей квартире раньше остальных — критично на конкурентном рынке аренды.</p>
+<ul>
+<li><svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M20 6 9 17l-5-5"></path></svg>Поиск от собственника или агента</li>
+<li><svg fill="none" height="16" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M20 6 9 17l-5-5"></path></svg>Уведомления прямо в Telegram</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
-
 <section id="implementation">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="section-tag">Как внедряется</span>
-      <h2>От заявки до первого уведомления</h2>
-      <p>Платформа развёртывается через Docker Compose и управляется полностью из Telegram — без необходимости в веб-интерфейсе для клиента.</p>
-    </div>
-    <div class="steps">
-      <div class="step reveal"><div class="step-num">1</div><h4>Заявка и брифинг</h4><p>Уточняем площадки, регионы и критерии поиска под ваш кейс.</p></div>
-      <div class="step reveal"><div class="step-num">2</div><h4>Создание тенанта</h4><p>Суперадмин создаёт изолированный тенант с лимитами вашего тарифа.</p></div>
-      <div class="step reveal"><div class="step-num">3</div><h4>Подключение в Telegram</h4><p>Вы пишете боту, вас привязывают к тенанту командой <code>/invite</code>.</p></div>
-      <div class="step reveal"><div class="step-num">4</div><h4>Настройка источников</h4><p>Через <code>/menu</code> задаются параметры поиска — цена, район, тип сделки.</p></div>
-      <div class="step reveal"><div class="step-num">5</div><h4>Запуск и уведомления</h4><p>Бот начинает присылать объявления и готовить выгрузки по расписанию.</p></div>
-    </div>
-    <div class="tariff-strip">
-      <div class="tariff-card reveal"><h5>Free</h5><div class="tariff-price">0 <span>Stars</span></div><ul><li>1 охотник</li><li>1 экспорт / мес</li></ul></div>
-      <div class="tariff-card reveal"><h5>Start</h5><div class="tariff-price">75 <span>Stars</span></div><ul><li>3 охотника</li><li>2 экспорта / нед</li></ul></div>
-      <div class="tariff-card featured reveal"><h5>Pro</h5><div class="tariff-price">150 <span>Stars</span></div><ul><li>5 охотников</li><li>5 экспортов / нед</li></ul></div>
-      <div class="tariff-card reveal"><h5>Max</h5><div class="tariff-price">300 <span>Stars</span></div><ul><li>7 охотников</li><li>10 экспортов / нед</li></ul></div>
-    </div>
-  </div>
+<div class="container">
+<div class="section-head reveal">
+<span class="section-tag">Как внедряется</span>
+<h2>От заявки до первого уведомления</h2>
+<p>Платформа развёртывается через Docker Compose и управляется полностью из Telegram — без необходимости в веб-интерфейсе для клиента.</p>
+</div>
+<div class="steps">
+<div class="step reveal"><div class="step-num">1</div><h4>Заявка и брифинг</h4><p>Уточняем площадки, регионы и критерии поиска под ваш кейс.</p></div>
+<div class="step reveal"><div class="step-num">2</div><h4>Создание тенанта</h4><p>Суперадмин создаёт изолированный тенант с лимитами вашего тарифа.</p></div>
+<div class="step reveal"><div class="step-num">3</div><h4>Подключение в Telegram</h4><p>Вы пишете боту, вас привязывают к тенанту командой <code>/invite</code>.</p></div>
+<div class="step reveal"><div class="step-num">4</div><h4>Настройка источников</h4><p>Через <code>/menu</code> задаются параметры поиска — цена, район, тип сделки.</p></div>
+<div class="step reveal"><div class="step-num">5</div><h4>Запуск и уведомления</h4><p>Бот начинает присылать объявления и готовить выгрузки по расписанию.</p></div>
+</div>
+<div class="tariff-strip">
+<div class="tariff-card reveal"><h5>Free</h5><div class="tariff-price">0 <span>Stars</span></div><ul><li>1 охотник</li><li>1 экспорт / мес</li></ul></div>
+<div class="tariff-card reveal"><h5>Start</h5><div class="tariff-price">75 <span>Stars</span></div><ul><li>3 охотника</li><li>2 экспорта / нед</li></ul></div>
+<div class="tariff-card featured reveal"><h5>Pro</h5><div class="tariff-price">150 <span>Stars</span></div><ul><li>5 охотников</li><li>5 экспортов / нед</li></ul></div>
+<div class="tariff-card reveal"><h5>Max</h5><div class="tariff-price">300 <span>Stars</span></div><ul><li>7 охотников</li><li>10 экспортов / нед</li></ul></div>
+</div>
+</div>
 </section>
-
 <section id="contact-section">
-  <div class="container contact-grid">
-    <div class="contact-card reveal">
-      <div id="form-view">
-        <h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2);font-family:var(--font-body);font-weight:700;">Оставьте заявку</h3>
-        <p style="color:var(--color-text-muted);margin-bottom:var(--space-6);font-size:var(--text-sm);">Ответим и настроим тестовый доступ к боту в течение рабочего дня.</p>
-        <form id="lead-form">
-          <div class="field"><label for="name">Имя</label><input id="name" name="name" type="text" required placeholder="Как к вам обращаться"></div>
-          <div class="field"><label for="contact">Telegram или телефон</label><input id="contact" name="contact" type="text" required placeholder="@username или +7 900 000 00 00"></div>
-          <div class="field"><label for="role">Кто вы</label>
-            <select id="role" name="role">
-              <option>Риелтор / агентство</option>
-              <option>Инвестор</option>
-              <option>Ищу жильё для себя</option>
-              <option>Другое</option>
-            </select>
-          </div>
-          <div class="field"><label for="message">Комментарий (необязательно)</label><textarea id="message" name="message" placeholder="Какой город, тип сделки, что важно"></textarea></div>
-          <div class="consent"><input type="checkbox" id="consent" required><label for="consent">Согласен на обработку данных для связи по заявке</label></div>
-          <button type="submit" class="btn btn-primary submit-btn">Отправить заявку</button>
-        </form>
-      </div>
-      <div id="form-success" class="form-success">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
-        <h3 style="font-family:var(--font-body);font-size:var(--text-lg);margin-bottom:var(--space-2);">Заявка принята</h3>
-        <p style="color:var(--color-text-muted);font-size:var(--text-sm);">Мы свяжемся с вами в ближайшее время, чтобы настроить доступ к боту.</p>
-      </div>
-    </div>
-    <div class="contact-info reveal">
-      <span class="section-tag">Контакты</span>
-      <h3>Готовы подключить бота под ваш кейс</h3>
-      <p>Работаем как с частными пользователями, так и с агентствами, которым нужен изолированный тенант и собственные лимиты.</p>
-      <ul class="contact-list">
-        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg></span><div><b>Telegram-бот</b><span>Основной канал управления и уведомлений</span></div></li>
-        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><div><b>Настройка за 1 день</b><span>После заявки — брифинг и создание тенанта</span></div></li>
-        <li><span class="ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg></span><div><b>Изоляция данных</b><span>Каждый клиент видит только свои источники</span></div></li>
-      </ul>
-    </div>
-  </div>
+<div class="container contact-grid">
+<div class="contact-card reveal">
+<div id="form-view">
+<h3 style="font-size:var(--text-lg);margin-bottom:var(--space-2);font-family:var(--font-body);font-weight:700;">Оставьте заявку</h3>
+<p style="color:var(--color-text-muted);margin-bottom:var(--space-6);font-size:var(--text-sm);">Ответим и настроим тестовый доступ к боту в течение рабочего дня.</p>
+<form id="lead-form">
+<div class="field"><label for="name">Имя</label><input id="name" name="name" placeholder="Как к вам обращаться" required="" type="text"/></div>
+<div class="field"><label for="contact">Telegram или телефон</label><input id="contact" name="contact" placeholder="@username или +7 900 000 00 00" required="" type="text"/></div>
+<div class="field"><label for="role">Кто вы</label>
+<select id="role" name="role">
+<option>Риелтор / агентство</option>
+<option>Инвестор</option>
+<option>Ищу жильё для себя</option>
+<option>Другое</option>
+</select>
+</div>
+<div class="field"><label for="message">Комментарий (необязательно)</label><textarea id="message" name="message" placeholder="Какой город, тип сделки, что важно"></textarea></div>
+<div class="consent"><input id="consent" required="" type="checkbox"/><label for="consent">Согласен на обработку данных для связи по заявке</label></div>
+<button class="btn btn-primary submit-btn" type="submit">Отправить заявку</button>
+</form>
+</div>
+<div class="form-success" id="form-success">
+<svg fill="none" height="48" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="48"><circle cx="12" cy="12" r="10"></circle><path d="M8 12l3 3 5-6"></path></svg>
+<h3 style="font-family:var(--font-body);font-size:var(--text-lg);margin-bottom:var(--space-2);">Заявка принята</h3>
+<p style="color:var(--color-text-muted);font-size:var(--text-sm);">Мы свяжемся с вами в ближайшее время, чтобы настроить доступ к боту.</p>
+</div>
+</div>
+<div class="contact-info reveal">
+<span class="section-tag">Контакты</span>
+<h3>Готовы подключить бота под ваш кейс</h3>
+<p>Работаем как с частными пользователями, так и с агентствами, которым нужен изолированный тенант и собственные лимиты.</p>
+<ul class="contact-list">
+<li><span class="ic"><svg fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M22 2 11 13"></path><path d="M22 2 15 22l-4-9-9-4 20-7z"></path></svg></span><div><b>Telegram-бот</b><span>Основной канал управления и уведомлений</span></div></li>
+<li><span class="ic"><svg fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg></span><div><b>Настройка за 1 день</b><span>После заявки — брифинг и создание тенанта</span></div></li>
+<li><span class="ic"><svg fill="none" height="18" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"></path></svg></span><div><b>Изоляция данных</b><span>Каждый клиент видит только свои источники</span></div></li>
+</ul>
+</div>
+</div>
 </section>
-
 </main>
-
 <footer>
-  <div class="container footer-row">
-    <p>© 2026 Охотник за недвижимостью · parser_platform</p>
-    <div class="footer-links">
-      <a href="https://github.com/agronom28-crypto/parser_platform" target="_blank" rel="noopener noreferrer">GitHub-репозиторий</a>
-    </div>
-  </div>
+<div class="container footer-row">
+<p>© 2026 Охотник за недвижимостью · parser_platform</p>
+<div class="footer-links">
+<a href="https://github.com/agronom28-crypto/parser_platform" rel="noopener noreferrer" target="_blank">GitHub-репозиторий</a>
+</div>
+</div>
 </footer>
-
 <script>
 (function(){
   const t=document.querySelector('[data-theme-toggle]'), r=document.documentElement;
@@ -450,6 +440,5 @@ footer { border-top: 1px solid var(--color-divider); padding-block: var(--space-
   });
 })();
 </script>
-
 </body>
 </html>
