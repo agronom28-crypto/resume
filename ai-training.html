@@ -191,7 +191,40 @@
       *{transition-duration:.01ms !important;animation-duration:.01ms !important}
       [data-r]{opacity:1;transform:none}
     }
-  </style>
+  
+    /* Layout alignment polish */
+    .hero-g{align-items:stretch}
+    .hero-g>div:first-child{display:flex;flex-direction:column;justify-content:center}
+    .panel{height:100%;min-height:660px}
+    .pc{grid-template-rows:auto 1fr auto;align-content:stretch}
+    .pc>.gc:nth-child(2){align-self:center}
+    .trust>*{align-self:center}
+    .res-grid,.svc-g,.proc-g,.q-g,.ct-g{align-items:stretch}
+    .res-card,.svc,.proc-g .card,.q-g .card,.ct-g .card{height:100%}
+    .res-card{display:grid;grid-template-rows:auto auto 1fr;align-content:start;gap:var(--sp3)}
+    .res-card p{margin-top:0}
+    .res-card h3{min-height:2.05em}
+    .svc{gap:var(--sp6)}
+    .svc>div{display:flex;flex-direction:column}
+    .proc-g .card{display:grid;grid-template-rows:auto auto 1fr;align-content:start}
+    .proc-g .card p{margin-bottom:0}
+    .q-g .card,.ct-g .card{display:flex;flex-direction:column}
+    .ct-g .card .hero-btns{margin-top:auto;padding-top:var(--sp6)}
+    .ct-links{margin-top:auto;padding-top:var(--sp6)}
+    .sh{grid-template-columns:minmax(0,1fr) minmax(280px,42ch)}
+    .sh>p{justify-self:end}
+    @media(max-width:1080px){
+      .sh{grid-template-columns:1fr}
+      .sh>p{justify-self:start}
+      .panel{min-height:560px}
+      .res-card h3{min-height:auto}
+    }
+    @media(max-width:820px){
+      .panel{min-height:auto}
+      .pc{grid-template-rows:auto}
+      .ct-links{margin-top:var(--sp6);padding-top:0}
+    }
+</style>
 </head>
 <body>
   <a class="skip" href="#main">Перейти к содержанию</a>
