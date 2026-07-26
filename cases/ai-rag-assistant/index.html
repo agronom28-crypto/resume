@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI/RAG-ассистент по базе знаний — кейс</title>
+<meta name="description" content="FastAPI-сервис с векторным поиском (Qdrant/Chroma), который отвечает на вопросы по документам компании со ссылками на источники.">
+<meta name="keywords" content="AI/RAG-ассистент по базе знаний, кейс разработки, AI-ассистенты и RAG-системы">
+<link rel="canonical" href="https://agronom28-crypto.github.io/resume/cases/ai-rag-assistant/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI/RAG-ассистент по базе знаний — кейс">
+<meta property="og:description" content="FastAPI-сервис с векторным поиском (Qdrant/Chroma), который отвечает на вопросы по документам компании со ссылками на источники.">
+<meta property="og:url" content="https://agronom28-crypto.github.io/resume/cases/ai-rag-assistant/">
+<meta property="og:image" content="https://agronom28-crypto.github.io/resume/assets/og-cover.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI/RAG-ассистент по базе знаний — кейс">
+<meta name="twitter:description" content="FastAPI-сервис с векторным поиском (Qdrant/Chroma), который отвечает на вопросы по документам компании со ссылками на источники.">
+<meta name="twitter:image" content="https://agronom28-crypto.github.io/resume/assets/og-cover.jpg">
+<link rel="icon" href="https://agronom28-crypto.github.io/resume/favicon.ico">
+<link rel="stylesheet" href="https://agronom28-crypto.github.io/resume/assets/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://agronom28-crypto.github.io/resume/"}, {"@type": "ListItem", "position": 2, "name": "Кейсы", "item": "https://agronom28-crypto.github.io/resume/cases/"}, {"@type": "ListItem", "position": 3, "name": "AI/RAG-ассистент по базе знаний", "item": "https://agronom28-crypto.github.io/resume/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CreativeWork", "name": "AI/RAG-ассистент по базе знаний", "description": "FastAPI-сервис с векторным поиском (Qdrant/Chroma), который отвечает на вопросы по документам компании со ссылками на источники.", "about": "AI-ассистенты и RAG-системы", "url": "https://agronom28-crypto.github.io/resume/cases/ai-rag-assistant/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "AI/RAG-ассистент по базе знаний — кейс", "description": "FastAPI-сервис с векторным поиском (Qdrant/Chroma), который отвечает на вопросы по документам компании со ссылками на источники.", "url": "https://agronom28-crypto.github.io/resume/cases/ai-rag-assistant/"}</script>
+</head>
+<body>
+<header class="site">
+<div class="wrap nav">
+<a href="https://agronom28-crypto.github.io/resume/" class="brand"><span class="mark">NS</span><span>Python-разработчик</span></a>
+<nav class="main-links">
+<div class="has-sub"><button>Услуги <span>▾</span></button><div class="submenu"><a href="https://agronom28-crypto.github.io/resume/telegram-bots/" data-track="service">Telegram-боты для бизнеса</a>
+<a href="https://agronom28-crypto.github.io/resume/parsers/" data-track="service">Парсеры и мониторинг данных</a>
+<a href="https://agronom28-crypto.github.io/resume/ai-assistants/" data-track="service">AI-ассистенты и RAG-системы</a>
+<a href="https://agronom28-crypto.github.io/resume/integrations/" data-track="service">API и CRM-интеграции</a>
+<a href="https://agronom28-crypto.github.io/resume/business-automation/" data-track="service">Автоматизация бизнес-процессов</a>
+<a href="https://agronom28-crypto.github.io/resume/mvp-development/" data-track="service">MVP и внутренние сервисы</a>
+<a href="https://agronom28-crypto.github.io/resume/audit/" data-track="service">Технический аудит и проектирование</a>
+<a href="https://agronom28-crypto.github.io/resume/partners/" data-track="service">Python-подрядчик для агентств</a>
+<a href="https://agronom28-crypto.github.io/resume/dxf-automation/" data-track="service">Автоматизация DXF-файлов</a></div></div>
+<a href="https://agronom28-crypto.github.io/resume/cases/">Кейсы</a>
+<a href="https://agronom28-crypto.github.io/resume/contacts/">Контакты</a>
+</nav>
+<div class="header-actions">
+<a href="https://agronom28-crypto.github.io/resume/contacts/" class="btn primary desktop-only">Описать задачу</a>
+<button class="burger" aria-label="Меню">☰</button>
+</div>
+</div>
+<div class="mobile-menu">
+<div class="sub-label">Услуги</div>
+<a href="https://agronom28-crypto.github.io/resume/telegram-bots/" data-track="service">Telegram-боты для бизнеса</a>
+<a href="https://agronom28-crypto.github.io/resume/parsers/" data-track="service">Парсеры и мониторинг данных</a>
+<a href="https://agronom28-crypto.github.io/resume/ai-assistants/" data-track="service">AI-ассистенты и RAG-системы</a>
+<a href="https://agronom28-crypto.github.io/resume/integrations/" data-track="service">API и CRM-интеграции</a>
+<a href="https://agronom28-crypto.github.io/resume/business-automation/" data-track="service">Автоматизация бизнес-процессов</a>
+<a href="https://agronom28-crypto.github.io/resume/mvp-development/" data-track="service">MVP и внутренние сервисы</a>
+<a href="https://agronom28-crypto.github.io/resume/audit/" data-track="service">Технический аудит и проектирование</a>
+<a href="https://agronom28-crypto.github.io/resume/partners/" data-track="service">Python-подрядчик для агентств</a>
+<a href="https://agronom28-crypto.github.io/resume/dxf-automation/" data-track="service">Автоматизация DXF-файлов</a>
+<div class="sub-label">Разделы</div>
+<a href="https://agronom28-crypto.github.io/resume/cases/">Кейсы</a>
+<a href="https://agronom28-crypto.github.io/resume/contacts/">Контакты</a>
+<a href="https://agronom28-crypto.github.io/resume/" class="btn primary" style="margin-top:16px;width:100%">Описать задачу</a>
+</div>
+</header>
+<div class="sticky-cta">
+<a href="https://t.me/nsv_01" class="btn primary">Telegram</a>
+<a href="tel:+79057972562" class="btn">Позвонить</a>
+</div>
+
+<section class="hero">
+<div class="wrap">
+<nav class="breadcrumbs"><a href="https://agronom28-crypto.github.io/resume/">Главная</a> / <a href="https://agronom28-crypto.github.io/resume/cases/">Кейсы</a> / <span>AI/RAG-ассистент по базе знаний</span></nav>
+<span class="tag">Демонстрационный проект</span>
+<h1>AI/RAG-ассистент по базе знаний</h1>
+<p class="lead">FastAPI-сервис с векторным поиском (Qdrant/Chroma), который отвечает на вопросы по документам компании со ссылками на источники.</p>
+<div class="hero-actions row">
+<a href="https://agronom28-crypto.github.io/resume/ai-assistants/" class="btn primary" data-track="service">Услуга: AI-ассистенты и RAG-системы</a>
+<a href="#contact" class="btn">Обсудить похожую задачу</a>
+</div>
+</div>
+</section>
+
+<section class="sec" style="background:var(--s)">
+<div class="wrap">
+<div class="head"><h2>Проблема заказчика</h2><p></p></div>
+<p style="max-width:70ch;font-size:16px">Поиск ответа в объёмной документации занимает время у сотрудников, а типовые вопросы повторяются без единой точки ответа.</p>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<div class="head"><h2>Задача</h2><p></p></div>
+<p style="max-width:70ch;font-size:16px">Собрать сервис, который ищет релевantные фрагменты в базе документов и формирует ответ со ссылкой на источник, а не выдуманный текст.</p>
+</div>
+</section>
+
+<section class="sec" style="background:var(--s)">
+<div class="wrap">
+<div class="head"><h2>Решение</h2><p></p></div>
+<p style="max-width:70ch;font-size:16px">Реализован FastAPI-сервис с индексацией документов в векторной базе (Qdrant/Chroma) и обращением к языковой модели с ограничением ответа контекстом найденных фрагментов.</p>
+<p class="muted" style="margin-top:14px"><b>Схема работы:</b> Документы → индексация в векторной базе → запрос пользователя → поиск релевантных фрагментов → ответ модели со ссылкой на источник.</p>
+<div style="margin-top:20px"><span class="tag" style="margin:4px">Python</span>
+<span class="tag" style="margin:4px">FastAPI</span>
+<span class="tag" style="margin:4px">LangChain</span>
+<span class="tag" style="margin:4px">Qdrant</span>
+<span class="tag" style="margin:4px">Chroma</span>
+<span class="tag" style="margin:4px">OpenAI API</span></div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<div class="head"><h2>Результат</h2><p></p></div>
+<p style="max-width:70ch;font-size:16px">Рабочий прототип поиска по базе знаний с указанием источника каждого ответа.</p>
+</div>
+</section>
+
+<section class="sec" style="background:var(--s)">
+<div class="wrap">
+<div class="limits">
+<h3>Ограничения и особенности</h3>
+<p style="color:var(--mut);font-size:14px">Точность ответа зависит от качества и полноты загруженной базы документов; без документов ассистент не отвечает по теме, которой нет в базе.</p>
+</div>
+</div>
+</section>
+
+<div id="contact">
+<section class="sec">
+<div class="wrap">
+<div class="head"><h2>Обсудить похожую задачу</h2><p>Свяжитесь удобным способом или заполните форму — отвечаю в Telegram и по почте в течение рабочего дня.</p></div>
+<div class="contact-block">
+<div class="contact-links">
+<a href="https://t.me/nsv_01">💬 Написать в Telegram — @nsv_01</a>
+<a href="mailto:rj2biz@mail.ru">✉️ rj2biz@mail.ru</a>
+<a href="tel:+79057972562">📞 +7 905 797-25-62</a>
+</div>
+<div class="form-box">
+<form class="lead-form" data-endpoint="" method="post">
+<div class="hp-field"><input type="text" name="company_website" tabindex="-1" autocomplete="off"></div>
+<input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term">
+<input type="hidden" name="landing_page"><input type="hidden" name="source_page">
+<input type="hidden" name="service" value="ai-assistants">
+<label for="f-name">Имя</label>
+<input id="f-name" name="name" type="text" required placeholder="Как к вам обращаться">
+<div class="row2">
+<div><label for="f-contact">Telegram или email</label><input id="f-contact" name="contact" type="text" required placeholder="@username или email"></div>
+<div><label for="f-budget">Ориентировочный бюджет</label><input id="f-budget" name="budget" type="text" placeholder="Необязательно"></div>
+</div>
+<label for="f-task">Задача</label>
+<textarea id="f-task" name="task" rows="4" required placeholder="Опишите, что нужно сделать"></textarea>
+<label for="f-deadline">Желаемый срок</label>
+<input id="f-deadline" name="deadline" type="text" placeholder="Необязательно">
+<button type="submit" class="btn primary" style="width:100%;margin-top:16px">Получить предварительную оценку</button>
+<div class="form-status" style="font-size:13px;margin-top:10px"></div>
+<p class="form-note">Предпочтительный формат общения — письменная переписка. Отправка формы переведёт вас в Telegram или подготовит письмо на почту.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<footer class="site">
+<div class="wrap">
+<div class="footer-grid">
+<div>
+<div class="brand" style="margin-bottom:12px"><span class="mark">NS</span><span>Python-разработчик</span></div>
+<p class="muted" style="font-size:14px;max-width:32ch">Разработка Telegram-ботов, парсеров, AI-ассистентов и интеграций для бизнеса.</p>
+</div>
+<div><h4>Услуги</h4><a href="https://agronom28-crypto.github.io/resume/telegram-bots/">Telegram-боты для бизнеса</a>
+<a href="https://agronom28-crypto.github.io/resume/parsers/">Парсеры и мониторинг данных</a>
+<a href="https://agronom28-crypto.github.io/resume/ai-assistants/">AI-ассистенты и RAG-системы</a>
+<a href="https://agronom28-crypto.github.io/resume/integrations/">API и CRM-интеграции</a>
+<a href="https://agronom28-crypto.github.io/resume/business-automation/">Автоматизация бизнес-процессов</a>
+<a href="https://agronom28-crypto.github.io/resume/mvp-development/">MVP и внутренние сервисы</a>
+<a href="https://agronom28-crypto.github.io/resume/audit/">Технический аудит и проектирование</a>
+<a href="https://agronom28-crypto.github.io/resume/partners/">Python-подрядчик для агентств</a>
+<a href="https://agronom28-crypto.github.io/resume/dxf-automation/">Автоматизация DXF-файлов</a></div>
+<div><h4>Разделы</h4><a href="https://agronom28-crypto.github.io/resume/cases/">Кейсы</a><a href="https://agronom28-crypto.github.io/resume/contacts/">Контакты</a><a href="https://agronom28-crypto.github.io/resume/audit/">Технический аудит</a><a href="https://agronom28-crypto.github.io/resume/partners/">Для партнёров</a></div>
+<div><h4>Контакты</h4><a href="tel:+79057972562">+7 905 797-25-62</a><a href="https://t.me/nsv_01">Telegram</a><a href="mailto:rj2biz@mail.ru">rj2biz@mail.ru</a></div>
+</div>
+<div class="footer-bottom"><span>© 2026 Python-разработчик. Все права защищены.</span><span>Сайт размещён на GitHub Pages</span></div>
+</div>
+</footer>
+<script src="https://agronom28-crypto.github.io/resume/assets/site.js"></script>
+</body>
+</html>

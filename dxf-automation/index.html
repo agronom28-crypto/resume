@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Автоматизация обработки DXF-файлов для производства</title>
+<meta name="description" content="Автоматизация обработки DXF-чертежей для производства: извлечение параметров деталей, формирование отчётов и данных для резки. Опыт на реальном производственном сценарии.">
+<meta name="keywords" content="автоматизация dxf файлов, обработка чертежей dxf на python, извлечение параметров из dxf, программа для обработки dxf, dxf для производства">
+<link rel="canonical" href="https://agronom28-crypto.github.io/resume/dxf-automation/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Автоматизация обработки DXF-файлов для производства">
+<meta property="og:description" content="Автоматизация обработки DXF-чертежей для производства: извлечение параметров деталей, формирование отчётов и данных для резки. Опыт на реальном производственном сценарии.">
+<meta property="og:url" content="https://agronom28-crypto.github.io/resume/dxf-automation/">
+<meta property="og:image" content="https://agronom28-crypto.github.io/resume/assets/og-cover.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Автоматизация обработки DXF-файлов для производства">
+<meta name="twitter:description" content="Автоматизация обработки DXF-чертежей для производства: извлечение параметров деталей, формирование отчётов и данных для резки. Опыт на реальном производственном сценарии.">
+<meta name="twitter:image" content="https://agronom28-crypto.github.io/resume/assets/og-cover.jpg">
+<link rel="icon" href="https://agronom28-crypto.github.io/resume/favicon.ico">
+<link rel="stylesheet" href="https://agronom28-crypto.github.io/resume/assets/style.css">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://agronom28-crypto.github.io/resume/"}, {"@type": "ListItem", "position": 2, "name": "Услуги", "item": "https://agronom28-crypto.github.io/resume/#services"}, {"@type": "ListItem", "position": 3, "name": "Автоматизация DXF-файлов", "item": "https://agronom28-crypto.github.io/resume/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Автоматизация DXF-файлов", "description": "Автоматизация обработки DXF-чертежей для производства: извлечение параметров деталей, формирование отчётов и данных для резки. Опыт на реальном производственном сценарии.", "provider": {"@type": "Person", "name": "Python-разработчик", "url": "https://agronom28-crypto.github.io/resume/"}, "areaServed": "RU", "url": "https://agronom28-crypto.github.io/resume/dxf-automation/", "offers": {"@type": "Offer", "priceCurrency": "RUB", "description": "по запросу"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Автоматизация обработки DXF-файлов для производства", "description": "Автоматизация обработки DXF-чертежей для производства: извлечение параметров деталей, формирование отчётов и данных для резки. Опыт на реальном производственном сценарии.", "url": "https://agronom28-crypto.github.io/resume/dxf-automation/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Подходит ли программа для любых DXF-файлов?", "acceptedAnswer": {"@type": "Answer", "text": "Нет, перед внедрением нужно проверить программу на реальных образцах чертежей конкретного производства — универсальная поддержка не гарантируется."}}, {"@type": "Question", "name": "Что происходит с файлами, которые программа не может обработать?", "acceptedAnswer": {"@type": "Answer", "text": "Такие файлы помечаются для ручной проверки, чтобы не допустить ошибку в производственных данных."}}, {"@type": "Question", "name": "Нужен ли доступ в интернет для работы программы?", "acceptedAnswer": {"@type": "Answer", "text": "Нет, обработка происходит локально, без передачи файлов на внешние серверы."}}, {"@type": "Question", "name": "Можно ли адаптировать программу под другой тип производства?", "acceptedAnswer": {"@type": "Answer", "text": "Да, после анализа образцов файлов нового производства и особенностей его геометрии."}}]}</script>
+</head>
+<body>
+<header class="site">
+<div class="wrap nav">
+<a href="https://agronom28-crypto.github.io/resume/" class="brand"><span class="mark">NS</span><span>Python-разработчик</span></a>
+<nav class="main-links">
+<div class="has-sub"><button>Услуги <span>▾</span></button><div class="submenu"><a href="https://agronom28-crypto.github.io/resume/telegram-bots/" data-track="service">Telegram-боты для бизнеса</a>
+<a href="https://agronom28-crypto.github.io/resume/parsers/" data-track="service">Парсеры и мониторинг данных</a>
+<a href="https://agronom28-crypto.github.io/resume/ai-assistants/" data-track="service">AI-ассистенты и RAG-системы</a>
+<a href="https://agronom28-crypto.github.io/resume/integrations/" data-track="service">API и CRM-интеграции</a>
+<a href="https://agronom28-crypto.github.io/resume/business-automation/" data-track="service">Автоматизация бизнес-процессов</a>
+<a href="https://agronom28-crypto.github.io/resume/mvp-development/" data-track="service">MVP и внутренние сервисы</a>
+<a href="https://agronom28-crypto.github.io/resume/audit/" data-track="service">Технический аудит и проектирование</a>
+<a href="https://agronom28-crypto.github.io/resume/partners/" data-track="service">Python-подрядчик для агентств</a>
+<a href="https://agronom28-crypto.github.io/resume/dxf-automation/" data-track="service">Автоматизация DXF-файлов</a></div></div>
+<a href="https://agronom28-crypto.github.io/resume/cases/">Кейсы</a>
+<a href="https://agronom28-crypto.github.io/resume/contacts/">Контакты</a>
+</nav>
+<div class="header-actions">
+<a href="https://agronom28-crypto.github.io/resume/contacts/" class="btn primary desktop-only">Описать задачу</a>
+<button class="burger" aria-label="Меню">☰</button>
+</div>
+</div>
+<div class="mobile-menu">
+<div class="sub-label">Услуги</div>
+<a href="https://agronom28-crypto.github.io/resume/telegram-bots/" data-track="service">Telegram-боты для бизнеса</a>
+<a href="https://agronom28-crypto.github.io/resume/parsers/" data-track="service">Парсеры и мониторинг данных</a>
+<a href="https://agronom28-crypto.github.io/resume/ai-assistants/" data-track="service">AI-ассистенты и RAG-системы</a>
+<a href="https://agronom28-crypto.github.io/resume/integrations/" data-track="service">API и CRM-интеграции</a>
+<a href="https://agronom28-crypto.github.io/resume/business-automation/" data-track="service">Автоматизация бизнес-процессов</a>
+<a href="https://agronom28-crypto.github.io/resume/mvp-development/" data-track="service">MVP и внутренние сервисы</a>
+<a href="https://agronom28-crypto.github.io/resume/audit/" data-track="service">Технический аудит и проектирование</a>
+<a href="https://agronom28-crypto.github.io/resume/partners/" data-track="service">Python-подрядчик для агентств</a>
+<a href="https://agronom28-crypto.github.io/resume/dxf-automation/" data-track="service">Автоматизация DXF-файлов</a>
+<div class="sub-label">Разделы</div>
+<a href="https://agronom28-crypto.github.io/resume/cases/">Кейсы</a>
+<a href="https://agronom28-crypto.github.io/resume/contacts/">Контакты</a>
+<a href="https://agronom28-crypto.github.io/resume/" class="btn primary" style="margin-top:16px;width:100%">Описать задачу</a>
+</div>
+</header>
+<div class="sticky-cta">
+<a href="https://t.me/nsv_01" class="btn primary">Telegram</a>
+<a href="tel:+79057972562" class="btn">Позвонить</a>
+</div>
+
+<section class="hero">
+<div class="wrap">
+<nav class="breadcrumbs"><a href="https://agronom28-crypto.github.io/resume/">Главная</a> / <a href="https://agronom28-crypto.github.io/resume/#services">Услуги</a> / <span>Автоматизация DXF-файлов</span></nav>
+<div class="hero-grid">
+<div>
+<span class="tag">📐 Услуга</span>
+<h1>Автоматизация DXF-файлов</h1>
+<p class="lead">Технологи и операторы вручную открывают каждый DXF-файл, чтобы посчитать размеры и параметры деталей — при десятках файлов за смену это медленно и создаёт риск ошибок при переносе данных в производственные документы.</p>
+<div class="hero-actions row">
+<a href="#contact" class="btn primary">Получить предварительную оценку</a>
+<a href="#price" class="btn">Смотреть стоимость</a>
+</div>
+</div>
+<div class="hero-card">
+<h3>Кому подходит услуга</h3>
+<ul>
+<li>Бизнес, где процесс уже приносит нагрузку сотрудникам</li>
+<li>Есть понимание задачи, но нет готового технического решения</li>
+<li>Нужен результат, который можно проверить на практике</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" style="background:var(--s)">
+<div class="wrap">
+<div class="head"><h2>Что входит в услугу</h2><p>Конкретные задачи, которые решаются в рамках направления.</p></div>
+<div class="grid3"><div class="card"><div class="icon-badge">✓</div><h3>Как файлы обрабатывались вручную</h3><p>Оператор открывал каждый чертёж в CAD-программе, вручную измерял геометрию и переносил параметры в таблицу для дальнейшей работы.</p></div>
+<div class="card"><div class="icon-badge">✓</div><h3>Какие данные извлекает программа</h3><p>Программа читает DXF-файл и автоматически определяет размеры, контуры и другие параметры деталей, заданные в чертеже.</p></div>
+<div class="card"><div class="icon-badge">✓</div><h3>Как формируется результат</h3><p>На основе извлечённых данных формируется отчёт в Excel или другом согласованном формате для передачи в производство.</p></div>
+<div class="card"><div class="icon-badge">✓</div><h3>Какие типы геометрии поддерживаются</h3><p>Поддержка конкретных типов линий и контуров определяется на этапе тестирования на реальных файлах заказчика.</p></div>
+<div class="card"><div class="icon-badge">✓</div><h3>Как обрабатываются ошибки</h3><p>Файлы с нестандартной структурой или повреждённой геометрией помечаются для ручной проверки, а не обрабатываются с риском ошибки.</p></div>
+<div class="card"><div class="icon-badge">✓</div><h3>Что получает оператор</h3><p>Готовый отчёт с параметрами по каждому файлу без необходимости открывать чертёж в CAD-программе.</p></div></div>
+</div>
+</section>
+
+
+
+<section class="sec">
+<div class="wrap">
+<div class="head"><h2>Примеры применения для бизнеса</h2><p>Как это выглядит на практике.</p></div>
+<ul style="list-style:none;display:grid;gap:12px;max-width:800px"><li>Оператор загружает пачку DXF-файлов и получает таблицу с параметрами всех деталей вместо ручного измерения каждого чертежа.</li>
+<li>Отчёт для резки формируется автоматически на основе данных из чертежа.</li>
+<li>Файлы с нестандартной геометрией отмечаются отдельно, чтобы оператор проверил их вручную перед запуском в производство.</li></ul>
+</div>
+</section>
+
+<section class="sec" style="background:var(--s)">
+<div class="wrap">
+<div class="head"><h2>Результат для заказчика</h2><p></p></div>
+<p style="max-width:70ch;font-size:17px">Заказчик получает программу, которая обрабатывает пачку DXF-файлов и формирует отчёт с параметрами деталей без ручного измерения каждого чертежа.</p>
+<div style="margin-top:22px"><span class="tag" style="margin:4px">Python</span>
+<span class="tag" style="margin:4px">ezdxf</span>
+<span class="tag" style="margin:4px">Shapely</span>
+<span class="tag" style="margin:4px">Pandas / Excel-выгрузка</span>
+<span class="tag" style="margin:4px">Windows Service</span></div>
+</div>
+</section>
+
+<section class="sec"><div class="wrap"><div class="head"><h2>Релевантные кейсы</h2><p>Примеры того, как эта услуга уже применялась на практике.</p></div><div class="cases-grid"><div class="case-card"><span class="case-status">Собственный продукт</span><h3>DXF Claw — автоматизация обработки чертежей</h3><p>Программа читает DXF-файлы, извлекает размеры и параметры деталей и формирует отчёт для производства стекла.</p><a href="https://agronom28-crypto.github.io/resume/cases/dxf-processor/" class="cta-link" data-track="case">Смотреть кейс →</a></div></div></div></section>
+
+<section class="sec">
+<div class="wrap">
+<div class="head"><h2>Этапы выполнения проекта</h2><p>Понятная последовательность работы от заявки до передачи результата.</p></div>
+<div class="modules"><div class="module"><div class="num">1</div><div><h3>Анализ образцов DXF-файлов</h3><p>Изучаю реальные файлы заказчика, чтобы понять структуру геометрии и особенности конкретного производства.</p></div></div>
+<div class="module"><div class="num">2</div><div><h3>Проектирование логики извлечения</h3><p>Определяю алгоритм распознавания нужных параметров и обработку нестандартных случаев.</p></div></div>
+<div class="module"><div class="num">3</div><div><h3>Разработка программы</h3><p>Пишу обработчик DXF и формирование отчёта в нужном формате.</p></div></div>
+<div class="module"><div class="num">4</div><div><h3>Тестирование на реальных файлах</h3><p>Проверяю точность извлечения параметров на файлах заказчика перед передачей в работу.</p></div></div>
+<div class="module"><div class="num">5</div><div><h3>Внедрение и передача</h3><p>Устанавливаю программу на рабочем месте оператора и передаю инструкцию по использованию.</p></div></div></div>
+</div>
+</section>
+
+<section class="sec" id="price" style="background:var(--s)">
+<div class="wrap">
+<div class="head"><h2>Ориентировочная стоимость</h2><p>Точная сумма определяется после разбора конкретной задачи.</p></div>
+<div class="grid2">
+<div class="price-box" data-track="price">
+<span class="tag">Стартовая оценка</span>
+<div class="price-val">по запросу</div>
+<p class="muted" style="font-size:14px">Стоимость определяется после изучения образцов DXF-файлов заказчика и требуемого формата отчёта.</p>
+<a href="#contact" class="btn primary" style="margin-top:16px">Получить предварительную оценку</a>
+</div>
+<div class="limits">
+<h3>Что влияет на стоимость</h3>
+<ul><li>Программа не заявляется как универсальное решение для любых DXF-файлов без предварительного тестирования на образцах конкретного производства.</li>
+<li>Нестандартная или повреждённая геометрия может требовать ручной проверки оператором.</li>
+<li>Поддержка новых типов чертежей добавляется после анализа образцов, а не гарантируется заранее.</li></ul>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec">
+<div class="wrap">
+<div class="head"><h2>Частые вопросы</h2><p></p></div>
+<div class="faq"><details><summary>Подходит ли программа для любых DXF-файлов?</summary><p>Нет, перед внедрением нужно проверить программу на реальных образцах чертежей конкретного производства — универсальная поддержка не гарантируется.</p></details>
+<details><summary>Что происходит с файлами, которые программа не может обработать?</summary><p>Такие файлы помечаются для ручной проверки, чтобы не допустить ошибку в производственных данных.</p></details>
+<details><summary>Нужен ли доступ в интернет для работы программы?</summary><p>Нет, обработка происходит локально, без передачи файлов на внешние серверы.</p></details>
+<details><summary>Можно ли адаптировать программу под другой тип производства?</summary><p>Да, после анализа образцов файлов нового производства и особенностей его геометрии.</p></details></div>
+</div>
+</section>
+
+<section class="sec" style="background:var(--s)">
+<div class="wrap">
+<div class="head"><h2>Связанные услуги</h2><p></p></div>
+<div class="related-links"><a href="https://agronom28-crypto.github.io/resume/business-automation/">Автоматизация бизнес-процессов</a>
+<a href="https://agronom28-crypto.github.io/resume/mvp-development/">MVP и внутренние сервисы</a>
+<a href="https://agronom28-crypto.github.io/resume/audit/">Технический аудит и проектирование</a><a href="https://agronom28-crypto.github.io/resume/cases/">Все кейсы →</a></div>
+</div>
+</section>
+
+<div id="contact">
+<section class="sec">
+<div class="wrap">
+<div class="head"><h2>Обсудить задачу по направлению «Автоматизация DXF-файлов»</h2><p>Свяжитесь удобным способом или заполните форму — отвечаю в Telegram и по почте в течение рабочего дня.</p></div>
+<div class="contact-block">
+<div class="contact-links">
+<a href="https://t.me/nsv_01">💬 Написать в Telegram — @nsv_01</a>
+<a href="mailto:rj2biz@mail.ru">✉️ rj2biz@mail.ru</a>
+<a href="tel:+79057972562">📞 +7 905 797-25-62</a>
+</div>
+<div class="form-box">
+<form class="lead-form" data-endpoint="" method="post">
+<div class="hp-field"><input type="text" name="company_website" tabindex="-1" autocomplete="off"></div>
+<input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term">
+<input type="hidden" name="landing_page"><input type="hidden" name="source_page">
+<input type="hidden" name="service" value="dxf-automation">
+<label for="f-name">Имя</label>
+<input id="f-name" name="name" type="text" required placeholder="Как к вам обращаться">
+<div class="row2">
+<div><label for="f-contact">Telegram или email</label><input id="f-contact" name="contact" type="text" required placeholder="@username или email"></div>
+<div><label for="f-budget">Ориентировочный бюджет</label><input id="f-budget" name="budget" type="text" placeholder="Необязательно"></div>
+</div>
+<label for="f-task">Задача</label>
+<textarea id="f-task" name="task" rows="4" required placeholder="Опишите, что нужно сделать"></textarea>
+<label for="f-deadline">Желаемый срок</label>
+<input id="f-deadline" name="deadline" type="text" placeholder="Необязательно">
+<button type="submit" class="btn primary" style="width:100%;margin-top:16px">Получить предварительную оценку</button>
+<div class="form-status" style="font-size:13px;margin-top:10px"></div>
+<p class="form-note">Предпочтительный формат общения — письменная переписка. Отправка формы переведёт вас в Telegram или подготовит письмо на почту.</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<footer class="site">
+<div class="wrap">
+<div class="footer-grid">
+<div>
+<div class="brand" style="margin-bottom:12px"><span class="mark">NS</span><span>Python-разработчик</span></div>
+<p class="muted" style="font-size:14px;max-width:32ch">Разработка Telegram-ботов, парсеров, AI-ассистентов и интеграций для бизнеса.</p>
+</div>
+<div><h4>Услуги</h4><a href="https://agronom28-crypto.github.io/resume/telegram-bots/">Telegram-боты для бизнеса</a>
+<a href="https://agronom28-crypto.github.io/resume/parsers/">Парсеры и мониторинг данных</a>
+<a href="https://agronom28-crypto.github.io/resume/ai-assistants/">AI-ассистенты и RAG-системы</a>
+<a href="https://agronom28-crypto.github.io/resume/integrations/">API и CRM-интеграции</a>
+<a href="https://agronom28-crypto.github.io/resume/business-automation/">Автоматизация бизнес-процессов</a>
+<a href="https://agronom28-crypto.github.io/resume/mvp-development/">MVP и внутренние сервисы</a>
+<a href="https://agronom28-crypto.github.io/resume/audit/">Технический аудит и проектирование</a>
+<a href="https://agronom28-crypto.github.io/resume/partners/">Python-подрядчик для агентств</a>
+<a href="https://agronom28-crypto.github.io/resume/dxf-automation/">Автоматизация DXF-файлов</a></div>
+<div><h4>Разделы</h4><a href="https://agronom28-crypto.github.io/resume/cases/">Кейсы</a><a href="https://agronom28-crypto.github.io/resume/contacts/">Контакты</a><a href="https://agronom28-crypto.github.io/resume/audit/">Технический аудит</a><a href="https://agronom28-crypto.github.io/resume/partners/">Для партнёров</a></div>
+<div><h4>Контакты</h4><a href="tel:+79057972562">+7 905 797-25-62</a><a href="https://t.me/nsv_01">Telegram</a><a href="mailto:rj2biz@mail.ru">rj2biz@mail.ru</a></div>
+</div>
+<div class="footer-bottom"><span>© 2026 Python-разработчик. Все права защищены.</span><span>Сайт размещён на GitHub Pages</span></div>
+</div>
+</footer>
+<script src="https://agronom28-crypto.github.io/resume/assets/site.js"></script>
+</body>
+</html>
