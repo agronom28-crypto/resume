@@ -1453,6 +1453,22 @@ body {
     .back-to-top:focus-visible{outline:3px solid rgba(96,165,250,.75);outline-offset:3px}
     @media(max-width:640px){.back-to-top{width:44px;height:44px;border-radius:13px;font-size:22px}}
     @media(prefers-reduced-motion:reduce){.back-to-top{transition:none}}
+
+    /* Небольшой бонус для внимательных посетителей */
+    .profile-bonus{margin:26px 0 34px;border:1px solid rgba(49,130,206,.24);border-radius:18px;background:linear-gradient(135deg,rgba(49,130,206,.08),rgba(128,90,213,.07));box-shadow:0 12px 34px rgba(15,23,42,.07);overflow:hidden}
+    .profile-bonus summary{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:20px 22px;cursor:pointer;list-style:none;font-weight:800;color:#1a202c}
+    .profile-bonus summary::-webkit-details-marker{display:none}
+    .profile-bonus summary::after{content:'+';width:30px;height:30px;flex:0 0 30px;display:grid;place-items:center;border-radius:50%;background:rgba(49,130,206,.12);color:#2b6cb0;font-size:20px;transition:transform .2s ease}
+    .profile-bonus[open] summary::after{transform:rotate(45deg)}
+    .profile-bonus__hint{display:block;margin-top:4px;font-size:14px;font-weight:500;color:#718096}
+    .profile-bonus__body{padding:0 22px 22px;color:#4a5568}
+    .profile-bonus__body p{margin:0 0 14px}
+    .profile-bonus__code{display:inline-block;padding:7px 12px;border:1px dashed rgba(49,130,206,.45);border-radius:10px;background:rgba(255,255,255,.72);color:#2b6cb0;font-weight:900;letter-spacing:.02em}
+    .profile-bonus__terms{font-size:13px;color:#718096}
+    .profile-bonus__action{display:inline-flex;align-items:center;justify-content:center;margin-top:2px;padding:11px 16px;border-radius:10px;background:#2b6cb0;color:#fff!important;text-decoration:none;font-weight:800;transition:transform .2s ease,background-color .2s ease}
+    .profile-bonus__action:hover{background:#2c5282;transform:translateY(-1px)}
+    @media(max-width:640px){.profile-bonus summary,.profile-bonus__body{padding-left:17px;padding-right:17px}.profile-bonus__action{width:100%}}
+    @media(prefers-reduced-motion:reduce){.profile-bonus summary::after,.profile-bonus__action{transition:none}}
 </style>
 <link as="image" fetchpriority="high" href="785632494.jpg" rel="preload"/><script type="application/ld+json">{
   "@context": "https://schema.org",
@@ -2006,7 +2022,19 @@ body {
 <h2 class="card-title">Образование и обучение</h2>
 <div class="education-item"><h3 class="company-name">School 21</h3><div class="period">2023–2024</div><p class="experience-desc">Peer-to-peer обучение, алгоритмы, системное мышление, C, командная разработка.</p></div>
 <div class="education-item"><h3 class="company-name">Практическое обучение</h3><p class="experience-desc">Python, Machine Learning, FastAPI, Docker, LLM, Prompt Engineering, RAG и продуктовая разработка через реальные проекты.</p></div>
-</div><div class="cta-section section-anchor" id="contacts">
+</div>
+<details class="profile-bonus" id="profileBonus">
+  <summary>
+    <span>Для тех, кто внимательно изучил профиль<span class="profile-bonus__hint">Небольшая благодарность за знакомство</span></span>
+  </summary>
+  <div class="profile-bonus__body">
+    <p><strong>Теперь мы знакомы 🙂</strong> Назовите этот код в первом сообщении — и получите скидку 10% на первый оплачиваемый этап проекта.</p>
+    <p><span class="profile-bonus__code">Теперь мы знакомы</span></p>
+    <p class="profile-bonus__terms">Для новых заказчиков; скидка до 15 000 ₽, не суммируется с другими условиями и не распространяется на лицензии, внешние сервисы и инфраструктуру. Код нужно назвать до согласования стоимости.</p>
+    <a class="profile-bonus__action" href="https://t.me/nsv_01?text=%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B9%2C%20%D0%B8%D0%B7%D1%83%D1%87%D0%B8%D0%BB%20%D0%B2%D0%B0%D1%88%20%D0%BF%D1%80%D0%BE%D1%84%D0%B8%D0%BB%D1%8C.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83%20%D0%B8%20%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BA%D0%BE%D0%B4%20%C2%AB%D0%A2%D0%B5%D0%BF%D0%B5%D1%80%D1%8C%20%D0%BC%D1%8B%20%D0%B7%D0%BD%D0%B0%D0%BA%D0%BE%D0%BC%D1%8B%C2%BB." target="_blank" rel="noopener noreferrer" data-goal="promo_claim">Обсудить задачу с бонусом</a>
+  </div>
+</details>
+<div class="cta-section section-anchor" id="contacts">
 <h2 class="card-title">Обсудить проект автоматизации</h2>
 <p class="cta-text">Если у вас есть ручные операции, таблицы, CRM, Telegram-чаты, документы или данные, которые постоянно приходится переносить и сверять, напишите мне. Я предложу, что автоматизировать первым, где хватит n8n, где нужен код, а где AI действительно даст эффект.</p>
 <div class="cta-buttons">
@@ -2025,6 +2053,20 @@ body {
   window.addEventListener('scroll',update,{passive:true});
   button.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduced?'auto':'smooth'}));
   update();
+})();
+</script>
+
+<script>
+(function(){
+  const bonus=document.getElementById('profileBonus');
+  if(!bonus)return;
+  bonus.addEventListener('toggle',function(){
+    if(bonus.open&&typeof ym==='function')ym(110968451,'reachGoal','promo_reveal');
+  });
+  const action=bonus.querySelector('[data-goal="promo_claim"]');
+  action.addEventListener('click',function(){
+    if(typeof ym==='function')ym(110968451,'reachGoal','promo_claim');
+  });
 })();
 </script>
 </body>
