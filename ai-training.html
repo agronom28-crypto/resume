@@ -106,6 +106,14 @@ img{max-width:100%}p{overflow-wrap:break-word}a,button,summary{-webkit-tap-highl
 @media(max-width:900px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))!important}.module h3,.price h3{min-height:0}.leadmag>.wrap{display:grid!important;gap:20px!important}.leadmag .btn{justify-self:start}}
 @media(max-width:620px){.grid3{grid-template-columns:1fr!important}.head p,.geo-answer-intro,.coverage-intro{font-size:16px!important;line-height:1.72!important}.person .muted{font-size:14px!important;line-height:1.7!important}.coverage-faq{padding:17px 20px!important}.coverage-faq summary{padding-right:35px}.coverage-faq details p{padding-right:10px}.contact{padding:23px!important}.sticky .btn{min-height:43px!important}.leadmag .btn{width:100%!important}.case,.module,.price{min-height:0}}
 </style>
+
+<style id="geo-coverage-layout-hotfix">
+/* These two legacy sections had max-width:1180px and stayed left-aligned. Restore full-width section backgrounds and a centered content column. */
+main>.geo-answer,main>.coverage{width:100%!important;max-width:none!important;margin:0!important;padding-right:max(20px,calc((100% - 1160px)/2))!important;padding-left:max(20px,calc((100% - 1160px)/2))!important}
+.geo-answer>* ,.coverage>*{box-sizing:border-box}.geo-answer h2,.coverage h2{max-width:900px!important}.geo-answer-intro,.coverage-intro{max-width:820px!important}.geo-answer-grid,.coverage-grid{width:100%!important;max-width:none!important}.geo-answer-item,.coverage-group{background:linear-gradient(145deg,#fff 0%,#fafbfe 100%)!important;border:1px solid #d9e1ec!important;border-radius:10px!important;box-shadow:0 7px 23px rgba(32,43,64,.05)!important}.geo-answer-item:before,.coverage-group:before{display:none!important}
+@media(max-width:900px){main>.geo-answer,main>.coverage{padding-right:20px!important;padding-left:20px!important}}
+@media(max-width:620px){main>.geo-answer,main>.coverage{width:100%!important;padding-right:14px!important;padding-left:14px!important}.geo-answer h2,.coverage h2{font-size:32px!important;line-height:1.18!important}.geo-answer-intro,.coverage-intro{margin-bottom:27px!important}.geo-answer-grid,.coverage-grid{gap:12px!important}.geo-answer-item,.coverage-group{padding:21px!important}}
+</style>
 </head>
 <body>
 <!-- Yandex.Metrika counter --><noscript><div><img src="https://mc.yandex.ru/watch/110968451" style="position:absolute;left:-9999px" alt="" /></div></noscript><!-- /Yandex.Metrika counter -->
