@@ -1,0 +1,44 @@
+name: Update resume wording
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/update-resume-wording.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-wording:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace resume wording
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("index.html")
+          text = path.read_text(encoding="utf-8")
+          replacements = {
+              "Опыт: банк, freelance и продуктовая AI-разработка": "Опыт: банк, проектная B2B-разработка и AI-автоматизация",
+              "Freelance / Product AI Development": "Проектная B2B-разработка и AI-автоматизация",
+          }
+
+          for old, new in replacements.items():
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f"Expected one occurrence of {old!r}, found {count}")
+              text = text.replace(old, new)
+
+          path.write_text(text, encoding="utf-8")
+          PY
+          rm .github/workflows/update-resume-wording.yml
+      - name: Commit update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html .github/workflows/update-resume-wording.yml
+          git commit -m "refactor: update B2B experience wording"
+          git push
