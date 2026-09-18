@@ -1,5 +1,5 @@
-01-generated-image-17-1.png	446517	embedded	data:image/png
-02-generated-image-20-1.png	297333	embedded	data:image/png
-03-Обложка-DFX-claw-1-1.png	213579	embedded	data:image/png
-04-hero-realty-hunter-1-1.png	183734	embedded	data:image/png
-05-newphoto-Photoroom-1.png	114890	embedded	data:image/png
+hero-training.png	Первый экран
+team-session.png	Рабочая сессия команды
+dxf-claw.png	Обложка кейса DXF Claw
+realty-hunter.png	Обложка кейса Realty Hunter
+profile.png	Портрет в финальном блоке
