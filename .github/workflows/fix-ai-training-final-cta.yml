@@ -1,0 +1,35 @@
+name: Fix AI training final CTA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - _tools/fix-ai-training-final-cta.py
+      - .github/workflows/fix-ai-training-final-cta.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fix final portrait and secondary CTA
+        run: python _tools/fix-ai-training-final-cta.py
+      - name: Validate changes
+        run: |
+          grep -q 'object-fit:contain;border-radius:0' ai-training.html
+          grep -q '.dark .btn:not(.primary){color:#101828;background:#fff}' ai-training.html
+      - name: Remove temporary automation and commit
+        run: |
+          rm -f _tools/fix-ai-training-final-cta.py
+          rm -f .github/workflows/fix-ai-training-final-cta.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Fix final portrait crop and Telegram button contrast"
+          git push
