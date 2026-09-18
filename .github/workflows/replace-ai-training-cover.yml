@@ -1,0 +1,35 @@
+name: Replace AI training lead cover
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - _tools/replace-ai-training-cover.py
+      - .github/workflows/replace-ai-training-cover.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  replace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Replace text cover with SVG
+        run: python _tools/replace-ai-training-cover.py
+      - name: Validate SVG reference
+        run: |
+          grep -q 'assets/ai-training/ai-business-ideas-cover-292x292.svg' ai-training.html
+          grep -q 'class="lead-cover"' ai-training.html
+      - name: Remove temporary automation and commit
+        run: |
+          rm -f _tools/replace-ai-training-cover.py
+          rm -f .github/workflows/replace-ai-training-cover.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Use original SVG for AI ideas lead magnet"
+          git push
