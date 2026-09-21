@@ -1835,6 +1835,42 @@ ul,ol{color:#536075}li{line-height:1.62}.service-list,.offer-list,.package-inclu
 .web-stack span{padding:7px 10px;border:1px solid #d8dfec;border-radius:5px;background:#fff;color:#465269;font-size:13px;font-weight:700}.web-service-card .service-link{justify-self:start;margin-top:18px}
 @media(max-width:760px){.web-service-card{display:block!important}.web-service-card .web-stack{margin:20px 0 4px;padding:18px}.web-service-card .service-link{width:100%}}
 </style>
+
+<style data-self-employed-status="true">
+.self-employed-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 18px;
+    padding: 8px 13px;
+    border: 1px solid rgba(95, 127, 114, 0.28);
+    border-radius: 999px;
+    background: #eef7f2;
+    color: #3f6658;
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.35;
+}
+.self-employed-status::before {
+    content: "✓";
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    border-radius: 50%;
+    background: #5f7f72;
+    color: #fff;
+    font-size: 0.76rem;
+}
+@media (max-width: 560px) {
+    .self-employed-status {
+        align-items: flex-start;
+        border-radius: 14px;
+        font-size: 0.82rem;
+    }
+}
+</style>
 </head>
 <body>
 <!-- Yandex.Metrika counter --><noscript><div><img src="https://mc.yandex.ru/watch/110968451" style="position:absolute;left:-9999px" alt="" /></div></noscript><!-- /Yandex.Metrika counter --><a class="skip-link" href="#main-content">Перейти к содержанию</a>
@@ -1856,6 +1892,7 @@ ul,ol{color:#536075}li{line-height:1.62}.service-list,.offer-list,.package-inclu
 <div class="header-content">
 <div class="hero-eyebrow">Сергей Николаенко · Разработчик бизнес-решений</div><h1>Бизнес-решения на Python. Автоматизация процессов под задачу заказчика</h1>
 <div class="subtitle">Внутренний софт · AI/RAG · CRM/API · Telegram · LMS</div>
+<div class="self-employed-status" role="status">Самозанятый · официальная оплата · предоставляю чек</div>
 <p class="description"><strong>Приходите с бизнес-задачей на своём языке — без готового ТЗ.</strong> Я сам перевожу её в техническое решение: разбираю процесс, формирую архитектуру, проектирую и довожу до рабочего запуска — без передачи задачи субподрядчикам или команде.</p>
 <!-- Stats -->
 <div class="hero-proof">
